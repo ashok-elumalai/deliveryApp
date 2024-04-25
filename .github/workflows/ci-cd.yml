@@ -29,14 +29,3 @@ jobs:
     - name: Test
       run: npm test
 
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Deploy to Hosting Environment
-      run: |
-        # Add commands to deploy your login web page to the hosting environment
