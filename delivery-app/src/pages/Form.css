@@ -1,0 +1,53 @@
+.registration-container,
+.login-container {
+  width: 100%;
+  padding: 2px;
+}
+
+.registration-container {
+  background-color: #fff;
+}
+
+.login-container {
+  background-color: #000;
+  color: #fff;
+}
+
+.registration-container {
+  display: flex;
+  height: 100vh;
+}
+
+.image-container {
+  /* flex: 1; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.form-container {
+  flex: 1;
+  display: flex;
+  background-color: "black";
+  justify-content: center;
+  align-items: center;
+}
+
+.label-color {
+  color: "#fff";
+}
+
+.form-container form {
+  /* max-width: 60%; Adjust as needed */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px; /* Adjust spacing */
+}
