@@ -22,6 +22,7 @@ jobs:
       working-directory: delivery-app
       run: |
         npm install
+        npm install react-scripts
         npm run build
 
   test:
