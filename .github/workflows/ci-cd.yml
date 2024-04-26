@@ -23,6 +23,8 @@ jobs:
       run: |
         rm -rf node_modules
         rm -rf package-lock.json
+        rm yarn.lock
+        yarn cache clean
         yarn install
         yarn global add react-scripts
         yarn build
