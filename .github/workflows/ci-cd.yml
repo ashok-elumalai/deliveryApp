@@ -23,9 +23,9 @@ jobs:
       run: |
         rm -rf node_modules
         rm -rf package-lock.json
-        npm install
-        npm install -g react-scripts
-        npm run build
+        yarn install
+        yarn global add react-scripts
+        yarn build
 
   test:
     needs: build
@@ -37,5 +37,5 @@ jobs:
 
     - name: Test
       working-directory: delivery-app
-      run: npm test
+      run: yarn test
 
