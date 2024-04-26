@@ -21,10 +21,10 @@ jobs:
     - name: Install dependencies and build
       working-directory: delivery-app
       run: |
-        npm install
-        npm install react-scripts
-        npm install --save-dev jest
-        npm run build
+        yarn install
+        yarn install react-scripts
+        yarn install --save-dev jest
+        yarn run build
 
   test:
     needs: build
@@ -36,5 +36,5 @@ jobs:
 
     - name: Test
       working-directory: delivery-app
-      run: npm test
+      run: yarn test
 
