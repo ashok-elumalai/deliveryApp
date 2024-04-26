@@ -37,5 +37,5 @@ jobs:
 
     - name: Test
       working-directory: delivery-app
-      run: npm run test
+      run: npm test
 
