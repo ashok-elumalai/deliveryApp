@@ -22,8 +22,8 @@ jobs:
       working-directory: delivery-app
       run: |
         yarn install
-        yarn install react-scripts
-        yarn install --save-dev jest
+        yarn add react-scripts
+        yarn add  jest
         yarn run build
 
   test:
