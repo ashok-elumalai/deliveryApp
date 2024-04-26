@@ -33,5 +33,6 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Test
+      working-directory: delivery-app
       run: npm test
 
