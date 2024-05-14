@@ -6,6 +6,7 @@ import "antd/dist/reset.css";
 import "./App.css";
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
+import Dashboard  from "./pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,11 @@ const router = createBrowserRouter([
     path: "/registration",
     element: <RegistrationPage />,
   },
+  {
+    path: "/",
+    element: <Dashboard />,
+  },
+
 ]);
 
 function App() {
