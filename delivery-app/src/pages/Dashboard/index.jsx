@@ -28,9 +28,7 @@ function Dashboard() {
       <Layout.Header
         style={{ position: "fixed", right: "0", left: "0", zIndex: "999" }}
       ></Layout.Header>
-      <ContentStyles
-        style={{ padding: "30px", height: "100vh", marginTop: "80px" }}
-      >
+      <ContentStyles style={{ padding: "30px", marginTop: "80px" }}>
         <Tabs defaultActiveKey="1" items={items} />
       </ContentStyles>
     </Layout>

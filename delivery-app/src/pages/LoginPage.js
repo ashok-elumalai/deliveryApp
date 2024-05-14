@@ -78,7 +78,7 @@ const LoginPage = () => {
           </Form.Item>
           <Form.Item label="" name="rememberMe">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <Checkbox onChange={() => {}}>Remember Me</Checkbox>
+              <Checkbox onChange={() => { }}>Remember Me</Checkbox>
               <Typography.Link
                 style={{ color: "black", fontWeight: 700 }}
                 href="#"
