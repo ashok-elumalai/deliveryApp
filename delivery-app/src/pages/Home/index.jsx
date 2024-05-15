@@ -1,4 +1,4 @@
-import { Card, Typography, Row, Col, Rate } from "antd";
+import { Card, Typography, Row, Col, Rate, Space } from "antd";
 import image from "../../Assets/images/login2.jpg";
 
 const { Meta } = Card;
@@ -203,6 +203,7 @@ const restaurantData = [
 function HomeData() {
   return (
     <div
+      key={"homeData"}
       style={{
         display: "flex",
         flexDirection: "row",
@@ -229,10 +230,12 @@ function HomeData() {
                       key={`${index}-${index2}`}
                       hoverable
                       style={{ width: 250 }}
-                      actions={<Rate tooltips={v2.rating} value={v2.rating} />}
                       cover={<img height={100} alt={v2.name} src={v2.image} />}
                     >
-                      <Meta title={v2.name} description={v2.description} />
+                      <Space direction="vertical">
+                        <Meta title={v2.name} description={v2.description} />
+                        <Rate disabled tooltips={v2.rating} value={v2.rating} />
+                      </Space>
                     </Card>
                   </Col>
                 ))}

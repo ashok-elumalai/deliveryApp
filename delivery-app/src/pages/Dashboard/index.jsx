@@ -1,4 +1,4 @@
-import { Layout, Tabs } from "antd";
+import { Layout, Tabs, Menu } from "antd";
 
 import HomeData from "../Home/index";
 import { styled } from "styled-components";
@@ -22,12 +22,14 @@ const items = [
   },
 ];
 
+
 function Dashboard() {
   return (
     <Layout>
       <Layout.Header
         style={{ position: "fixed", right: "0", left: "0", zIndex: "999" }}
-      ></Layout.Header>
+      >
+      </Layout.Header>
       <ContentStyles style={{ padding: "30px", marginTop: "80px" }}>
         <Tabs defaultActiveKey="1" items={items} />
       </ContentStyles>
