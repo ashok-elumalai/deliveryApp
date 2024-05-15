@@ -7,6 +7,7 @@ import "./App.css";
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
+import RestaurantDetails from "./pages/RestaurantDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <Dashboard />,
   },
+  {
+    path: "/res",
+    element: < RestaurantDetails />,
+  },
+
 ]);
 
 function App() {

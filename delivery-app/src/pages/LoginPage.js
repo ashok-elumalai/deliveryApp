@@ -4,7 +4,7 @@ import "./Form.css";
 import image from "../Assets/images/login2.jpg";
 
 const LoginPage = () => {
-  const onFinish = (values) => {
+  const onSubmit = (values) => {
     console.log("Received values:", values);
   };
 
@@ -18,14 +18,11 @@ const LoginPage = () => {
           className="background-image"
         />
       </div>
-      <div
-        className="form-container"
-        style={{ width: "50%" }} //backgroundColor: "black"
-      >
+      <div className="form-container" style={{ width: "50%" }}>
         <Form
           style={{ width: "50%" }}
           name="registration"
-          onFinish={onFinish}
+          onFinish={onSubmit}
           layout="vertical"
         >
           <Form.Item
@@ -74,11 +71,11 @@ const LoginPage = () => {
             name="password"
             rules={[{ required: true, message: "Please enter your password!" }]}
           >
-            <Input placeholder="Enter the password" />
+            <Input.Password placeholder="Enter the password" />
           </Form.Item>
           <Form.Item label="" name="rememberMe">
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <Checkbox onChange={() => { }}>Remember Me</Checkbox>
+              <Checkbox>Remember Me</Checkbox>
               <Typography.Link
                 style={{ color: "black", fontWeight: 700 }}
                 href="#"

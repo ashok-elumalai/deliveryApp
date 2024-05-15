@@ -4,7 +4,7 @@ import "./Form.css";
 import image from "../Assets/images/registration.jpg";
 
 const RegistrationPage = () => {
-  const onFinish = (values) => {
+  const onSubmit = (values) => {
     console.log("Received values:", values);
   };
 
@@ -25,7 +25,7 @@ const RegistrationPage = () => {
         <Form
           style={{ width: "50%" }}
           name="registration"
-          onFinish={onFinish}
+          onFinish={onSubmit}
           layout="vertical"
         >
           <Form.Item
