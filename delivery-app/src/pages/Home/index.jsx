@@ -1,5 +1,9 @@
 import { Card, Typography, Row, Col, Rate, Space } from "antd";
 import image from "../../Assets/images/login2.jpg";
+import { useSelector, useDispatch } from "react-redux";
+import { setRestaurant } from "../../state/currentRestaurantSlice";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const { Meta } = Card;
 const restaurantData = [
@@ -201,6 +205,19 @@ const restaurantData = [
 ];
 
 function HomeData() {
+  // const count = useSelector((state) => state.currentRestaurant.selectedRestaurant)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(setRestaurant(undefined));
+  });
+
+  const onSelectCard=(params)=>{
+    dispatch(setRestaurant(params));
+  navigate('/res');
+  }
+
   return (
     <div
       key={"homeData"}
@@ -227,6 +244,7 @@ function HomeData() {
                 {value.restaurants.map((v2, index2) => (
                   <Col span={6}>
                     <Card
+                      onClick={(e) => {onSelectCard(v2)}}
                       key={`${index}-${index2}`}
                       hoverable
                       style={{ width: 250 }}
