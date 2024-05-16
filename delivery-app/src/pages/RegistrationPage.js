@@ -2,10 +2,31 @@ import React from "react";
 import { Form, Input, Button, Radio } from "antd";
 import "./Form.css";
 import image from "../Assets/images/registration.jpg";
+import { API } from "../Api";
 
 const RegistrationPage = () => {
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     console.log("Received values:", values);
+    try {
+      // Make an API call to the /signup endpoint
+      const response = await API("/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values), // Send form values as JSON
+      });
+
+      if (response.ok) {
+        // Handle success (e.g., redirect to a success page)
+        console.log("Registration successful!");
+      } else {
+        // Handle error (e.g., display an error message)
+        console.error("Registration failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("An error occurred during registration:", error);
+    }
   };
 
   return (
@@ -79,6 +100,15 @@ const RegistrationPage = () => {
             rules={[{ required: true, message: "Please enter your address!" }]}
           >
             <Input placeholder="Enter the address" />
+          </Form.Item>
+          <Form.Item
+            label="Business Type"
+            name="business_type"
+            rules={[
+              { required: true, message: "Please enter your business type!" },
+            ]}
+          >
+            <Input placeholder="Enter the business typ eg: Restaurant/Cafe/Bar" />
           </Form.Item>
           <Form.Item label="" name="membership">
             <Radio.Group defaultValue={1}>
