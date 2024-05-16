@@ -24,8 +24,9 @@ jobs:
         rm -rf node_modules
         rm -rf package-lock.json
         npm install
-        npm install -g react-scripts
+        npm install react-scripts
         npm run build
+        npm start
 
   test:
     needs: build
