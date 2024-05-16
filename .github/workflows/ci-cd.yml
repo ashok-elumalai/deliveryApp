@@ -37,4 +37,7 @@ jobs:
 
     - name: Test
       working-directory: ./delivery-app
-      run: npm test
+      run: |
+        npm install
+        npm install react-scripts
+        npm run test
