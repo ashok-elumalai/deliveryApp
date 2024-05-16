@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setRestaurant } from "../../state/currentRestaurantSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { API } from "../../Api";
 
 const { Meta } = Card;
 const restaurantData = [
@@ -213,10 +214,32 @@ function HomeData() {
     dispatch(setRestaurant(undefined));
   });
 
-  const onSelectCard=(params)=>{
+  const onSelectCard = (params) => {
     dispatch(setRestaurant(params));
-  navigate('/res');
-  }
+    navigate("/res");
+  };
+
+  useEffect(() => {
+    const getAllRestaurants = async () => {
+      try {
+        const response = await API("/restaurants", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          console.log("data", response?.data);
+        } else {
+          console.error("failed to get restaurants. Please reload the page");
+        }
+      } catch (error) {
+        console.error("An error occurred while loading restaurants:", error);
+      }
+    };
+    getAllRestaurants();
+  }, []);
 
   return (
     <div
@@ -244,7 +267,9 @@ function HomeData() {
                 {value.restaurants.map((v2, index2) => (
                   <Col span={6}>
                     <Card
-                      onClick={(e) => {onSelectCard(v2)}}
+                      onClick={(e) => {
+                        onSelectCard(v2);
+                      }}
                       key={`${index}-${index2}`}
                       hoverable
                       style={{ width: 250 }}

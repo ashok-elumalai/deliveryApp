@@ -1,11 +1,39 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Form, Input, Button, Checkbox, Typography } from "antd";
 import "./Form.css";
 import image from "../Assets/images/login2.jpg";
+import { API } from "../Api";
+import { setToken } from "../state/commonSlice";
 
 const LoginPage = () => {
-  const onSubmit = (values) => {
+  const dispatch = useDispatch();
+
+  const onSubmit = async (values) => {
     console.log("Received values:", values);
+    try {
+      // Make an API call to the /signup endpoint
+      const response = await API("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values), // Send form values as JSON
+      });
+
+      if (response.ok) {
+        // set token here
+        dispatch(setToken(response?.data?.token));
+        const token = response?.data?.token;
+        localStorage.setItem("token", token);
+        console.log("Logged in successfully!");
+      } else {
+        // Handle error (e.g., display an error message)
+        console.error("Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("An error occurred during login:", error);
+    }
   };
 
   return (
