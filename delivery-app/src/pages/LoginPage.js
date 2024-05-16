@@ -57,12 +57,8 @@ const LoginPage = () => {
             </div>
           </Form.Item>
           <Form.Item
-            label="Email/Username"
+            label="Username"
             name="username"
-            rules={[
-              { type: "email", message: "Please enter a valid email!" },
-              { required: true, message: "Please enter your username!" },
-            ]}
           >
             <Input placeholder="Enter the username" />
           </Form.Item>
