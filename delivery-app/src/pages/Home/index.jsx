@@ -56,40 +56,26 @@ function HomeData() {
     >
       <div style={{ width: "300px", borderRight: "solid 1px #b6b6b6" }}></div>
       <div style={{ width: "100%", padding: "10px" }}>
-        {restaurants.map((value, index) => (
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "20px",
-            }}
-          >
-            <Typography.Title>{value.restaurantType}</Typography.Title>
-            {value.restaurants && (
-              <Row gutter={[24, 24]}>
-                {value.restaurants.map((v2, index2) => (
-                  <Col span={6}>
-                    <Card
-                      onClick={(e) => {
-                        onSelectCard(v2);
-                      }}
-                      key={`${v2.id}-${index}-${index2}`}
-                      hoverable
-                      style={{ width: 250 }}
-                      cover={<img height={100} alt={v2.name} src={v2.image_url} />}
-                    >
-                      <Space direction="vertical">
-                        <Meta title={v2.name} description={v2.description} />
-                        <Rate disabled tooltips={v2.rating} value={v2.rating} />
-                      </Space>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            )}
-          </div>
-        ))}
+		<Row gutter={[24, 24]}>
+			{restaurants.map((value, index) => (
+				<Col span={6}>
+					<Card
+						onClick={(e) => {
+							onSelectCard(value);
+						}}
+						key={`${value.id}-${index}}`}
+						hoverable
+						style={{ width: 250, margin: "10px" }}
+						cover={<img height={100} alt={value.name} src={value.image_url} />}
+					>
+						<Space direction="vertical">
+						<Meta title={value.name} description={value.description} style={{ textOverflow: 'ellipses', width: '100%' }}/>
+						<Rate disabled tooltips={value.rating} value={value.rating} />
+						</Space>
+					</Card>
+				</Col>
+			))}
+		</Row>
       </div>
     </div>
   );
