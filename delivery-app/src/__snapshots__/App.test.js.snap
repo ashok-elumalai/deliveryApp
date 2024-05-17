@@ -8,30 +8,25 @@ exports[`renders login page correctly 1`] = `
   <h3
     style="font-style: italic;"
   >
-    window.matchMedia is not a function
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
   </h3>
   <pre
     style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
   >
-    TypeError: window.matchMedia is not a function
-    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/antd/lib/_util/responsiveObserver.js:93:30
-    at Array.forEach (&lt;anonymous&gt;)
-    at Object.register (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/antd/lib/_util/responsiveObserver.js:83:36)
-    at Object.subscribe (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/antd/lib/_util/responsiveObserver.js:64:37)
-    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/antd/lib/grid/row.js:93:38
-    at commitHookEffectListMount (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:23150:26)
-    at commitPassiveMountOnFiber (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:24931:11)
-    at commitPassiveMountEffects_complete (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:24891:9)
-    at commitPassiveMountEffects_begin (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:24878:7)
-    at commitPassiveMountEffects (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:24866:3)
-    at flushPassiveEffectsImpl (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27039:3)
-    at flushPassiveEffects (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26984:14)
-    at performSyncWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26076:3)
-    at flushSyncCallbacks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:12042:22)
-    at commitRootImpl (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26959:3)
-    at commitRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26682:5)
-    at finishConcurrentRender (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25981:9)
-    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25809:7)
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at HomeData (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/Home/index.jsx:210:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
     at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
     at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
     at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
