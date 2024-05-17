@@ -112,7 +112,7 @@ function RestaurantDetails() {
   const navigate = useNavigate();
   const goBack = () => {
     dispatch(setRestaurant(undefined));
-    navigate("/");
+    navigate(-1);
   };
 
   const increase = (params) => {};
@@ -129,7 +129,14 @@ function RestaurantDetails() {
           <Typography.Title>{currentRestaurant?.name}</Typography.Title>
         </Space>
 
-        <Button type="primary"onClick={()=>{navigate('/checkout')}} >Checkout</Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            navigate("/user/checkout");
+          }}
+        >
+          Checkout
+        </Button>
       </ResHeaderContainer>
       <Row gutter={[24, 20]} style={{ marginTop: 120, padding: 20 }}>
         {menuItems.map((value, index) => (

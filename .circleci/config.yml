@@ -24,7 +24,7 @@ jobs:
         rm -rf node_modules
         rm -rf package-lock.json
         npm install
-        npm install react-scripts
+        npm install -g react-scripts
         npm run build
 
   test:
@@ -37,7 +37,4 @@ jobs:
 
     - name: Test
       working-directory: ./delivery-app
-      run: |
-        npm install
-        npm install react-scripts
-        npm run test
+      run: npm test

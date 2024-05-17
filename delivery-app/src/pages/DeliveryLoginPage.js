@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Form, Input, Button, Checkbox, Typography } from "antd";
 import "./Form.css";
-import image from "../Assets/images/loginuser.png";
+import image from "../Assets/images/login2.jpg";
 import { API } from "../Api";
 import { setToken } from "../state/commonSlice";
 
-const LoginPage = () => {
+const RestaurantLoginPage = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -16,18 +16,17 @@ const LoginPage = () => {
     console.log("Received values:", values);
     try {
       // Make an API call to the /signup endpoint
-	  const response = await API.post("/login", {...values, user_type: "USER"});
+	  const response = await API.post("/login", {...values, user_type: "DELIVERY_PARTNER"});
       if (response.status === 200) {
         // set token here
         dispatch(setToken(response?.data?.user_token));
-		const { id, name, membership_type } = response.data;
+		const { id, name } = response.data;
         const token = response?.data?.user_token;
 		if(token){
 			localStorage.setItem("token", token);
-			localStorage.setItem("user_id", id);
-			localStorage.setItem("user_name", name);
-			localStorage.setItem("user_membership", membership_type);
-			navigate("/user/home");
+			localStorage.setItem("deli_id", id);
+			localStorage.setItem("deli_name", name);
+			navigate("/delivery-partner/home");
 		}
         console.log("Logged in successfully!");
       } else {
@@ -59,7 +58,7 @@ const LoginPage = () => {
           <Form.Item
             style={{ margin: 0 }}
             label={
-              <div style={{ fontSize: "25px", fontWeight: "700" }}>User Login</div>
+              <div style={{ fontSize: "25px", fontWeight: "700" }}>Delivery Partner Login</div>
             }
             className="form-title"
           >
@@ -75,15 +74,15 @@ const LoginPage = () => {
               Login as:
               <Typography.Link
                 style={{ color: "black", fontWeight: 700, padding: "0px 3px" }}
-                onClick={()=> navigate("/login/restaurant")}
+                href="/login/user"
               >
-                Restaraunt?
+                User?
               </Typography.Link>
               <Typography.Link
                 style={{ color: "black", fontWeight: 700, marginLeft: 10 }}
-				onClick={()=> navigate("/login/delivery-partner")}
+                href="/login/restaurant"
               >
-                Driver?
+                Restaurant?
               </Typography.Link>
             </div>
           </Form.Item>
@@ -139,4 +138,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RestaurantLoginPage;
