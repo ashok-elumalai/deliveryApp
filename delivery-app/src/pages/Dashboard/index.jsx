@@ -30,13 +30,13 @@ function Dashboard() {
 	const handleLogout = () => {
 		// Perform logout logic here, like clearing tokens or user data
 		localStorage.removeItem("token");
-		localStorage.setItem("user_id");
-		localStorage.setItem("user_name");
-		localStorage.setItem("user_membership");
-		localStorage.setItem("rest_id");
-		localStorage.setItem("rest_name");
-		localStorage.setItem("deli_id");
-		localStorage.setItem("deli_name");
+		localStorage.removeItem("user_id");
+		localStorage.removeItem("user_name");
+		localStorage.removeItem("user_membership");
+		localStorage.removeItem("rest_id");
+		localStorage.removeItem("rest_name");
+		localStorage.removeItem("deli_id");
+		localStorage.removeItem("deli_name");
 		console.log('User logged out');
 		navigate('/login/user');
 	};
