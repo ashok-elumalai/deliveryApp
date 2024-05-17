@@ -141,18 +141,13 @@ function HomeData() {
 
   const onSelectCard = (params) => {
     dispatch(setRestaurant(params));
-    navigate("/res");
+    navigate(`/restaurant/${params.id}`);
   };
 
   useEffect(() => {
     const getAllRestaurants = async () => {
       try {
-        const response = await API("/restaurants", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await API.get("/restaurants");
 
         if (response.ok) {
           console.log("data", response?.data);
