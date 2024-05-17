@@ -110,6 +110,7 @@ const LoginPage = () => {
           <div
             style={{
               display: "flex",
+			  flexFlow: "column wrap",
               justifyContent: "center",
             }}
           >
@@ -119,6 +120,13 @@ const LoginPage = () => {
               style={{ backgroundColor: "black", width: "100%" }}
             >
               Login
+            </Button>
+			<Button
+              type="primary"
+			  onClick={() => navigate("/register")}
+              style={{ width: "100%", marginTop: 20 }}
+            >
+              Signup
             </Button>
           </div>
         </Form>
