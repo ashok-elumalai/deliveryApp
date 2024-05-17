@@ -16,13 +16,17 @@ const LoginPage = () => {
     console.log("Received values:", values);
     try {
       // Make an API call to the /signup endpoint
-	  const response = await API.post("/login", {...values});
+	  const response = await API.post("/login", {...values, user_type: "USER"});
       if (response.status === 200) {
         // set token here
         dispatch(setToken(response?.data?.user_token));
+		const { id, name, membership_type } = response.data;
         const token = response?.data?.user_token;
 		if(token){
 			localStorage.setItem("token", token);
+			localStorage.setItem("user_id", id);
+			localStorage.setItem("user_name", name);
+			localStorage.setItem("user_membership", membership_type);
 			navigate("/user/home");
 		}
         console.log("Logged in successfully!");
@@ -77,7 +81,7 @@ const LoginPage = () => {
               </Typography.Link>
               <Typography.Link
                 style={{ color: "black", fontWeight: 700, marginLeft: 10 }}
-                href="/login/delivery-partner"
+				onClick={()=> navigate("/login/delivery-partner")}
               >
                 Driver?
               </Typography.Link>

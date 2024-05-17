@@ -44,6 +44,10 @@ const router = createBrowserRouter([
 			exact: true,
 			element: <UserLoginPage />,
 		},
+		{
+			path: "/login",
+			element: <UserLoginPage />,
+		},
     ],
   },
   {
@@ -62,6 +66,26 @@ const router = createBrowserRouter([
 			path: "/user/restaurant/:id",
 			element: <RestaurantDetails />,
 		},
+    ],
+  },  
+  {
+    path: "/restaurant",
+    element: <PrivateRoute />, // This will act as a guard
+    children: [
+		{
+			path: "/restaurant/home",
+			element: <Dashboard />,
+		}
+    ],
+  },
+  {
+    path: "/delivery-partner",
+    element: <PrivateRoute />, // This will act as a guard
+    children: [
+		{
+			path: "/delivery-partner/home",
+			element: <Dashboard />,
+		}
     ],
   },
 

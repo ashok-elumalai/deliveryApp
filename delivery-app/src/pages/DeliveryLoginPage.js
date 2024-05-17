@@ -16,14 +16,17 @@ const RestaurantLoginPage = () => {
     console.log("Received values:", values);
     try {
       // Make an API call to the /signup endpoint
-	  const response = await API.post("/login", {...values});
+	  const response = await API.post("/login", {...values, user_type: "DELIVERY_PARTNER"});
       if (response.status === 200) {
         // set token here
         dispatch(setToken(response?.data?.user_token));
+		const { id, name } = response.data;
         const token = response?.data?.user_token;
 		if(token){
 			localStorage.setItem("token", token);
-			navigate("/user/home");
+			localStorage.setItem("deli_id", id);
+			localStorage.setItem("deli_name", name);
+			navigate("/delivery-partner/home");
 		}
         console.log("Logged in successfully!");
       } else {
@@ -55,7 +58,7 @@ const RestaurantLoginPage = () => {
           <Form.Item
             style={{ margin: 0 }}
             label={
-              <div style={{ fontSize: "25px", fontWeight: "700" }}>Restaurant Login</div>
+              <div style={{ fontSize: "25px", fontWeight: "700" }}>Delivery Partner Login</div>
             }
             className="form-title"
           >
@@ -77,9 +80,9 @@ const RestaurantLoginPage = () => {
               </Typography.Link>
               <Typography.Link
                 style={{ color: "black", fontWeight: 700, marginLeft: 10 }}
-                href="/login/delivery-partner"
+                href="/login/restaurant"
               >
-                Driver?
+                Restaurant?
               </Typography.Link>
             </div>
           </Form.Item>

@@ -16,14 +16,17 @@ const RestaurantLoginPage = () => {
     console.log("Received values:", values);
     try {
       // Make an API call to the /signup endpoint
-	  const response = await API.post("/login", {...values});
+	  const response = await API.post("/login", {...values, user_type: "RESTAURANT"});
       if (response.status === 200) {
         // set token here
         dispatch(setToken(response?.data?.user_token));
+		const { id, name } = response.data;
         const token = response?.data?.user_token;
 		if(token){
 			localStorage.setItem("token", token);
-			navigate("/user/home");
+			localStorage.setItem("rest_id", id);
+			localStorage.setItem("rest_name", name);
+			navigate("/restaurant/home");
 		}
         console.log("Logged in successfully!");
       } else {
@@ -71,13 +74,13 @@ const RestaurantLoginPage = () => {
               Login as:
               <Typography.Link
                 style={{ color: "black", fontWeight: 700, padding: "0px 3px" }}
-                href="/login/user"
+				onClick={()=> navigate("/login/user")}
               >
                 User?
               </Typography.Link>
               <Typography.Link
                 style={{ color: "black", fontWeight: 700, marginLeft: 10 }}
-                href="/login/delivery-partner"
+				onClick={()=> navigate("/login/delivery-partner")}
               >
                 Driver?
               </Typography.Link>
