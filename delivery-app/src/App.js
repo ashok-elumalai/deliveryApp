@@ -100,6 +100,16 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/",
+    element: <PrivateRoute />, // This will act as a guard
+    children: [
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
+	]
+  },
 ]);
 
 function App() {
