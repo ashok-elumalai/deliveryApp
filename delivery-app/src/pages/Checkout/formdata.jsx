@@ -22,7 +22,7 @@ const CheckoutForm = () => {
       }}
     >
       <Form.Item
-       label="Delivery Address"
+        label="Delivery Address"
         name="street"
         rules={[
           { required: true, message: "Please enter your street address!" },
@@ -61,7 +61,7 @@ const CheckoutForm = () => {
       </Form.Item>
 
       <Form.Item label="Payment Method" name="paymentMethod">
-        <Radio.Group >
+        <Radio.Group>
           <Radio value={1}>Cash On Delivery</Radio>
           <Radio value={2}>Credit or Debit card</Radio>
         </Radio.Group>
@@ -95,7 +95,6 @@ function CardForm() {
       }}
     >
       <Form.Item
-     
         name="nameOnCard"
         rules={[{ required: true, message: "Please enter Name On Card" }]}
       >
