@@ -63,8 +63,7 @@ const RegistrationPage = () => {
             label="Email/Username" //<div style={{ color: "#fff" }}
             name="username"
             rules={[
-              { type: "email", message: "Please enter a valid email!" },
-              { required: true, message: "Please enter your username!" },
+				{ required: true, message: "Please enter your username!" },
             ]}
           >
             <Input placeholder="Enter the username" />
