@@ -46,6 +46,9 @@ function Dashboard() {
       <Layout.Header
         style={{ position: "fixed", right: "0", left: "0", zIndex: "999" }}
       >
+	  	<div style={{ position: "absolute", left: 20 }}>
+		  <h2 style={{ color: "#fff" }}>Welcome {localStorage.getItem("user_name")}!</h2>
+		</div>
 	  	<div style={{ position: "absolute", right: 20 }}>
 		  <Button type="primary" danger onClick={handleLogout}>Logout</Button>
 		</div>
