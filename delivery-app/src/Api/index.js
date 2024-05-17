@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-let baseURL = "http://localhost:3000";
+let baseURL = "http://127.0.0.1:5000"; // aka localhost or 0.0.0.0
 
 export const API = axios.create({
   baseURL,
