@@ -8,7 +8,7 @@ const { Option } = Select;
 
 const RegistrationPage = () => {
 
-	// const [form] = Form.useForm();
+	const [form] = Form.useForm();
 	// const [accountType, setAccountType] = useState('horizontal');
 
   const onSubmit = async (values) => {
@@ -31,7 +31,7 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="registration-container" style={{ width: "100%", display: "flex", flexFlow: "row nowrap", height: '100%' }}>
+    <div className="registration-container" style={{ width: "100%", display: "flex", flexFlow: "row nowrap", height: '100%', alignContent: "start", padding: 0 }}>
       <div className="image-container" style={{ width: "50%", height: '100%' }}>
         <img
           src={image}
@@ -42,26 +42,18 @@ const RegistrationPage = () => {
       </div>
       <div
         className="form-container"
-        style={{ width: "50%",  height: "100vh", overflow: "auto" }} //backgroundColor: "black"
+        style={{ width: "50%",  height: "100vh", overflow: "auto", padding: 40 }} //backgroundColor: "black"
       >
         <Form
-          style={{ width: "50%" }}
+          style={{ width: "80%", height: "100%" }}
+		  form={form}
           name="registration"
           onFinish={onSubmit}
           layout="vertical"
         >
+		<h1>Test</h1>
           <Form.Item
-            label={
-              <div style={{ fontSize: "25px", fontWeight: "700" }}>
-                Registration Form
-              </div>
-            }
-            className="form-title"
-          >
-            {/* Title: Registration Form */}
-          </Form.Item>
-          <Form.Item
-            label="Email/Username" //<div style={{ color: "#fff" }}
+            label="Username" //<div style={{ color: "#fff" }}
             name="username"
             rules={[
 				{ required: true, message: "Please enter your username!" },
@@ -112,7 +104,7 @@ const RegistrationPage = () => {
 		  >
 			<Select
 				placeholder="Select a option"
-				allowClear
+				// onChange={(val) => form.setFieldsValue({user_type: val})}
 			>
 				<Option value="USER">Customer</Option>
 				<Option value="RESTAURANT">Restaurant</Option>
@@ -132,20 +124,12 @@ const RegistrationPage = () => {
 			  <Radio.Button value="inline">Inline</Radio.Button>
 		    </Radio.Group>
 		  </Form.Item>
-		  <Form.Item
-			shouldUpdate={(_prevValues, currentValues) => currentValues.user_type === "USER"}
-		  >
-			{({ getFieldValue }) =>
-				getFieldValue('user_type') === 'USER' ? (
-				<Form.Item label="Membership" name="membership">
-					<Radio.Group defaultValue="NORMAL">
-					  <Radio value="PREMIUM">Plus Membership</Radio>
-					  <Radio value="NORMAL">Normal Membership</Radio>
-					</Radio.Group>
-				  </Form.Item>
-				) : null
-			}
-		</Form.Item>
+		  <Form.Item label="Membership" name="membership">
+			<Radio.Group defaultValue="NORMAL">
+				<Radio.Button value="PREMIUM">Plus Membership</Radio.Button>
+				<Radio.Button value="NORMAL">Normal Membership</Radio.Button>
+			</Radio.Group>
+			</Form.Item>
           <Button
             type="primary"
             style={{ left: "0px", backgroundColor: "black" }}

@@ -23,7 +23,7 @@ const LoginPage = () => {
         const token = response?.data?.user_token;
 		if(token){
 			localStorage.setItem("token", token);
-			navigate("/");
+			navigate("/user/home");
 		}
         console.log("Logged in successfully!");
       } else {

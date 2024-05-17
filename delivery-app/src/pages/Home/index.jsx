@@ -24,7 +24,7 @@ function HomeData() {
 
   const onSelectCard = (params) => {
     dispatch(setRestaurant(params));
-    navigate(`/restaurant/${params.id}`);
+    navigate(`/user/restaurant/${params.id}`);
   };
 
   useEffect(() => {

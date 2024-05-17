@@ -30,15 +30,15 @@ const router = createBrowserRouter([
     element: <RegistrationPage />,
   },  
   {
-    path: "/",
+    path: "/user",
     element: <PrivateRoute />, // This will act as a guard
     children: [
 		{
-			path: "/",
+			path: "/user/home",
 			element: <Dashboard />,
 		},
 		{
-			path: "/restaurant/:id",
+			path: "/user/restaurant/:id",
 			element: <RestaurantDetails />,
 		},
     ],
