@@ -9,6 +9,7 @@ import UserLoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import RestaurantDetails from "./pages/RestaurantDetails";
 import RestaurantLoginPage from './pages/RestaurantLoginPage';
+import DeliveryLoginPage from './pages/DeliveryLoginPage';
 
 const useAuth = () => {
 	// Replace this with your actual authentication logic
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
 		{
 			path: "/login/delivery-partner",
 			exact: true,
-			element: <UserLoginPage />,
+			element: <DeliveryLoginPage />,
 		},
 		{
 			path: "/login",
