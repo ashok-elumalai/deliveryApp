@@ -1,4 +1,4 @@
-import { Layout, Tabs, Menu, Button } from "antd";
+import { Layout, Tabs, Avatar, Button } from "antd";
 import { useNavigate } from 'react-router-dom';
 import HomeData from "../Home/index";
 import { styled } from "styled-components";
@@ -44,12 +44,16 @@ function Dashboard() {
   return (
     <Layout>
       <Layout.Header
-        style={{ position: "fixed", right: "0", left: "0", zIndex: "999" }}
+        style={{ position: "fixed", right: "0", left: "0", zIndex: "999", padding: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
       >
-	  	<div style={{ position: "absolute", left: 20 }}>
-		  <h2 style={{ color: "#fff" }}>Welcome {localStorage.getItem("user_name")}!</h2>
+	  	<div style={{ display: "flex", alignItems: "center" }}>
+		  <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" style={{ backgroundColor: '#fff' }} size={48}/>
+		  <h2 style={{ color: "#fff", padding: 0, margin: 0, marginLeft: 10 }}>Welcome {localStorage.getItem("user_name")}!</h2>
 		</div>
-	  	<div style={{ position: "absolute", right: 20 }}>
+		<div>
+			<h1 style={{ color: "#fff", fontSize: 38, fontWeight: 'bolder', marginTop: 8 }}>Aussie Bites &#9889;</h1>
+		</div>
+	  	<div>
 		  <Button type="primary" danger onClick={handleLogout}>Logout</Button>
 		</div>
       </Layout.Header>
