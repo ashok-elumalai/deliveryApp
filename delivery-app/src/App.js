@@ -16,6 +16,7 @@ import RestaurantDetails from "./pages/RestaurantDetails";
 import RestaurantLoginPage from "./pages/RestaurantLoginPage";
 import DeliveryLoginPage from "./pages/DeliveryLoginPage";
 import CheckoutPage from "./pages/Checkout";
+import RestaurantHome from "./pages/restaurants/restaurantHome";
 const useAuth = () => {
   // Replace this with your actual authentication logic
   const token = localStorage.getItem("token"); // Example: user is logged in
@@ -28,7 +29,7 @@ const CommonRoute = () => {
 
 const PrivateRoute = () => {
   const auth = useAuth();
-  return auth ? <Outlet /> : <Navigate to="/login/user" />;
+  return true ? <Outlet /> : <Navigate to="/login/user" />;
 };
 
 const router = createBrowserRouter([
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/restaurant/home",
-        element: <Dashboard />,
+        element: <RestaurantHome />,
       },
     ],
   },

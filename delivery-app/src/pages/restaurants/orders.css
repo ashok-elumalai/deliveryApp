@@ -1,0 +1,8 @@
+.purpleHeader {
+  background-color: purple;
+  color: white;
+}
+
+.ant-table-thead {
+  background: purple;
+}
