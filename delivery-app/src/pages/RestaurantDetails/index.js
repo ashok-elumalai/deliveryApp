@@ -110,7 +110,7 @@ function RestaurantDetails() {
   const navigate = useNavigate();
   const goBack = () => {
     dispatch(setRestaurant(undefined));
-    navigate("/");
+    navigate(-1);
   };
 
   const increase = (params) => {
