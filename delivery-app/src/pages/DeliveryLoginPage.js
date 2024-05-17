@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Form, Input, Button, Checkbox, Typography } from "antd";
 import "./Form.css";
-import image from "../Assets/images/login2.jpg";
+import image from "../Assets/images/login.jpg";
 import { API } from "../Api";
 import { setToken } from "../state/commonSlice";
 
-const RestaurantLoginPage = () => {
+const DeliveryLoginPage = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -138,4 +138,4 @@ const RestaurantLoginPage = () => {
   );
 };
 
-export default RestaurantLoginPage;
+export default DeliveryLoginPage;
