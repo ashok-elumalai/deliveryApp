@@ -9,15 +9,9 @@ const RegistrationPage = () => {
     console.log("Received values:", values);
     try {
       // Make an API call to the /signup endpoint
-      const response = await API("/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values), // Send form values as JSON
-      });
+      const response = await API.post("/register/user", { ...values});
 
-      if (response.ok) {
+      if (response.status === 200) {
         // Handle success (e.g., redirect to a success page)
         console.log("Registration successful!");
       } else {
@@ -73,7 +67,7 @@ const RegistrationPage = () => {
             name="password"
             rules={[{ required: true, message: "Please enter your password!" }]}
           >
-            <Input placeholder="Enter the password" />
+            <Input.Password placeholder="Enter the password" />
           </Form.Item>
           <Form.Item
             label="Confirm Password"
@@ -82,7 +76,7 @@ const RegistrationPage = () => {
               { required: true, message: "Please enter your confirmPassword!" },
             ]}
           >
-            <Input placeholder="Enter the confirm Password" />
+            <Input.Password placeholder="Enter the confirm Password" />
           </Form.Item>
           <Form.Item
             label="Phone Number"
