@@ -8,6 +8,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import RestaurantDetails from "./pages/RestaurantDetails";
+import CheckoutPage from './pages/Checkout';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
     path: "/res",
     element: < RestaurantDetails />,
   },
+  {
+    path: "/checkout",
+    element: < CheckoutPage />,
+  },
+
 
 ]);
 

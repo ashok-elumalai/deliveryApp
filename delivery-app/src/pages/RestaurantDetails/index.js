@@ -87,7 +87,7 @@ const menuItems = [
   },
 ];
 
-const ResHeaderContainer = styled.div`
+export const ResHeaderContainer = styled.div`
   height: 100px;
   position: fixed;
   left: 0;
@@ -95,10 +95,12 @@ const ResHeaderContainer = styled.div`
   padding-left: 40px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: 34px;
   border-bottom: solid 2px gray;
   background-color: white;
   gap: 20px;
+  padding-right: 40px;
   z-index: 9999;
   .ant-typography {
     margin: 0;
@@ -113,9 +115,7 @@ function RestaurantDetails() {
     navigate("/");
   };
 
-  const increase = (params) => {
-
-  };
+  const increase = (params) => {};
   const decrease = (params) => {};
 
   const currentRestaurant = useSelector(
@@ -124,8 +124,12 @@ function RestaurantDetails() {
   return (
     <Layout>
       <ResHeaderContainer>
-        <LeftOutlined onClick={goBack} />
-        <Typography.Title>{currentRestaurant?.name}</Typography.Title>
+        <Space>
+          <LeftOutlined onClick={goBack} />
+          <Typography.Title>{currentRestaurant?.name}</Typography.Title>
+        </Space>
+
+        <Button type="primary"onClick={()=>{navigate('/checkout')}} >Checkout</Button>
       </ResHeaderContainer>
       <Row gutter={[24, 20]} style={{ marginTop: 120, padding: 20 }}>
         {menuItems.map((value, index) => (
