@@ -36,10 +36,11 @@ function HomeData() {
 			setRestaurants(response.data.restaurants);
         } else {
           console.error("failed to get restaurants. Please reload the page");
-		//   setRestaurants([]);
+		  	setRestaurants(restaurantsData);
         }
       } catch (error) {
         console.error("An error occurred while loading restaurants:", error);
+		setRestaurants(restaurantsData);
       }
     };
     getAllRestaurants();

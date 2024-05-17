@@ -1,20 +1,5 @@
 export const restaurantsData = [
 	{
-		"address": "3/50 Crown St, Wollongong NSW 2500",
-		"close_time": "9:30 PM",
-		"cuisine": "RESTAURANT",
-		"distance": "4KM",
-		"expected_delivery_time": "8-11 Min",
-		"id": 1,
-		"image_url": "https://lh5.googleusercontent.com/p/AF1QipPV5bGa_9BWOeOcqR64zmEjH0rwMylakUH1KK8Y=w260-h175-n-k-no",
-		"mobile": "0242250889",
-		"name": "JJs Indian Restaurant Wollongong",
-		"offers": "Free food delivery",
-		"open_time": "12:00 PM",
-		"rating": 5.0,
-		"reviews": "Thoroughly enjoyed the butter chicken, lamb and beef curries. Crisp naan bread, spicy biryanis. Fast service with food coming out very quickly. Authentic flavours and spicy hot - so mention to the lovely staff if you prefer more mild heat. Recommend. Teenagers loved it."
-	},
-	{
 		"address": "2-14 Cliff Rd, North Wollongong NSW 2500",
 		"close_time": "6:00 PM",
 		"cuisine": "CAFE",
@@ -28,21 +13,6 @@ export const restaurantsData = [
 		"open_time": "10:00 AM",
 		"rating": 3.0,
 		"reviews": "Great place to chill, nice tacos, friendly staffs especially Paige, she was so helpful. The best thing is the view. Happy hour is worthed."
-	},
-	{
-		"address": "5 Cliff Rd North Wollongong, Wollongong, New South Wales 2500 Australia",
-		"close_time": "6:00 PM",
-		"cuisine": "RESTAURANT",
-		"distance": "15 KM",
-		"expected_delivery_time": "20-25 Min",
-		"id": 3,
-		"image_url": "https://www.tripadvisor.com.au/Restaurant_Review-g255333-d3579528-Reviews-North_Beach_Pavilion-Wollongong_New_South_Wales.html#photos;aggregationId=101&albumid=101&filter=7&ff=56002791",
-		"mobile": "0429459282",
-		"name": "North Beach Pavilion",
-		"offers": "Free food delivery",
-		"open_time": "10:00 AM",
-		"rating": 4.0,
-		"reviews": "The place is amazing! It’s got one of the best ambience in all of Wollongong."
 	},
 	{
 		"address": "18 Cliff Rd, Wollongong, New South Wales 2500 Australia",
@@ -150,21 +120,6 @@ export const restaurantsData = [
 		"reviews": "Cute gin bar with a romantic vibe. Candles on the tables low lighting at night. Cocktails are delicious. Friendly staff. We went at about 8pm on a Saturday and some tables were still available. Outside area for smokers."
 	},
 	{
-		"address": "7 Globe Ln, Wollongong NSW 2500",
-		"close_time": "2:00 AM",
-		"cuisine": "BAR",
-		"distance": "5 KM",
-		"expected_delivery_time": "10-15 Min",
-		"id": 11,
-		"image_url": "https://lh5.googleusercontent.com/p/AF1QipPQKslhrr4HO90z7FsSFj6n-5QyJpSHkyQ_MGd3=w260-h175-n-k-no",
-		"mobile": "0407881304",
-		"name": "Bevanda Bar - Wollongong Beer & Cocktails",
-		"offers": "Free food delivery",
-		"open_time": "6:00 PM",
-		"rating": 5.0,
-		"reviews": "Billie was great, we had a friend with a medical emergency and she treated her with so much care. Baz the security guard was also so amazing in being patient. Such great client care, patience while managing a busy place. Thankyou so much they deserve a bonus."
-	},
-	{
 		"address": "19 Cliff road, Wollongong, New South Wales 2500 Australia",
 		"close_time": "7:00 PM",
 		"cuisine": "RESTAURANT",
@@ -240,6 +195,36 @@ export const restaurantsData = [
 		"reviews": "Nice quiet spot. The food was delicious, although serving sizes and hence value for money left a bit to be desired."
 	},
 	{
+		"address": "7 Globe Ln, Wollongong NSW 2500",
+		"close_time": "2:00 AM",
+		"cuisine": "BAR",
+		"distance": "5 KM",
+		"expected_delivery_time": "10-15 Min",
+		"id": 11,
+		"image_url": "https://lh5.googleusercontent.com/p/AF1QipPQKslhrr4HO90z7FsSFj6n-5QyJpSHkyQ_MGd3=w260-h175-n-k-no",
+		"mobile": "0407881304",
+		"name": "Bevanda Bar",
+		"offers": "Free food delivery",
+		"open_time": "6:00 PM",
+		"rating": 5.0,
+		"reviews": "Billie was great, we had a friend with a medical emergency and she treated her with so much care. Baz the security guard was also so amazing in being patient. Such great client care, patience while managing a busy place. Thankyou so much they deserve a bonus."
+	},
+	{
+		"address": "5 Cliff Rd North Wollongong, Wollongong, New South Wales 2500 Australia",
+		"close_time": "6:00 PM",
+		"cuisine": "RESTAURANT",
+		"distance": "15 KM",
+		"expected_delivery_time": "20-25 Min",
+		"id": 3,
+		"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSZQImiVeNZ5quhqUAZd0sS_Q-DzXbm3wnJg&s",
+		"mobile": "0429459282",
+		"name": "North Beach Pavilion",
+		"offers": "Free food delivery",
+		"open_time": "10:00 AM",
+		"rating": 4.0,
+		"reviews": "The place is amazing! It’s got one of the best ambience in all of Wollongong."
+	},
+	{
 		"address": "7/21 Globe Ln, Wollongong NSW 2500",
 		"close_time": "9:00 PM",
 		"cuisine": "RESTAURANT",
@@ -253,21 +238,6 @@ export const restaurantsData = [
 		"open_time": "11:00 AM",
 		"rating": 4.0,
 		"reviews": "Beautiful seaside location, delicious food presented well and friendly, efficient service. Excellent gluten free options, and plenty to choose from. Easy to recommend and would very happily dine again."
-	},
-	{
-		"address": "3 Verekar Street, Wollongong 2510",
-		"close_time": "3:00 PM",
-		"cuisine": "CAFE",
-		"distance": "5 KM",
-		"expected_delivery_time": "10-15 Min",
-		"id": 18,
-		"image_url": "https://localista.com.au/listing/au/wollongong/bars-and-restaurants/evil-eye-beach-cafe",
-		"mobile": "0442884204",
-		"name": "Evil Eye Cafe",
-		"offers": "Free food delivery",
-		"open_time": "6:00 AM",
-		"rating": 5.0,
-		"reviews": "Very reasonably priced, chana dal is really nice same with the garlic naan. Always friendly too!"
 	},
 	{
 		"address": "337 Crown Street, Wollongong NSW 2500",
@@ -375,36 +345,6 @@ export const restaurantsData = [
 		"reviews": "I recently had a fantastic meal at this restaurant the food was delicious and beautifully presented. The service was also excellent and the ambiance was cozy and inviting. I normally go there for traditional Indian dishes especially a must try dish in a menu the Prawn masala and fry Fish"
 	},
 	{
-		"address": "3/50 Crown St, Wollongong NSW 2500",
-		"close_time": "9:30 PM",
-		"cuisine": "RESTAURANT",
-		"distance": "4KM",
-		"expected_delivery_time": "8-11 Min",
-		"id": 26,
-		"image_url": "https://lh5.googleusercontent.com/p/AF1QipPV5bGa_9BWOeOcqR64zmEjH0rwMylakUH1KK8Y=w260-h175-n-k-no",
-		"mobile": "0242250889",
-		"name": "JJs Indian Restaurant Wollongong",
-		"offers": "Free food delivery",
-		"open_time": "12:00 PM",
-		"rating": 5.0,
-		"reviews": "Thoroughly enjoyed the butter chicken, lamb and beef curries. Crisp naan bread, spicy biryanis. Fast service with food coming out very quickly. Authentic flavours and spicy hot - so mention to the lovely staff if you prefer more mild heat. Recommend. Teenagers loved it."
-	},
-	{
-		"address": "21 Osborne street, Wollongong, NSW 2500",
-		"close_time": "11:00 PM",
-		"cuisine": "BAR",
-		"distance": "2.9KM",
-		"expected_delivery_time": "6-10 Min",
-		"id": 27,
-		"image_url": "https://lh3.googleusercontent.com/p/AF1QipNAx80DxlT-4uHiORpdoXEIZs1F_S86Sj5O0iNW=s1360-w1360-h1020",
-		"mobile": "0292479777",
-		"name": "Northern O Bar and Dining",
-		"offers": "Free food delivery",
-		"open_time": "12:00 PM",
-		"rating": 3.8,
-		"reviews": "Relaxing atmosphere, good service, and really cool and comfortable seating"
-	},
-	{
 		"address": "Shop 4/166 Keira St, Wollongong NSW 2500",
 		"close_time": "1:00 AM",
 		"cuisine": "BAR",
@@ -463,5 +403,50 @@ export const restaurantsData = [
 		"open_time": "11:00 AM",
 		"rating": 4.0,
 		"reviews": "The service and hot food was great! But the sushi was very dry and not delicious"
+	},
+	{
+		"address": "3/50 Crown St, Wollongong NSW 2500",
+		"close_time": "9:30 PM",
+		"cuisine": "RESTAURANT",
+		"distance": "4KM",
+		"expected_delivery_time": "8-11 Min",
+		"id": 1,
+		"image_url": "https://lh5.googleusercontent.com/p/AF1QipPV5bGa_9BWOeOcqR64zmEjH0rwMylakUH1KK8Y=w260-h175-n-k-no",
+		"mobile": "0242250889",
+		"name": "JJs Indian Restaurant",
+		"offers": "Free food delivery",
+		"open_time": "12:00 PM",
+		"rating": 5.0,
+		"reviews": "Thoroughly enjoyed the butter chicken, lamb and beef curries. Crisp naan bread, spicy biryanis. Fast service with food coming out very quickly. Authentic flavours and spicy hot - so mention to the lovely staff if you prefer more mild heat. Recommend. Teenagers loved it."
+	},
+	{
+		"address": "21 Osborne street, Wollongong, NSW 2500",
+		"close_time": "11:00 PM",
+		"cuisine": "BAR",
+		"distance": "2.9KM",
+		"expected_delivery_time": "6-10 Min",
+		"id": 27,
+		"image_url": "https://lh3.googleusercontent.com/p/AF1QipNAx80DxlT-4uHiORpdoXEIZs1F_S86Sj5O0iNW=s1360-w1360-h1020",
+		"mobile": "0292479777",
+		"name": "Northern O Bar",
+		"offers": "Free food delivery",
+		"open_time": "12:00 PM",
+		"rating": 3.8,
+		"reviews": "Relaxing atmosphere, good service, and really cool and comfortable seating"
+	},
+	{
+		"address": "3 Verekar Street, Wollongong 2510",
+		"close_time": "3:00 PM",
+		"cuisine": "CAFE",
+		"distance": "5 KM",
+		"expected_delivery_time": "10-15 Min",
+		"id": 18,
+		"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSZQImiVeNZ5quhqUAZd0sS_Q-DzXbm3wnJg&s",
+		"mobile": "0442884204",
+		"name": "Evil Eye Cafe",
+		"offers": "Free food delivery",
+		"open_time": "6:00 AM",
+		"rating": 5.0,
+		"reviews": "Very reasonably priced, chana dal is really nice same with the garlic naan. Always friendly too!"
 	}
 ];
