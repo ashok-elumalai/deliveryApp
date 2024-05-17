@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Form, Input, Button, Checkbox, Typography } from "antd";
 import "./Form.css";
@@ -9,23 +10,21 @@ import { setToken } from "../state/commonSlice";
 const LoginPage = () => {
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   const onSubmit = async (values) => {
     console.log("Received values:", values);
     try {
       // Make an API call to the /signup endpoint
-      const response = await API("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values), // Send form values as JSON
-      });
-
-      if (response.ok) {
+	  const response = await API.post("/login", {...values});
+      if (response.status === 200) {
         // set token here
-        dispatch(setToken(response?.data?.token));
-        const token = response?.data?.token;
-        localStorage.setItem("token", token);
+        dispatch(setToken(response?.data?.user_token));
+        const token = response?.data?.user_token;
+		if(token){
+			localStorage.setItem("token", token);
+			navigate("/");
+		}
         console.log("Logged in successfully!");
       } else {
         // Handle error (e.g., display an error message)
