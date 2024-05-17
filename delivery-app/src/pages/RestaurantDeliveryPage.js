@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Form, Input, Button, Checkbox, Typography } from "antd";
 import "./Form.css";
-import image from "../Assets/images/loginuser.png";
+import image from "../Assets/images/login2.jpg";
 import { API } from "../Api";
 import { setToken } from "../state/commonSlice";
 
-const LoginPage = () => {
+const RestaurantLoginPage = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ const LoginPage = () => {
           <Form.Item
             style={{ margin: 0 }}
             label={
-              <div style={{ fontSize: "25px", fontWeight: "700" }}>User Login</div>
+              <div style={{ fontSize: "25px", fontWeight: "700" }}>Restaurant Login</div>
             }
             className="form-title"
           >
@@ -71,9 +71,9 @@ const LoginPage = () => {
               Login as:
               <Typography.Link
                 style={{ color: "black", fontWeight: 700, padding: "0px 3px" }}
-                onClick={()=> navigate("/login/restaurant")}
+                href="/login/user"
               >
-                Restaraunt?
+                User?
               </Typography.Link>
               <Typography.Link
                 style={{ color: "black", fontWeight: 700, marginLeft: 10 }}
@@ -135,4 +135,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RestaurantLoginPage;

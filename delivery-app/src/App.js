@@ -5,25 +5,46 @@ import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-rou
 import "antd/dist/reset.css";
 import "./App.css";
 import RegistrationPage from "./pages/RegistrationPage";
-import LoginPage from "./pages/LoginPage";
+import UserLoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import RestaurantDetails from "./pages/RestaurantDetails";
+import RestaurantLoginPage from './pages/RestaurantLoginPage';
 
 const useAuth = () => {
 	// Replace this with your actual authentication logic
 	const token = localStorage.getItem('token'); // Example: user is logged in
 	return !!token;
   };
+
+const CommonRoute = () => {
+	return <Outlet />;
+};
   
 const PrivateRoute = () => {
 	const auth = useAuth();
-	return auth ? <Outlet /> : <Navigate to="/login" />;
+	return auth ? <Outlet /> : <Navigate to="/login/user" />;
 };
 
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <LoginPage />,
+    element: <CommonRoute />,
+	children: [
+		{
+			path: "/login/user",
+			element: <UserLoginPage />,
+		},
+		{
+			path: "/login/restaurant",
+			exact: true,
+			element: <RestaurantLoginPage />,
+		},
+		{
+			path: "/login/delivery-partner",
+			exact: true,
+			element: <UserLoginPage />,
+		},
+    ],
   },
   {
     path: "/register",

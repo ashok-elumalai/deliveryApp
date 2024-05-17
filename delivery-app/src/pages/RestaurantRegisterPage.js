@@ -1,64 +1,49 @@
-import React from "react";
-import { Form, Input, Button, Radio, message } from "antd";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Form, Input, Button, Radio, Select } from "antd";
 import "./Form.css";
 import image from "../Assets/images/registration.jpg";
 import { API } from "../Api";
 
-const { TextArea } = Input;
+const { Option } = Select;
 
 const RegistrationPage = () => {
-	const navigate = useNavigate();
-	const [messageApi, contextHolder] = message.useMessage();
+
+	const [form] = Form.useForm();
+  const [formValues, setFormValues] = useState({});
+
+	// Update formValues state whenever form values change
+	useEffect(() => {
+		const unsubscribe = form.subscribe(({ values }) => {
+		setFormValues(values);
+		});
+
+		// Cleanup the subscription on unmount
+		return () => {
+		unsubscribe();
+		};
+	}, [form]);
 
   const onSubmit = async (values) => {
     console.log("Received values:", values);
-	const { username, password, confirmPassword, user_type, phoneNumber, address, name } = values;
-	if (username && password && password === confirmPassword) {
-		try {
-		  // Make an API call to the /signup endpoint
-		  const response = await API.post("/register/user", { name, username, password, confirmPassword, user_type, phoneNumber, address });
-	
-		  if (response.status === 201) {
-			// Handle success (e.g., redirect to a success page)
-			console.log("Registration successful!");
-			messageApi.open({
-				type: 'success',
-				content: 'User created Successfully!',
-			  });
-			  navigate('/login/user');
-		  } else {
-			// Handle error (e.g., display an error message)
-			messageApi.open({
-				type: 'error',
-				content: 'Error in user creation!',
-			});
-		  }
-		} catch (error) {
-		  console.error("An error occurred during registration:", error);
-		  messageApi.open({
-			  type: 'error',
-			  content: 'Error in user creation!',
-		  });
-		}
-	} else {
-		if(password !== confirmPassword){
-			messageApi.open({
-				type: 'warning',
-				content: 'Password is not equal to Confirm Password!',
-			});
-		} else {
-			messageApi.open({
-				type: 'warning',
-				content: 'Enter all the form details to create user!',
-			});
-		}
-	}
+	return null;
+    try {
+      // Make an API call to the /signup endpoint
+      const response = await API.post("/register/user", { ...values});
+
+      if (response.status === 200) {
+        // Handle success (e.g., redirect to a success page)
+        console.log("Registration successful!");
+      } else {
+        // Handle error (e.g., display an error message)
+        console.error("Registration failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("An error occurred during registration:", error);
+    }
   };
 
   return (
     <div className="registration-container" style={{ width: "100%", display: "flex", flexFlow: "row nowrap", height: '100%', alignContent: "start", padding: 0 }}>
-		{contextHolder}
       <div className="image-container" style={{ width: "50%", height: '100%' }}>
         <img
           src={image}
@@ -73,21 +58,13 @@ const RegistrationPage = () => {
       >
         <Form
           style={{ width: "80%", height: "100%" }}
+		  form={form}
           name="registration"
           onFinish={onSubmit}
           layout="vertical"
         >
 		<h1>Test</h1>
-			<Form.Item
-			label="Name" //<div style={{ color: "#fff" }}
-			name="name"
-			rules={[
-				{ required: true, message: "Please enter your Name!" },
-			]}
-		>
-			<Input placeholder="Enter the username" />
-		</Form.Item>
-	    <Form.Item
+          <Form.Item
             label="Username" //<div style={{ color: "#fff" }}
             name="username"
             rules={[
@@ -117,10 +94,6 @@ const RegistrationPage = () => {
             name="phoneNumber"
             rules={[
               { required: true, message: "Please enter your phoneNumber!" },
-				{
-					pattern: /^\d{10}$/,
-					message: 'Please enter a valid 10-digit phone number!',
-				},
             ]}
           >
             <Input placeholder="Enter the Phone Number" />
@@ -130,14 +103,46 @@ const RegistrationPage = () => {
             name="address"
             rules={[{ required: true, message: "Please enter your address!" }]}
           >
-            <TextArea placeholder="Enter the address" />
+            <Input placeholder="Enter the address" />
           </Form.Item>
-		  <Form.Item label="Membership" name="user_type" defaultValue="NORMAL" rules={[{required: true, message: "Please select Membership!"}]} >
-			<Radio.Group>
+          <Form.Item
+		  	label="Account Type"
+			name="user_type"
+			rules={[
+			{
+				required: true,
+			},
+			]}
+		  >
+			<Select
+				placeholder="Select a option"
+				// onChange={(val) => form.setFieldsValue({user_type: val})}
+			>
+				<Option value="USER">Customer</Option>
+				<Option value="RESTAURANT">Restaurant</Option>
+				<Option value="DELIVERY_PARTNER">Delivery Partner</Option>
+			</Select>
+		  </Form.Item>
+		  <Form.Item label="Form Layout" name="layout"
+		  rules={[
+			{
+				required: true,
+			},
+			]} 
+		  >
+		    <Radio.Group>
+			  <Radio.Button value="horizontal">Horizontal</Radio.Button>
+			  <Radio.Button value="vertical">Vertical</Radio.Button>
+			  <Radio.Button value="inline">Inline</Radio.Button>
+		    </Radio.Group>
+		  </Form.Item>
+		  <Form.Item label="Membership" name="membership">
+			<Radio.Group defaultValue="NORMAL">
 				<Radio.Button value="PREMIUM">Plus Membership</Radio.Button>
 				<Radio.Button value="NORMAL">Normal Membership</Radio.Button>
 			</Radio.Group>
 		  </Form.Item>
+		  { formValues.user_type }
           <Button
             type="primary"
             style={{ left: "0px", backgroundColor: "black" }}
