@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Input, Button, Radio, message } from "antd";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 import "./Form.css";
 import image from "../Assets/images/registration.jpg";
 import { API } from "../Api";
@@ -13,45 +14,32 @@ const RegistrationPage = () => {
 
   const onSubmit = async (values) => {
     console.log("Received values:", values);
-	const { username, password, confirmPassword, user_type, phoneNumber, address, name } = values;
+	const { username, password, confirmPassword, phoneNumber, address, name } = values;
 	if (username && password && password === confirmPassword) {
 		try {
 		  // Make an API call to the /signup endpoint
-		  const response = await API.post("/register/user", { name, username, password, confirmPassword, user_type, phoneNumber, address });
+		  const response = await API.post("/register/user", { name, username, password, confirmPassword, user_type: "NORMAL", mobile: phoneNumber, address });
 	
 		  if (response.status === 201) {
 			// Handle success (e.g., redirect to a success page)
 			console.log("Registration successful!");
-			messageApi.open({
-				type: 'success',
-				content: 'User created Successfully!',
-			  });
-			  navigate('/login/user');
+			toast.success('User created Successfully!');
+			  setTimeout(() => {
+				  navigate('/login/user');
+			  }, 2000);
 		  } else {
 			// Handle error (e.g., display an error message)
-			messageApi.open({
-				type: 'error',
-				content: 'Error in user creation!',
-			});
+			toast.error('Error in user creation!');
 		  }
 		} catch (error) {
 		  console.error("An error occurred during registration:", error);
-		  messageApi.open({
-			  type: 'error',
-			  content: 'Error in user creation!',
-		  });
+		  toast.error('Error in user creation!');
 		}
 	} else {
 		if(password !== confirmPassword){
-			messageApi.open({
-				type: 'warning',
-				content: 'Password is not equal to Confirm Password!',
-			});
+			toast.warn('Confirm Password is not same as Password!');
 		} else {
-			messageApi.open({
-				type: 'warning',
-				content: 'Enter all the form details to create user!',
-			});
+			toast.warn('Enter all the form details to create user!');
 		}
 	}
   };
@@ -77,8 +65,8 @@ const RegistrationPage = () => {
           onFinish={onSubmit}
           layout="vertical"
         >
-		<h1>Test</h1>
-			<Form.Item
+		<h1>User Registration</h1>
+		<Form.Item
 			label="Name" //<div style={{ color: "#fff" }}
 			name="name"
 			rules={[
@@ -132,12 +120,12 @@ const RegistrationPage = () => {
           >
             <TextArea placeholder="Enter the address" />
           </Form.Item>
-		  <Form.Item label="Membership" name="user_type" defaultValue="NORMAL" rules={[{required: true, message: "Please select Membership!"}]} >
+		  { /*<Form.Item label="Membership" name="user_type" defaultValue="NORMAL" rules={[{required: true, message: "Please select Membership!"}]} >
 			<Radio.Group>
 				<Radio.Button value="PREMIUM">Plus Membership</Radio.Button>
 				<Radio.Button value="NORMAL">Normal Membership</Radio.Button>
 			</Radio.Group>
-		  </Form.Item>
+		</Form.Item> */}
           <Button
             type="primary"
             style={{ left: "0px", backgroundColor: "black" }}

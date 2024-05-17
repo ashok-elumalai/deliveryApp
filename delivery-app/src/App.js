@@ -7,6 +7,8 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "antd/dist/reset.css";
 import "./App.css";
 import RegistrationPage from "./pages/RegistrationPage";
@@ -99,10 +101,25 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/",
+    element: <PrivateRoute />, // This will act as a guard
+    children: [
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
+	]
+  },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+	<>
+		<ToastContainer />
+		<RouterProvider router={router} />
+  	</>
+	);
 }
 
 export default App;
