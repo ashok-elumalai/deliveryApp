@@ -1,12 +1,19 @@
 import React from "react";
-import { Form, Input, Button, Radio } from "antd";
+import { Form, Input, Button, Radio, Select } from "antd";
 import "./Form.css";
 import image from "../Assets/images/registration.jpg";
 import { API } from "../Api";
 
+const { Option } = Select;
+
 const RegistrationPage = () => {
+
+	// const [form] = Form.useForm();
+	// const [accountType, setAccountType] = useState('horizontal');
+
   const onSubmit = async (values) => {
     console.log("Received values:", values);
+	return null;
     try {
       // Make an API call to the /signup endpoint
       const response = await API.post("/register/user", { ...values});
@@ -24,18 +31,18 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="registration-container" style={{ width: "100%" }}>
-      <div className="image-container" style={{ width: "50%" }}>
+    <div className="registration-container" style={{ width: "100%", display: "flex", flexFlow: "row nowrap", height: '100%' }}>
+      <div className="image-container" style={{ width: "50%", height: '100%' }}>
         <img
           src={image}
-          style={{ width: "100%" }}
+          style={{ width: "100%", height: "100vh" }}
           alt="Background"
           className="background-image"
         />
       </div>
       <div
         className="form-container"
-        style={{ width: "50%" }} //backgroundColor: "black"
+        style={{ width: "50%",  height: "100vh", overflow: "auto" }} //backgroundColor: "black"
       >
         <Form
           style={{ width: "50%" }}
@@ -95,20 +102,50 @@ const RegistrationPage = () => {
             <Input placeholder="Enter the address" />
           </Form.Item>
           <Form.Item
-            label="Business Type"
-            name="business_type"
-            rules={[
-              { required: true, message: "Please enter your business type!" },
-            ]}
-          >
-            <Input placeholder="Enter the business typ eg: Restaurant/Cafe/Bar" />
-          </Form.Item>
-          <Form.Item label="" name="membership">
-            <Radio.Group defaultValue={1}>
-              <Radio value={1}>Plus Membership</Radio>
-              <Radio value={2}>Normal Membership</Radio>
-            </Radio.Group>
-          </Form.Item>
+		  	label="Account Type"
+			name="user_type"
+			rules={[
+			{
+				required: true,
+			},
+			]}
+		  >
+			<Select
+				placeholder="Select a option"
+				allowClear
+			>
+				<Option value="USER">Customer</Option>
+				<Option value="RESTAURANT">Restaurant</Option>
+				<Option value="DELIVERY_PARTNER">Delivery Partner</Option>
+			</Select>
+		  </Form.Item>
+		  <Form.Item label="Form Layout" name="layout"
+		  rules={[
+			{
+				required: true,
+			},
+			]} 
+		  >
+		    <Radio.Group>
+			  <Radio.Button value="horizontal">Horizontal</Radio.Button>
+			  <Radio.Button value="vertical">Vertical</Radio.Button>
+			  <Radio.Button value="inline">Inline</Radio.Button>
+		    </Radio.Group>
+		  </Form.Item>
+		  <Form.Item
+			shouldUpdate={(_prevValues, currentValues) => currentValues.user_type === "USER"}
+		  >
+			{({ getFieldValue }) =>
+				getFieldValue('user_type') === 'USER' ? (
+				<Form.Item label="Membership" name="membership">
+					<Radio.Group defaultValue="NORMAL">
+					  <Radio value="PREMIUM">Plus Membership</Radio>
+					  <Radio value="NORMAL">Normal Membership</Radio>
+					</Radio.Group>
+				  </Form.Item>
+				) : null
+			}
+		</Form.Item>
           <Button
             type="primary"
             style={{ left: "0px", backgroundColor: "black" }}
