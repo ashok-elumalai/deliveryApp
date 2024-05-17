@@ -66,7 +66,7 @@ const RegistrationPage = () => {
           layout="vertical"
         >
 		<h1>User Registration</h1>
-			<Form.Item
+		<Form.Item
 			label="Name" //<div style={{ color: "#fff" }}
 			name="name"
 			rules={[
