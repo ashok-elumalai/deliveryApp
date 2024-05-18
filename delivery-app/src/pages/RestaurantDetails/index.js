@@ -122,11 +122,6 @@ function RestaurantDetails() {
         <Button
           type="primary"
           onClick={() => {
-            //           window.SelectedDishes =
-            //   Object.keys(itemQuantities)?.length > 0
-            //     ? { orders: { ...itemQuantities } }
-            //     : {};
-            // console.log(itemQuantities, "count");
             dispatch(setOrders(itemQuantities));
             navigate("/user/checkout");
           }}
