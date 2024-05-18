@@ -51,14 +51,16 @@ function Menu() {
   const [menuItems, setMenuItems] = useState([]);
 
   const increase = (params) => {};
-  const decrease = (params) => {};
+  const editClick = (selectedDish) => {
+
+  };
 
   let { restaurant_id } = useParams();
 
   useEffect(() => {
     const getAllDishes = async () => {
       try {
-        const response = await API.get(`/dishes/${restaurant_id}`);
+        const response = await API.get(`/dishes/${localStorage.getItem('rest_id')}`);
         console.log(response);
         const data = response.data || {};
         if (response.status === 200 && data.dishes?.length) {
@@ -88,19 +90,15 @@ function Menu() {
               onClick={(e) => {}}
               key={`menu${index}`}
               // hoverable
-              style={{ width: 250, marginTop: 50 }}
+              style={{ width: 250, marginBottom: 50 }}
               cover={<img height={100} alt={value.name} src={image} />}
             >
               <Space direction="vertical">
                 <Meta title={value.name} description={value.description} />
                 <Meta title={`A$${value.price} - each`} />
                 <Space direction="horizontal">
-                  <Button onClick={decrease(value)} type="primary">
-                    <MinusOutlined />
-                  </Button>
-                  <Input min={0} max={10} readOnly />
-                  <Button onClick={increase(value)} type="primary">
-                    <PlusOutlined />
+                  <Button onClick={() => editClick(value)} type="primary">
+                    Edit
                   </Button>
                 </Space>
               </Space>
