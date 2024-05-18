@@ -50,7 +50,7 @@ function Menu() {
 
   const [menuItems, setMenuItems] = useState([]);
 
-  const increase = (params) => {};
+  const deleteClick = (selectedDish) => {};
   const editClick = (selectedDish) => {
 
   };
@@ -99,6 +99,9 @@ function Menu() {
                 <Space direction="horizontal">
                   <Button onClick={() => editClick(value)} type="primary">
                     Edit
+                  </Button>
+				  <Button onClick={() => deleteClick(value)} type="primary">
+                    Delete
                   </Button>
                 </Space>
               </Space>
