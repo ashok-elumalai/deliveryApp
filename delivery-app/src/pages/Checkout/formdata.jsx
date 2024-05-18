@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Input, Button, Typography, Radio } from "antd";
+import { useSelector } from "react-redux";
 
 const CheckoutForm = () => {
   const [form] = Form.useForm();
@@ -45,20 +46,25 @@ const CheckoutForm = () => {
         <Input placeholder="Landmark" />
       </Form.Item>
 
-      <Form.Item
-        name="pinCode"
-        rules={[{ required: true, message: "Please enter your postal code!" }]}
-      >
-        <Input placeholder="pincode" />
-      </Form.Item>
-      <Form.Item
-        name="contactNumber"
-        rules={[
-          { required: true, message: "Please enter your contact number!" },
-        ]}
-      >
-        <Input placeholder="contact number" />
-      </Form.Item>
+      <div style={{ display: "flex" }}>
+        <Form.Item
+          style={{ paddingRight: "4px" }}
+          name="pinCode"
+          rules={[
+            { required: true, message: "Please enter your postal code!" },
+          ]}
+        >
+          <Input placeholder="pincode" />
+        </Form.Item>
+        <Form.Item
+          name="contactNumber"
+          rules={[
+            { required: true, message: "Please enter your contact number!" },
+          ]}
+        >
+          <Input placeholder="contact number" />
+        </Form.Item>
+      </div>
 
       <Form.Item label="Payment Method" name="paymentMethod">
         <Radio.Group>
@@ -81,6 +87,13 @@ function CardForm() {
     console.log("Form values:", values);
   };
 
+  // const { orders: selectedOrders } = useSelector((state) => state.UserOrders);
+
+  useEffect(() => {
+    alert("2");
+    console.log(window, "checkout");
+  }, []);
+  console.log(window, "checkout");
   const [form] = Form.useForm();
   return (
     <Form
@@ -108,19 +121,22 @@ function CardForm() {
         <Input placeholder="card Number" />
       </Form.Item>
 
-      <Form.Item
-        name="validThrough"
-        rules={[{ required: true, message: "Please enter validThrough!" }]}
-      >
-        <Input placeholder="valid Through" />
-      </Form.Item>
+      <div style={{ display: "flex" }}>
+        <Form.Item
+          style={{ paddingRight: "4px" }}
+          name="validThrough"
+          rules={[{ required: true, message: "Please enter validThrough!" }]}
+        >
+          <Input placeholder="valid Through" />
+        </Form.Item>
 
-      <Form.Item
-        name="cvv"
-        rules={[{ required: true, message: "Please enter cvv" }]}
-      >
-        <Input placeholder="cvv" />
-      </Form.Item>
+        <Form.Item
+          name="cvv"
+          rules={[{ required: true, message: "Please enter cvv" }]}
+        >
+          <Input placeholder="cvv" />
+        </Form.Item>
+      </div>
 
       <Form.Item>
         <Button type="primary" htmlType="submit">

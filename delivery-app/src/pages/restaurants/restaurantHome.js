@@ -2,6 +2,7 @@ import { Avatar, Button, Layout, Tabs } from "antd";
 import { useNavigate } from "react-router-dom";
 import Orders from "./Orders";
 import Revenue from "./Revenue";
+import Menu from "./Menu";
 
 const items = [
   {
@@ -12,7 +13,7 @@ const items = [
   {
     key: 2,
     label: "Menu",
-    children: <div>Menu Content</div>,
+    children: <Menu />,
   },
   {
     key: 3,

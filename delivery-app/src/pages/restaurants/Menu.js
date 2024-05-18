@@ -18,7 +18,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import image from "../../Assets/images/login1.jpg";
 import API from "../../Api";
 import { getDishesData } from "../../testData";
-import { setOrders } from "../../state/userOrdersSlice";
 const { Meta } = Card;
 
 export const ResHeaderContainer = styled.div`
@@ -41,14 +40,7 @@ export const ResHeaderContainer = styled.div`
   }
 `;
 
-const TruncatedMeta = styled(Meta)`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px; /* Adjust max-width as needed */
-`;
-
-function RestaurantDetails() {
+function Menu() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const goBack = () => {
@@ -57,26 +49,9 @@ function RestaurantDetails() {
   };
 
   const [menuItems, setMenuItems] = useState([]);
-  const [itemQuantities, setItemQuantities] = useState({});
 
-  const increase = (item) => {
-    setItemQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [item.id]: (prevQuantities[item.id] || 0) + 1,
-    }));
-  };
-
-  const decrease = (item) => {
-    setItemQuantities((prevQuantities) => {
-      const newQuantity = Math.max(0, prevQuantities[item.id] - 1);
-      return { ...prevQuantities, [item.id]: newQuantity };
-    });
-  };
-  window.SelectedDishes =
-    Object.keys(itemQuantities)?.length > 0
-      ? { orders: { ...itemQuantities } }
-      : {};
-  console.log(itemQuantities, "count");
+  const increase = (params) => {};
+  const decrease = (params) => {};
 
   let { restaurant_id } = useParams();
 
@@ -109,6 +84,7 @@ function RestaurantDetails() {
   const currentRestaurant = useSelector(
     (state) => state.currentRestaurant.selectedRestaurant
   );
+
   return (
     <Layout>
       <ResHeaderContainer>
@@ -122,12 +98,6 @@ function RestaurantDetails() {
         <Button
           type="primary"
           onClick={() => {
-            //           window.SelectedDishes =
-            //   Object.keys(itemQuantities)?.length > 0
-            //     ? { orders: { ...itemQuantities } }
-            //     : {};
-            // console.log(itemQuantities, "count");
-            dispatch(setOrders(itemQuantities));
             navigate("/user/checkout");
           }}
         >
@@ -142,25 +112,17 @@ function RestaurantDetails() {
               key={`menu${index}`}
               // hoverable
               style={{ width: 250, marginTop: 50 }}
-              cover={
-                <img height={100} alt={value.name} src={value.image_url} />
-              }
+              cover={<img height={100} alt={value.name} src={image} />}
             >
               <Space direction="vertical">
-                <Meta title={value.name} />
-                <TruncatedMeta title={value.description} />
+                <Meta title={value.name} description={value.description} />
                 <Meta title={`A$${value.price} - each`} />
                 <Space direction="horizontal">
-                  <Button onClick={() => decrease(value)} type="primary">
+                  <Button onClick={decrease(value)} type="primary">
                     <MinusOutlined />
                   </Button>
-                  <Input
-                    min={0}
-                    max={100}
-                    value={itemQuantities ? itemQuantities[value?.id] : ""}
-                    readOnly
-                  />
-                  <Button onClick={() => increase(value)} type="primary">
+                  <Input min={0} max={10} readOnly />
+                  <Button onClick={increase(value)} type="primary">
                     <PlusOutlined />
                   </Button>
                 </Space>
@@ -173,4 +135,4 @@ function RestaurantDetails() {
   );
 }
 
-export default RestaurantDetails;
+export default Menu;
