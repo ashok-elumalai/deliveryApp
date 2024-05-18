@@ -100,7 +100,7 @@ function Menu() {
                   <Button onClick={() => editClick(value)} type="primary">
                     Edit
                   </Button>
-				  <Button onClick={() => deleteClick(value)} type="primary">
+				  <Button onClick={() => deleteClick(value)} type="primary" danger>
                     Delete
                   </Button>
                 </Space>
