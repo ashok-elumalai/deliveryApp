@@ -8,16 +8,19 @@ const items = [
   {
     key: 1,
     label: "Orders",
+	// forceRender: true,
     children: <Orders />,
   },
   {
     key: 2,
     label: "Menu",
+	// forceRender: true,
     children: <Menu />,
   },
   {
     key: 3,
     label: "Revenue",
+	// forceRender: true,
     children: <Revenue />,
   },
 ];
@@ -63,7 +66,7 @@ function RestaurantHome() {
             size={48}
           />
           <h2 style={{ color: "#fff", padding: 0, margin: 0, marginLeft: 10 }}>
-            Welcome {localStorage.getItem("rest_name")}!
+            {localStorage.getItem("rest_name")} at your service!
           </h2>
         </div>
         <div>

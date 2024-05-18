@@ -6,7 +6,7 @@ import API from "../../Api";
 const columns = [
   { title: "Order#", dataIndex: "orderNumber" },
   { title: "Items", dataIndex: "items" },
-  { title: "Address", dataIndex: "address" },
+  { title: "Order Date", dataIndex: "order_date" },
   { title: "Amount", dataIndex: "amount" },
   { title: "Status", dataIndex: "status" },
 //   {
@@ -35,34 +35,44 @@ function Revenue() {
         console.error("An error occurred during fetching orders:", error);
       }
     };
-    getAllOrders();
+	getAllOrders();
+	const timer = setInterval(() => {
+		getAllOrders();
+	}, 5000);
+
+	return () => {
+		clearInterval(timer);
+	}
   }, []);
 
   const data = useMemo( () => {
 	let grandTotal = 0;
-	let returner = tableData?.map((order) => {
+	let returner = [];
+	tableData?.forEach((order) => {
     const {
       user: { address, name },
       order: { total, status, order_date, id } = {},
       dishes,
     } = order;
     const items = dishes.length; // Calculate the number of dishes
-	grandTotal += total;
-    return {
-      orderNumber: id, // Use order.id for orderNumber
-      items: items.toString(), // Convert items count to string
-      address,
-      amount: total, // Use order.total for amount
-      status,
-    };
+	if(status !== 'REST_CANCELED' && status !== 'PAID'){
+		grandTotal += total;
+		returner.push({
+			orderNumber: id, // Use order.id for orderNumber
+			items: items.toString(), // Convert items count to string
+			order_date,
+			amount: total, // Use order.total for amount
+			status,
+		});
+	}
   });
-  setTotalRevenue(grandTotal);
+  setTotalRevenue(grandTotal.toFixed(2));
   return returner;
 }, [tableData]);
 
   return (
     <div style={{ padding: "10px" }}>
-	  <h1>Total Revenue:<span style={{ color:"red"}}>   {totalRevenue}</span></h1>
+	  <h1>Total Revenue:<span style={{ color:"rgb(212 171 6)"}}>   A${totalRevenue}</span></h1>
       {data?.length > 0 && (
         <Table
           dataSource={data}

@@ -6,7 +6,7 @@ function Orders() {
   const [tableData, setTableData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null); // State to store selected row data
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [orderStatus, setOrderStatus] = useState(0);
+  const [orderStatus, setOrderStatus] = useState("");
 
   useEffect(() => {
     const getAllOrders = async () => {
@@ -22,7 +22,15 @@ function Orders() {
         console.error("An error occurred during fetching orders:", error);
       }
     };
-    getAllOrders();
+	
+	getAllOrders();
+	const timer = setInterval(() => {
+		getAllOrders();
+	}, 5000);
+
+	return () => {
+		clearInterval(timer);
+	}
   }, []);
 
   const data = useMemo(() => {
@@ -48,14 +56,26 @@ function Orders() {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
+  const handleOk = async () => {
     setIsModalOpen(false);
-    setOrderStatus(0);
+	console.log(selectedRow);
+	try {
+        const response = await API.put(`/order/${selectedRow.orderNumber}`, { status: orderStatus });
+        if (response.status === 200) {
+        //   setTableData(response?.data?.orders);
+		
+			console.log("Order status changed");
+        } else {
+          // Handle error (e.g., display an error message)
+          console.error("Failed to fetch orders.");
+        }
+      } catch (error) {
+        console.error("An error occurred during fetching orders:", error);
+      }
   };
 
   const handleCancel = () => {
     setIsModalOpen(false);
-    setOrderStatus(0);
   };
 
   const columns = [
@@ -68,7 +88,10 @@ function Orders() {
       title: "Action",
       dataIndex: "",
       render: (record) => (
-        <Button style={{ color: "blue" }} onClick={() => showModal(record)}>
+        <Button style={{ color: "blue" }} onClick={() => {
+			showModal(record)
+			setOrderStatus(record.status)
+		}}>
           View
         </Button>
       ),
@@ -125,14 +148,14 @@ function Orders() {
           <>
             <p>Order Number: {selectedRow.orderNumber}</p>
             <p>Items: {selectedRow.items}</p>
-            <p>Address: {selectedRow.address}</p>
+            <p>Deliver To: {selectedRow.address}</p>
             <p>Contact: {selectedRow.contactNumber}</p>
             <p>Amount: {selectedRow.amount}</p>
-            <p>Payment Method: {selectedRow.paymentMethod}</p>
-            <p>Payment Status: {selectedRow.paymentStatus}</p>
+            <p>Payment Method: Online</p>
+            <p>Payment Status: PAID</p>
             {/* Add more details from selectedRow as needed */}
             <div>
-              {orderStatus === 0 ? (
+              {orderStatus === 'PAID' ? (
                 <>
                   <Button
                     style={{
@@ -140,7 +163,7 @@ function Orders() {
                       color: "white",
                       borderRadius: "50px",
                     }}
-                    onClick={() => setOrderStatus(1)}
+                    onClick={() => setOrderStatus("REST_ACCEPTED")}
                   >
                     Accept Order
                   </Button>
@@ -150,19 +173,23 @@ function Orders() {
                       color: "white",
                       borderRadius: "50px",
                     }}
+                    onClick={() => setOrderStatus("REST_CANCELED")}
                   >
                     Reject Order
                   </Button>
                 </>
               ) : (
-                <p style={{ color: "#038203" }}>Order Accepted</p>
+				orderStatus === 'REST_CANCELED' ? (<p style={{ color: "#ca0f0f" }}>Order Rejected</p>) : 
+                (<p style={{ color: "#038203" }}>Order Accepted</p>)
               )}
             </div>
-            <h3 style={{ paddingTop: "10px" }}>Update Order Status</h3>
-            <Radio.Group onChange={handleOrderStatus} value={orderStatus}>
-              <Radio value={1}>Preparing</Radio>
-              <Radio value={2}>Ready for pickup</Radio>
-            </Radio.Group>
+			{(selectedRow.status === 'REST_ACCEPTED' || selectedRow.status === 'PREPARING') && 
+            	(<><h3 style={{ paddingTop: "10px" }}>Update Order Status</h3>
+				<Radio.Group onChange={handleOrderStatus} value={orderStatus}>
+				  <Radio value={"PREPARING"}>Preparing</Radio>
+				  <Radio value={"READY_FOR_DELIVERY"}>Ready for pickup</Radio>
+				</Radio.Group></>)
+			}
           </>
         )}
       </Modal>

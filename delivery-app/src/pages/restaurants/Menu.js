@@ -62,18 +62,12 @@ function Menu() {
         console.log(response);
         const data = response.data || {};
         if (response.status === 200 && data.dishes?.length) {
-          localStorage.setItem("rest_id", data.restaurant?.id);
-          localStorage.setItem("rest_name", data.restaurant?.name);
           setMenuItems(data?.dishes);
         } else {
-          localStorage.setItem("rest_id", getDishesData.restaurant?.id);
-          localStorage.setItem("rest_name", getDishesData.restaurant?.name);
           setMenuItems(getDishesData.dishes);
           console.error("failed to get restaurants. Please reload the page");
         }
       } catch (error) {
-        localStorage.setItem("rest_id", getDishesData.restaurant?.id);
-        localStorage.setItem("rest_name", getDishesData.restaurant?.name);
         setMenuItems(getDishesData.dishes);
         console.error("An error occurred while loading restaurants:", error);
       }
@@ -87,23 +81,6 @@ function Menu() {
 
   return (
     <Layout>
-      <ResHeaderContainer>
-        <Space>
-          <LeftOutlined onClick={goBack} />
-          <Typography.Title>
-            {localStorage.getItem("rest_name")}
-          </Typography.Title>
-        </Space>
-
-        <Button
-          type="primary"
-          onClick={() => {
-            navigate("/user/checkout");
-          }}
-        >
-          Checkout
-        </Button>
-      </ResHeaderContainer>
       <Row gutter={[24, 20]} style={{ marginTop: 120, padding: 20 }}>
         {menuItems.map((value, index) => (
           <Col span={6}>
