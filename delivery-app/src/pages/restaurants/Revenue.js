@@ -1,5 +1,7 @@
 import { Button, Table } from "antd";
 import styles from "./orders.css";
+import { useEffect, useState } from "react";
+import API from "../../Api";
 
 const columns = [
   { title: "Order#", dataIndex: "orderNumber" },
@@ -14,7 +16,8 @@ const columns = [
   },
 ];
 
-const dataSource = [
+//TODO: remove removeData once integrated with api
+const removeData = [
   {
     orderNumber: 12345,
     items: "Cornflake Halibut",
@@ -47,10 +50,53 @@ const dataSource = [
 ];
 
 function Revenue() {
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    const getAllOrders = async () => {
+      try {
+        // Make an API call to the /signup endpoint
+        const response = await API.get("/restaurant/orders/restaurant_id");
+        if (response.status === 200) {
+          setTableData(response?.data?.orders);
+        } else {
+          // Handle error (e.g., display an error message)
+          console.error("Failed to fetch orders.");
+        }
+      } catch (error) {
+        console.error("An error occurred during fetching orders:", error);
+      }
+    };
+    getAllOrders();
+  }, []);
+
+  const data = tableData?.map((order) => {
+    const {
+      User: { address, name },
+      order: { total, status, order_date, id } = {},
+      dishes,
+    } = order;
+    const items = dishes.length; // Calculate the number of dishes
+
+    return {
+      orderNumber: id, // Use order.id for orderNumber
+      items: items.toString(), // Convert items count to string
+      address,
+      amount: total, // Use order.total for amount
+      status,
+    };
+  });
   return (
     <div style={{ padding: "10px" }}>
       <h3>Revenue</h3>
-      <Table dataSource={dataSource} columns={columns} pagination={false} />
+      {/* TODO: replace removeData when integrated with backend */}
+      {data?.length > 0 && (
+        <Table
+          dataSource={removeData || data}
+          columns={columns}
+          pagination={false}
+        />
+      )}
     </div>
   );
 }
