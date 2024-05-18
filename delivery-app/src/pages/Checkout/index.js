@@ -23,7 +23,7 @@ function CheckoutPage() {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate("/res");
+    navigate(-1);
   };
 
   return (

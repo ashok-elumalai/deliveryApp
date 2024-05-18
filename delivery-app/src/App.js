@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/user/restaurant/:id",
+        path: "/user/restaurant/:restaurant_id",
         element: <RestaurantDetails />,
       },
       {

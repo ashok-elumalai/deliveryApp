@@ -450,3 +450,68 @@ export const restaurantsData = [
 		"reviews": "Very reasonably priced, chana dal is really nice same with the garlic naan. Always friendly too!"
 	}
 ];
+
+export const getDishesData = {
+		"dishes": [
+			{
+				"description": "Garlic Naan stuffed with cheese and garlic",
+				"id": 119,
+				"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcQpo1HFtBZJPnIFkRevDaIRZ1fNEch6Zi5ym2nOtO-g&s",
+				"name": "Cheese Garlic Naan",
+				"price": 5.9,
+				"rating": 3.0,
+				"restaurant_id": 25
+			},
+			{
+				"description": "Spinach flavoured indian savoury stuffed with potatoes and greenpeas. ",
+				"id": 120,
+				"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ_1RMBBo1C9JC-JrbzLNf0fyIlAGG2Ag4EMaiKofojw&s",
+				"name": "Palak Ka Samosa",
+				"price": 9.9,
+				"rating": 3.0,
+				"restaurant_id": 25
+			},
+			{
+				"description": "Lamb chops marinated in spices and aromates, skewered and broiled in tandoor.",
+				"id": 121,
+				"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCP7g8gbryyWOLkivvBtXY1b9rZoFkfY_NqakwXq1VgA&s",
+				"name": "Barrah Kebab",
+				"price": 28.9,
+				"rating": 3.0,
+				"restaurant_id": 25
+			},
+			{
+				"description": "Cottage cheese cooked with flavorful gravy of onions, tomatoes and cashews.",
+				"id": 122,
+				"image_url": "https://madscookhouse.com/wp-content/uploads/2020/10/Paneer-Butter-Masala-Nut-Free-500x375.jpg",
+				"name": "Paneed Butter Masala",
+				"price": 21.9,
+				"rating": 3.0,
+				"restaurant_id": 25
+			},
+			{
+				"description": "Vegetable mince shaped into ping pong balls, deeply fried and mild curry gravy made of cashews.",
+				"id": 123,
+				"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVmRzl-iwtTmlD_oJ-XvdsY580Ax92W5nwPaPoTatNyQ&s",
+				"name": "Malai Kofta",
+				"price": 21.9,
+				"rating": 3.0,
+				"restaurant_id": 25
+			}
+		],
+		"restaurant": {
+			"address": "52/54 Crown St, Wollongong NSW 2500",
+			"close_time": "9:30 PM",
+			"cuisine": "RESTAURANT",
+			"distance": "4KM",
+			"expected_delivery_time": "7-9 Min",
+			"id": 25,
+			"image_url": "https://lh5.googleusercontent.com/p/AF1QipNjArek2kqjcj0x9E0UKIXUOT8hB9GyJQ1IH08h=w260-h175-n-k-no",
+			"mobile": "0242250481",
+			"name": "Asees Restaurtant",
+			"offers": "Free food delivery",
+			"open_time": "12:00 PM",
+			"rating": 4.0,
+			"reviews": "I recently had a fantastic meal at this restaurant the food was delicious and beautifully presented. The service was also excellent and the ambiance was cozy and inviting. I normally go there for traditional Indian dishes especially a must try dish in a menu the Prawn masala and fry Fish"
+		}
+	};

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import {
   Card,
@@ -13,79 +14,11 @@ import {
 import styled from "styled-components";
 import { LeftOutlined, PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import { setRestaurant } from "../../state/currentRestaurantSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import image from "../../Assets/images/login1.jpg";
+import API from '../../Api';
+import { getDishesData } from '../../testData';
 const { Meta } = Card;
-
-const menuItems = [
-  {
-    name: "Spaghetti Bolognese",
-    count: 0,
-    price: 12.99,
-    description: "Spaghetti pasta with hearty meat sauce",
-  },
-  {
-    name: "Margherita Pizza",
-    count: 0,
-    price: 9.99,
-    description: "Classic pizza with tomato sauce, mozzarella, and basil",
-  },
-  {
-    name: "Chicken Teriyaki",
-    count: 0,
-    price: 14.99,
-    description:
-      "Grilled chicken with teriyaki sauce, served with rice and vegetables",
-  },
-  {
-    name: "Caesar Salad",
-    count: 0,
-    price: 8.99,
-    description:
-      "Fresh romaine lettuce, croutons, Parmesan cheese, and Caesar dressing",
-  },
-  {
-    name: "Cheeseburger",
-    count: 0,
-    price: 10.99,
-    description:
-      "Juicy beef patty with cheese, lettuce, tomato, and pickles, served with fries",
-  },
-  {
-    name: "Vegetable Stir-Fry",
-    count: 0,
-    price: 11.99,
-    description:
-      "Assorted vegetables stir-fried in a savory sauce, served with rice",
-  },
-  {
-    name: "Chocolate Brownie Sundae",
-    count: 0,
-    price: 6.99,
-    description:
-      "Warm chocolate brownie topped with vanilla ice cream and chocolate sauce",
-  },
-  {
-    name: "Mushroom Risotto",
-    count: 0,
-    price: 13.99,
-    description: "Creamy risotto cooked with mushrooms and Parmesan cheese",
-  },
-  {
-    name: "Grilled Salmon",
-    count: 0,
-    price: 16.99,
-    description:
-      "Fresh grilled salmon served with mashed potatoes and steamed vegetables",
-  },
-  {
-    name: "Tiramisu",
-    count: 0,
-    price: 7.99,
-    description:
-      "Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cheese",
-  },
-];
 
 export const ResHeaderContainer = styled.div`
   height: 100px;
@@ -115,8 +48,38 @@ function RestaurantDetails() {
     navigate(-1);
   };
 
+  const [menuItems, setMenuItems] = useState([]);
+
   const increase = (params) => {};
   const decrease = (params) => {};
+
+  let { restaurant_id } = useParams();
+
+  useEffect(() => {
+    const getAllDishes = async () => {
+      try {
+        const response = await API.get(`/dishes/${restaurant_id}`);
+		console.log(response);
+		const data = response.data || {};
+        if (response.status === 200 && data.dishes?.length) {
+			localStorage.setItem('rest_id', data.restaurant?.id);
+			localStorage.setItem('rest_name', data.restaurant?.name);
+			setMenuItems(data?.dishes);
+        } else {
+			localStorage.setItem('rest_id', getDishesData.restaurant?.id);
+			localStorage.setItem('rest_name', getDishesData.restaurant?.name);
+			setMenuItems(getDishesData.dishes);
+          console.error("failed to get restaurants. Please reload the page");
+        }
+      } catch (error) {
+		localStorage.setItem('rest_id', getDishesData.restaurant?.id);
+		localStorage.setItem('rest_name', getDishesData.restaurant?.name);
+		setMenuItems(getDishesData.dishes);
+        console.error("An error occurred while loading restaurants:", error);
+      }
+    };
+    getAllDishes();
+  }, []);
 
   const currentRestaurant = useSelector(
     (state) => state.currentRestaurant.selectedRestaurant
@@ -126,7 +89,7 @@ function RestaurantDetails() {
       <ResHeaderContainer>
         <Space>
           <LeftOutlined onClick={goBack} />
-          <Typography.Title>{currentRestaurant?.name}</Typography.Title>
+          <Typography.Title>{localStorage.getItem('rest_name')}</Typography.Title>
         </Space>
 
         <Button
@@ -145,17 +108,17 @@ function RestaurantDetails() {
               onClick={(e) => {}}
               key={`menu${index}`}
               // hoverable
-              style={{ width: 250 }}
+              style={{ width: 250, marginTop: 50 }}
               cover={<img height={100} alt={value.name} src={image} />}
             >
               <Space direction="vertical">
-                <Meta title={value.name} description={value.description} />
-                <Meta title={value.price} />
+                <Meta title={value.name} description={value.description}/>
+                <Meta title={`A$${value.price} - each`} />
                 <Space direction="horizontal">
                   <Button onClick={decrease(value)} type="primary">
                     <MinusOutlined />
                   </Button>
-                  <Input min={0} value={value.count} max={10} readOnly />
+                  <Input min={0} max={10} readOnly />
                   <Button onClick={increase(value)} type="primary">
                     <PlusOutlined />
                   </Button>
