@@ -20,7 +20,7 @@ const RestaurantLoginPage = () => {
       if (response.status === 200) {
         // set token here
         dispatch(setToken(response?.data?.user_token));
-		const { id, name } = response.data;
+		const { id, name } = response.data?.user_details;
         const token = response?.data?.user_token;
 		if(token){
 			localStorage.setItem("token", token);
