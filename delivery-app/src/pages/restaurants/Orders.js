@@ -43,7 +43,7 @@ function Orders() {
   useEffect(() => {
     const getAllOrders = async () => {
       try {
-        const response = await API.get("/restaurant/orders/restaurant_id");
+        const response = await API.get(`/restaurant/orders/${localStorage.getItem('rest_id')}`);
         if (response.status === 200) {
           setTableData(response?.data?.orders);
         } else {
