@@ -4,10 +4,17 @@ import { useSelector } from "react-redux";
 
 const CheckoutForm = () => {
   const [form] = Form.useForm();
+  const selectedOrders = useSelector((state) => state.UserOrdersSlice.orders);
 
   const onFinish = (values) => {
     console.log("Form values:", values);
   };
+
+  // TODO: use this to send dishes to backend
+  const convertedData = [];
+  for (const item in selectedOrders) {
+    convertedData.push(...Array(selectedOrders[item]).fill(item));
+  }
 
   return (
     <Form
@@ -87,13 +94,6 @@ function CardForm() {
     console.log("Form values:", values);
   };
 
-  // const { orders: selectedOrders } = useSelector((state) => state.UserOrders);
-
-  useEffect(() => {
-    alert("2");
-    console.log(window, "checkout");
-  }, []);
-  console.log(window, "checkout");
   const [form] = Form.useForm();
   return (
     <Form
