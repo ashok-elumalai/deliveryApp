@@ -1,6 +1,6 @@
 import { Button, Table } from "antd";
 import styles from "./orders.css";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import API from "../../Api";
 
 const columns = [
@@ -9,54 +9,22 @@ const columns = [
   { title: "Address", dataIndex: "address" },
   { title: "Amount", dataIndex: "amount" },
   { title: "Status", dataIndex: "status" },
-  {
-    title: "Action",
-    dataIndex: "",
-    render: () => <Button type="text">View</Button>,
-  },
-];
-
-//TODO: remove removeData once integrated with api
-const removeData = [
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  // ... more orders
+//   {
+//     title: "Action",
+//     dataIndex: "",
+//     render: () => <Button type="text">View</Button>,
+//   },
 ];
 
 function Revenue() {
   const [tableData, setTableData] = useState([]);
+  const [totalRevenue, setTotalRevenue] = useState(0);
 
   useEffect(() => {
     const getAllOrders = async () => {
       try {
         // Make an API call to the /signup endpoint
-        const response = await API.get("/restaurant/orders/restaurant_id");
+        const response = await API.get(`/restaurant/orders/${localStorage.getItem('rest_id')}`);
         if (response.status === 200) {
           setTableData(response?.data?.orders);
         } else {
@@ -70,14 +38,16 @@ function Revenue() {
     getAllOrders();
   }, []);
 
-  const data = tableData?.map((order) => {
+  const data = useMemo( () => {
+	let grandTotal = 0;
+	let returner = tableData?.map((order) => {
     const {
-      User: { address, name },
+      user: { address, name },
       order: { total, status, order_date, id } = {},
       dishes,
     } = order;
     const items = dishes.length; // Calculate the number of dishes
-
+	grandTotal += total;
     return {
       orderNumber: id, // Use order.id for orderNumber
       items: items.toString(), // Convert items count to string
@@ -86,13 +56,16 @@ function Revenue() {
       status,
     };
   });
+  setTotalRevenue(grandTotal);
+  return returner;
+}, [tableData]);
+
   return (
     <div style={{ padding: "10px" }}>
-      <h3>Revenue</h3>
-      {/* TODO: replace removeData when integrated with backend */}
+	  <h1>Total Revenue:<span style={{ color:"red"}}>   {totalRevenue}</span></h1>
       {data?.length > 0 && (
         <Table
-          dataSource={removeData || data}
+          dataSource={data}
           columns={columns}
           pagination={false}
         />

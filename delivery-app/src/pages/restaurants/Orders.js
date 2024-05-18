@@ -1,38 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button, Form, Modal, Radio, Table } from "antd";
 import API from "../../Api";
-
-// //TODO: remove removeData once integrated with api
-const removeData = [
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  {
-    orderNumber: 45678,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-];
 
 function Orders() {
   const [tableData, setTableData] = useState([]);
@@ -57,9 +25,10 @@ function Orders() {
     getAllOrders();
   }, []);
 
-  const data = tableData?.map((order) => {
+  const data = useMemo(() => {
+	return tableData?.map((order) => {
     const {
-      User: { address, name },
+      user: { address, name },
       order: { total, status, order_date, id } = {},
       dishes,
     } = order;
@@ -72,7 +41,7 @@ function Orders() {
       amount: total, // Use order.total for amount
       status,
     };
-  });
+  })}, [tableData] );
 
   const showModal = (record) => {
     setSelectedRow(record); // Set selected row data on button click
@@ -116,7 +85,7 @@ function Orders() {
       <h3>Restaurant Orders</h3>
       {true && ( //data?.length > 0 // Check if data exists before rendering table
         <Table
-          dataSource={removeData || data}
+          dataSource={data}
           columns={columns}
           pagination={false}
           onRowClick={(record) => showModal(record)}
