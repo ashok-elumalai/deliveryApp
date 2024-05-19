@@ -128,7 +128,7 @@ function Menu() {
 
   const addDish = async (values) => {
     console.log(values);
-    const { dishname, amount, description } = values;
+    const { dishname, amount, description, image_url } = values;
     try {
       // Make an API call to the /signup endpoint
       const response = await API.post(
@@ -138,12 +138,12 @@ function Menu() {
           dish: {
             name: dishname,
             description,
-            //   image_url,
+            image_url,
             price: amount,
           },
         }
       );
-      if (response.status === 200) {
+      if (response.status === 201) {
         getAllDishes();
         setShowCreateModal(false);
         toast.success("Dish added Successfully!");
@@ -312,14 +312,19 @@ function Menu() {
                 justifyContent: "center",
               }}
             >
-              <Form.Item label="Dish Name" name="dishname">
+              <Form.Item label="Dish Name" name="dishname" rules={[{required: true,message: "Please enter the dish name!" }]}>
                 <Input placeholder="Enter name" />
               </Form.Item>
-              <Form.Item label="Amount ($)" name="amount">
+              <Form.Item label="Amount ($)" name="amount" rules={[{required: true,message: "Please enter the amount!" }]}>
                 <Input placeholder="Enter the amount" />
               </Form.Item>
-              <Form.Item label="Description" name="description">
+              <Form.Item label="Description" name="description" rules={[{required: true,message: "Please enter the description!" }]}>
                 <Input placeholder="Enter the description" />
+              </Form.Item>
+              <Form.Item label="Image" name="image_url" rules={[{required: true,message: "Please enter the image url!" }]}>
+                <Input
+                  placeholder="Enter the Image Url"
+                />
               </Form.Item>
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
