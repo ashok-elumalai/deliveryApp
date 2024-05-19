@@ -140,6 +140,7 @@ function Menu() {
             description,
             image_url,
             price: amount,
+			rating: 3
           },
         }
       );
