@@ -65,7 +65,7 @@ function RestaurantDetails() {
     setItemQuantities((prevQuantities) => {
 		let obj = {...prevQuantities};
 		const newQuantity = Math.max(0, obj[item.id] - 1);
-		if(newQuantity === 0){
+		if(newQuantity === 0 || !newQuantity){
 			delete obj[item.id];
 		} else {
 			obj = { ...obj, [item.id]: newQuantity };

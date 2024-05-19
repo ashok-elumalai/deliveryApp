@@ -16,10 +16,13 @@ import { ResHeaderContainer } from "../RestaurantDetails";
 import { useNavigate } from "react-router-dom";
 import CheckoutForm from "./formdata";
 import { useState } from "react";
+import API from '../../Api';
 
 function CheckoutPage() {
   const [formDetails, setFormDetails] = useState({});
   const [memberStatus, setMemberStatus] = useState(1);
+  const [memberPeriod, setMemberPeriod] = useState("MONTHLY");
+  const [isOnlinePayment, setIsOnlinePayment] = useState("ONLINE");
 
   const navigate = useNavigate();
 
@@ -32,10 +35,6 @@ function CheckoutPage() {
     setFormDetails(values);
   };
 
-  const makePayment = () => {
-    console.log(formDetails);
-  };
-
   function discountedAmount(totalAmount, discountPercentage) {
     const discountAmount = totalAmount * (discountPercentage / 100);
     const discountedTotal = totalAmount - discountAmount;
@@ -44,8 +43,10 @@ function CheckoutPage() {
 
   const isPremiumMember = memberStatus === 2 || localStorage.getItem("user_membership") === "PREMIUM";
 
+  const isNewMember = memberStatus === 2 && localStorage.getItem("user_membership") !== "PREMIUM"
+
   let totalPrice = 0;
-  let deliveryPrice = isPremiumMember ? 10 : 0;
+  let deliveryPrice = !isPremiumMember ? 10 : 0;
 
   
   const itemsArr = getConvertedData(window.SelectedDishes?.orders);
@@ -53,15 +54,19 @@ function CheckoutPage() {
 
   itemsArr.forEach(eachItemId => {
 	window.dishes?.forEach(eachDish => {
-		console.log(eachDish.id, eachItemId, ">>>");
+		// eslint-disable-next-line eqeqeq
 		if(eachDish.id == eachItemId) {
-			console.log(eachDish.id, eachItemId, " TRUEEE >>>");
 			totalPrice += eachDish.price;
 		}
 	})
-  })
+  });
 
-  console.log( { itemsArr, dishes: window.dishes, selectedDishes: window.SelectedDishes, totalPrice }, ">>>>>>>>>>" );
+  let membershipPrice = isNewMember ? (memberPeriod === 'MONTHLY' ? 20 : 180 ) : 0;
+
+  let grandTotal = isPremiumMember ? discountedAmount(totalPrice, 20) : totalPrice;
+  grandTotal = grandTotal + deliveryPrice;
+
+  console.log( { itemsArr, dishes: window.dishes, selectedDishes: window.SelectedDishes, totalPrice, member: memberStatus, locMem: localStorage.getItem("user_membership") }, ">>>>>>>>>>" );
 
   	function getConvertedData(selectedOrders) {
 		const convertedData = [];
@@ -72,6 +77,31 @@ function CheckoutPage() {
 		}
 		return convertedData;
 	}
+
+	
+	const makePayment = async (grandTotal, dishesIds) => {
+		console.log(formDetails);
+		localStorage.setItem("user_membership", isPremiumMember ? "PREMIUM" : "NORMAL");
+		try {
+			const response = await API.post(`/order_now`, {
+				restaurant_id: localStorage.getItem('rest_id'),
+				dish_ids: dishesIds,
+				total_price: grandTotal,
+				user_type: isPremiumMember ? "PREMIUM" : "NORMAL",
+				order_status: isOnlinePayment === "ONLINE" ? "PAID" : "UNPAID"
+			});
+			if (response.status === 201) {
+				console.log("Order placed successfully!");
+				setInterval(() => {
+					navigate("/");
+				}, 3000);
+			} else {
+			  console.error("Failed to place Order");
+			}
+		  } catch (error) {
+			console.error("An error occured while placing order:", error);
+		  }
+	  };
 
   return (
     <>
@@ -104,7 +134,12 @@ function CheckoutPage() {
           <div>
             <CheckoutForm
               onFinish={onFinish}
+			  isAlreadyPremium={localStorage.getItem('user_membership') === 'PREMIUM'}
+			  memberStatus={memberStatus}
               setMemberStatus={setMemberStatus}
+			  memberPeriod={memberPeriod}
+			  setMemberPeriod={setMemberPeriod}
+			  setIsOnlinePayment={setIsOnlinePayment}
             />
           </div>
           <div style={{ width: "250px" }}>
@@ -113,26 +148,46 @@ function CheckoutPage() {
               <p>Items</p>
               <p>{numberOfItems}</p>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <p>Delivery Charge</p>
-              <p>{deliveryPrice ? deliveryPrice : 'Free'}</p>
-            </div>
-            { isPremiumMember && (
+            
+			  <div style={{ display: "flex", justifyContent: "space-between" }}>
+				<p>Dishes Cost</p>
+				<p>
+				  ${isPremiumMember ? //TODO: remove 100 in bellow line and add amount from window?.SelectedDishes?.amount
+				  discountedAmount(totalPrice, 20)
+					: totalPrice}
+				</p>
+			  </div>
+			  
+			  { isPremiumMember && (
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  <p>Member Discount</p>
+                  <p>Member Discount on dishes cost</p>
                   <p>20%</p>
                 </div>
               )}
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <p style={{ fontWeight: 700 }}>Total</p>
-              <p>
-                {isPremiumMember ? //TODO: remove 100 in bellow line and add amount from window?.SelectedDishes?.amount
-                    discountedAmount(totalPrice, 20)
-                  : totalPrice}
-              </p>
-            </div>
+
+			  {/* 
+			  { isNewMember && (
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <p>Membership Price</p>
+                  <p>${membershipPrice}</p>
+                </div>
+              )}
+			*/}
+
+			  <div style={{ display: "flex", justifyContent: "space-between" }}>
+				<p>Delivery & Service Charge</p>
+				<p>{deliveryPrice ? `$${deliveryPrice}` : 'Free'}</p>
+			  </div>
+			  <div style={{ display: "flex", justifyContent: "space-between" }}>
+				<p style={{ fontWeight: 700 }}>Total</p>
+				<p>
+				  ${grandTotal}
+				</p>
+			  </div>
             <div
               style={{
                 display: "flex",
@@ -145,7 +200,7 @@ function CheckoutPage() {
                   color: "white",
                   borderRadius: "50px",
                 }}
-                onClick={makePayment}
+                onClick={() => makePayment(grandTotal, itemsArr)}
               >
                 Make Payment
               </Button>

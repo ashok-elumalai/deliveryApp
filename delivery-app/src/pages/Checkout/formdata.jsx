@@ -4,11 +4,10 @@ import { useSelector } from "react-redux";
 import { LoadingOutlined } from "@ant-design/icons";
 
 const CheckoutForm = (props) => {
-  const { onFinish, setMemberStatus } = props;
+  const { onFinish, memberStatus, setMemberStatus, isAlreadyPremium, memberPeriod, setMemberPeriod, setIsOnlinePayment } = props;
   const [form] = Form.useForm();
 
-  const [paymentMethod, setPaymentMethod] = useState(2);
-  const [goldMember, setGoldMember] = useState(1);
+  const [paymentMethod, setPaymentMethod] = useState("ONLINE");
   const [isLoading, setIsLoading] = useState(false);
 
   // TODO: use this to send dishes to backend
@@ -42,8 +41,9 @@ const CheckoutForm = (props) => {
         landMark: "",
         pinCode: "",
         contactNumber: "",
-        paymentMethod: 2,
-        goldMember: 1,
+        paymentMethod: "ONLINE",
+		goldMember: memberStatus,
+		memberPeriod: memberPeriod
       }}
     >
       <Form.Item
@@ -93,15 +93,16 @@ const CheckoutForm = (props) => {
       <Form.Item label="Payment Method" name="paymentMethod">
         <Radio.Group
           onChange={(e) => {
+			  setIsOnlinePayment(e.target.value);
             setPaymentMethod(e.target.value);
           }}
         >
-          <Radio value={1}>Cash On Delivery</Radio>
-          <Radio value={2}>Credit or Debit card</Radio>
+          <Radio value={"COD"}>Cash On Delivery</Radio>
+          <Radio value={"ONLINE"}>Credit or Debit card</Radio>
         </Radio.Group>
       </Form.Item>
 
-      {paymentMethod === 2 && (
+      {paymentMethod === "ONLINE" && (
         <div>
           <Form.Item
             name="nameOnCard"
@@ -137,14 +138,11 @@ const CheckoutForm = (props) => {
               <Input placeholder="cvv" />
             </Form.Item>
           </div>
-          {localStorage.getItem("user_membership") !== "PREMIUM" && (
+          { !isAlreadyPremium && localStorage.getItem("user_membership") !== "PREMIUM" && (
             <Form.Item label="Become a member" name="goldMember">
               <Radio.Group
                 onChange={(e) => {
-                  setGoldMember(e.target.value);
-                  if (e.target.value === 2) {
-                    setMemberStatus(2);
-                  }
+				  setMemberStatus(e.target.value);
                 }}
               >
                 <Radio value={1}>Normal</Radio>
@@ -152,18 +150,22 @@ const CheckoutForm = (props) => {
               </Radio.Group>
             </Form.Item>
           )}
-          {goldMember === 2 && (
+          { !isAlreadyPremium && memberStatus === 2 && localStorage.getItem("user_membership") !== "PREMIUM" && (
             <div style={{ display: "flex" }}>
-              <Form.Item label="">
+              <Form.Item label="Membership Period" name="memberPeriod">
                 <Radio.Group
                   onChange={(e) => {
-                    setMemberStatus(e.target.value);
+                    setMemberPeriod(e.target.value);
                   }}
+            	 rules={[{ required: true, message: "Please select Membership period" }]}
                 >
-                  <Radio value={1}>Monthly: $20</Radio>
-                  <Radio value={2}>Anually: $180</Radio>
+                  <Radio value={"MONTHLY"}>Monthly: $20</Radio>
+                  <Radio value={"ANNUALLY"}>Anually: $180</Radio>
                 </Radio.Group>
               </Form.Item>
+			  {/*
+			
+			*/}
               {localStorage.getItem("user_membership") !== "PREMIUM" && (
                 <Button
                   style={{
