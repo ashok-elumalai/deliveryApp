@@ -84,7 +84,7 @@ function Menu() {
   return (
     <Layout>
 	  <h1 style={{ color: "blue" }}>Restaurant Menu</h1>
-      <Row gutter={[24, 20]} style={{ marginTop: 120, padding: 20 }}>
+      <Row gutter={[24, 20]} style={{ padding: 20 }}>
         {menuItems.map((value, index) => (
           <Col span={6}>
             <Card
