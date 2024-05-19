@@ -51,8 +51,7 @@ function CheckoutPage() {
           <Space>
             <LeftOutlined onClick={goBack} />
             <Typography.Title>
-              {" "}
-              {`${currentRestaurant?.name} (Checkout)`}
+              Checkout
             </Typography.Title>
           </Space>
 
@@ -82,8 +81,7 @@ function CheckoutPage() {
           <div style={{ width: "250px" }}>
             <h3>Payment Details</h3>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              {/* TODO: Remove Burger from below line */}
-              <p>{window?.SelectedDishes}Burger</p>
+              <p>Items</p>
               <p>$5</p>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
