@@ -115,7 +115,7 @@ function UserOrders() {
 
   return (
     <div style={{ padding: "10px" }}>
-      <h3>Restaurant Orders</h3>
+      <h3 style={{ color: "blue" }}>Restaurant Orders</h3>
       {true && ( //data?.length > 0 // Check if data exists before rendering table
         <Table
           dataSource={removeData || data}

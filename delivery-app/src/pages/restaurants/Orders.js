@@ -11,7 +11,9 @@ function Orders() {
   useEffect(() => {
     const getAllOrders = async () => {
       try {
-        const response = await API.get(`/restaurant/orders/${localStorage.getItem('rest_id')}`);
+        const response = await API.get(
+          `/restaurant/orders/${localStorage.getItem("rest_id")}`
+        );
         if (response.status === 200) {
           setTableData(response?.data?.orders);
         } else {
@@ -22,34 +24,35 @@ function Orders() {
         console.error("An error occurred during fetching orders:", error);
       }
     };
-	
-	getAllOrders();
-	const timer = setInterval(() => {
-		getAllOrders();
-	}, 5000);
 
-	return () => {
-		clearInterval(timer);
-	}
+    getAllOrders();
+    const timer = setInterval(() => {
+      getAllOrders();
+    }, 5000);
+
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
   const data = useMemo(() => {
-	return tableData?.map((order) => {
-    const {
-      user: { address, name },
-      order: { total, status, order_date, id } = {},
-      dishes,
-    } = order;
-    const items = dishes.length; // Calculate the number of dishes
+    return tableData?.map((order) => {
+      const {
+        user: { address, name },
+        order: { total, status, order_date, id } = {},
+        dishes,
+      } = order;
+      const items = dishes.length; // Calculate the number of dishes
 
-    return {
-      orderNumber: id, // Use order.id for orderNumber
-      items: items.toString(), // Convert items count to string
-      address,
-      amount: total, // Use order.total for amount
-      status,
-    };
-  })}, [tableData] );
+      return {
+        orderNumber: id, // Use order.id for orderNumber
+        items: items.toString(), // Convert items count to string
+        address,
+        amount: total, // Use order.total for amount
+        status,
+      };
+    });
+  }, [tableData]);
 
   const showModal = (record) => {
     setSelectedRow(record); // Set selected row data on button click
@@ -58,20 +61,22 @@ function Orders() {
 
   const handleOk = async () => {
     setIsModalOpen(false);
-	console.log(selectedRow);
-	try {
-        const response = await API.put(`/order/${selectedRow.orderNumber}`, { status: orderStatus });
-        if (response.status === 200) {
+    console.log(selectedRow);
+    try {
+      const response = await API.put(`/order/${selectedRow.orderNumber}`, {
+        status: orderStatus,
+      });
+      if (response.status === 200) {
         //   setTableData(response?.data?.orders);
-		
-			console.log("Order status changed");
-        } else {
-          // Handle error (e.g., display an error message)
-          console.error("Failed to fetch orders.");
-        }
-      } catch (error) {
-        console.error("An error occurred during fetching orders:", error);
+
+        console.log("Order status changed");
+      } else {
+        // Handle error (e.g., display an error message)
+        console.error("Failed to fetch orders.");
       }
+    } catch (error) {
+      console.error("An error occurred during fetching orders:", error);
+    }
   };
 
   const handleCancel = () => {
@@ -88,10 +93,13 @@ function Orders() {
       title: "Action",
       dataIndex: "",
       render: (record) => (
-        <Button style={{ color: "blue" }} onClick={() => {
-			showModal(record)
-			setOrderStatus(record.status)
-		}}>
+        <Button
+          style={{ color: "blue" }}
+          onClick={() => {
+            showModal(record);
+            setOrderStatus(record.status);
+          }}
+        >
           View
         </Button>
       ),
@@ -105,7 +113,7 @@ function Orders() {
 
   return (
     <div style={{ padding: "10px" }}>
-      <h3>Restaurant Orders</h3>
+      <h3 style={{ color: "blue" }}>Restaurant Orders</h3>
       {true && ( //data?.length > 0 // Check if data exists before rendering table
         <Table
           dataSource={data}
@@ -155,7 +163,7 @@ function Orders() {
             <p>Payment Status: PAID</p>
             {/* Add more details from selectedRow as needed */}
             <div>
-              {orderStatus === 'PAID' ? (
+              {orderStatus === "PAID" ? (
                 <>
                   <Button
                     style={{
@@ -178,18 +186,22 @@ function Orders() {
                     Reject Order
                   </Button>
                 </>
+              ) : orderStatus === "REST_CANCELED" ? (
+                <p style={{ color: "#ca0f0f" }}>Order Rejected</p>
               ) : (
-				orderStatus === 'REST_CANCELED' ? (<p style={{ color: "#ca0f0f" }}>Order Rejected</p>) : 
-                (<p style={{ color: "#038203" }}>Order Accepted</p>)
+                <p style={{ color: "#038203" }}>Order Accepted</p>
               )}
             </div>
-			{(selectedRow.status === 'REST_ACCEPTED' || selectedRow.status === 'PREPARING') && 
-            	(<><h3 style={{ paddingTop: "10px" }}>Update Order Status</h3>
-				<Radio.Group onChange={handleOrderStatus} value={orderStatus}>
-				  <Radio value={"PREPARING"}>Preparing</Radio>
-				  <Radio value={"READY_FOR_DELIVERY"}>Ready for pickup</Radio>
-				</Radio.Group></>)
-			}
+            {(selectedRow.status === "REST_ACCEPTED" ||
+              selectedRow.status === "PREPARING") && (
+              <>
+                <h3 style={{ paddingTop: "10px" }}>Update Order Status</h3>
+                <Radio.Group onChange={handleOrderStatus} value={orderStatus}>
+                  <Radio value={"PREPARING"}>Preparing</Radio>
+                  <Radio value={"READY_FOR_DELIVERY"}>Ready for pickup</Radio>
+                </Radio.Group>
+              </>
+            )}
           </>
         )}
       </Modal>
