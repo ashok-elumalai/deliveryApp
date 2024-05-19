@@ -82,16 +82,19 @@ function RestaurantDetails() {
           localStorage.setItem("rest_id", data.restaurant?.id);
           localStorage.setItem("rest_name", data.restaurant?.name);
           setMenuItems(data?.dishes);
+		  window.dishes = data?.dishes;
         } else {
           localStorage.setItem("rest_id", getDishesData.restaurant?.id);
           localStorage.setItem("rest_name", getDishesData.restaurant?.name);
           setMenuItems(getDishesData.dishes);
+		  window.dishes = getDishesData.dishes;
           console.error("failed to get restaurants. Please reload the page");
         }
       } catch (error) {
         localStorage.setItem("rest_id", getDishesData.restaurant?.id);
         localStorage.setItem("rest_name", getDishesData.restaurant?.name);
         setMenuItems(getDishesData.dishes);
+		window.dishes = getDishesData.dishes;
         console.error("An error occurred while loading restaurants:", error);
       }
     };

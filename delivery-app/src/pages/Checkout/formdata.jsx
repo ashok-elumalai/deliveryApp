@@ -58,14 +58,14 @@ const CheckoutForm = (props) => {
 
       <Form.Item
         name="locality"
-        rules={[{ required: true, message: "Please enter your locality!" }]}
+        // rules={[{ required: true, message: "Please enter your locality!" }]}
       >
         <Input placeholder="Locality" />
       </Form.Item>
 
       <Form.Item
         name="landMark"
-        rules={[{ required: true, message: "Please enter your landMark!" }]}
+        // rules={[{ required: true, message: "Please enter your landMark!" }]}
       >
         <Input placeholder="Landmark" />
       </Form.Item>

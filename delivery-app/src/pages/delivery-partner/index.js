@@ -7,7 +7,7 @@ function DeliveryPartnerHome() {
   const [tableData, setTableData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null); // State to store selected row data
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [orderStatus, setOrderStatus] = useState(0);
+  const [orderStatus, setOrderStatus] = useState("PREPARING");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,19 +35,24 @@ function DeliveryPartnerHome() {
 	  let returner = [];
 	tableData?.forEach(order => {
 		const {
-		user: { address, name },
+		user: { address, name, mobile },
 		order: { total, status, order_date, id } = {},
-		restaurant: { restaurantName },
+		restaurant: { name: restName, mobile: restMobile, address: restAddress },
 		dishes,
 		} = order;
 		const items = dishes.length; // Calculate the number of dishes
 			
 		// if(status === 'READY_FOR_DELIVERY' || status === 'OUT_FOR_DELIVERY' || status !== "DELIVERED"){
 			returner.push({
+				userName: name,
+				userAddress: address,
+				userMobile: mobile,
 				orderNumber: id, // Use order.id for orderNumber
+				orderDate: order_date,
 				items: items.toString(), // Convert items count to string
-				restaurant: restaurantName,
-				address,
+				restName,
+				restMobile,
+				restAddress,
 				amount: total, // Use order.total for amount
 				status,
 			});
@@ -76,14 +81,27 @@ function DeliveryPartnerHome() {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
+  const handleOk = async (selectedRow) => {
     setIsModalOpen(false);
-    setOrderStatus(0);
+	try {
+		const response = await API.put(`/order/${selectedRow.orderNumber}`, {
+		  status: orderStatus,
+		});
+		if (response.status === 200) {
+		  //   setTableData(response?.data?.orders);
+  
+		  console.log("Order status changed");
+		} else {
+		  // Handle error (e.g., display an error message)
+		  console.error("Failed to fetch orders.");
+		}
+	} catch (error) {
+		console.error("An error occurred during fetching orders:", error);
+	}
   };
 
   const handleCancel = () => {
     setIsModalOpen(false);
-    setOrderStatus(0);
   };
 
   const handleOrderStatus = (e) => {
@@ -94,8 +112,8 @@ function DeliveryPartnerHome() {
   const columns = [
     { title: "Order#", dataIndex: "orderNumber" },
     { title: "Items", dataIndex: "items" },
-    { title: "Restaurant", dataIndex: "restaurant" },
-    { title: "Restaurant Address", dataIndex: "address" },
+    { title: "Restaurant", dataIndex: "restName" },
+    { title: "Restaurant Address", dataIndex: "restAddress" },
     { title: "Amount", dataIndex: "amount" },
     { title: "Status", dataIndex: "status" },
     {
@@ -152,7 +170,7 @@ function DeliveryPartnerHome() {
       </Layout.Header>
       <div style={{ padding: "10px", paddingTop: "70px" }}>
         <div style={{ padding: "10px" }}>
-          <h3 style={{ color: "blue" }}>Orders ready to pick up</h3>
+          <h2 style={{ color: "blue" }}>Orders ready to pick up</h2>
           {true && ( //data?.length > 0 // Check if data exists before rendering table
             <Table
               dataSource={data}
@@ -175,8 +193,9 @@ function DeliveryPartnerHome() {
                   }}
                   onClick={handleCancel}
                 >
-                  Cancel
+					Close
                 </Button>
+				{selectedRow.status !== 'DELIVERED' && 
                 <Button
                   style={{
                     background: "black",
@@ -184,35 +203,37 @@ function DeliveryPartnerHome() {
                     borderRadius: "50px",
                     marginLeft: "5px",
                   }}
-                  onClick={handleOk}
+                  onClick={() => handleOk(selectedRow)}
                 >
                   Save
                 </Button>
+				}
               </div>
             }
           >
             {selectedRow && (
               <>
-                <p style={{ color: "blue" }}>Customer Details</p>
-                <p>Order Number: {selectedRow.orderNumber}</p>
-                <p>Items: {selectedRow.items}</p>
+                <u style={{ color: "blue", fontWeight: 'bold' }}>Customer Details</u>
                 {/* <p>Restaurant: {selectedRow?.Restaurant}</p> */}
-                <p>Address: {selectedRow.address}</p> {/*Customer Address*/}
-                <p>Contact: {selectedRow.contactNumber}</p>
+                <p>Address: {selectedRow.userAddress}</p> {/*Customer Address*/}
+                <p>Contact: {selectedRow.userMobile}</p>
                 <p>Bill Amount: {selectedRow.amount}</p>
                 <p>Payment Method: Online</p>
 				<p>Payment Status: {selectedRow.status === 'UNPAID' ? 'Unpaid' : "Paid"}</p>
                 {/* Add more details from selectedRow as needed */}
-                <p style={{ color: "#038203" }}>{selectedRow.status}</p>
-                <p style={{ color: "blue" }}>Restaraunt Details</p>
+                <p style={{ color: "#038203", fontWeight: 'bold' }}>{selectedRow.status}</p>
+                <u style={{ color: "blue", fontWeight: 'bold' }}>Restaraunt Details</u>
                 <p>Order Number: {selectedRow.orderNumber}</p>
-                <p>Items: {selectedRow.items}</p>
-                <p>Address: {selectedRow.address}</p> {/*Restaurant Address*/}
-                <h3 style={{ paddingTop: "10px" }}>Update Order Status</h3>
-                <Radio.Group onChange={handleOrderStatus} value={orderStatus}>
-                  <Radio value={"ORDERED_PICKED_UP"}>Ordered picked up</Radio>
-                  <Radio value={"DELIVERED"}>Delivered</Radio>
-                </Radio.Group>
+                <p>Address: {selectedRow.restAddress}</p> {/*Restaurant Address*/}
+                <p>Contact: {selectedRow.restMobile}</p> {/*Restaurant Address*/}
+				{ selectedRow.status !== 'DELIVERED' && ( <>
+						<h3 style={{ paddingTop: "10px" }}>Update Order Status</h3>
+						<Radio.Group onChange={handleOrderStatus} value={orderStatus}>
+						<Radio value={"OUT_FOR_DELIVERY"}>Ordered picked up</Radio>
+						<Radio value={"DELIVERED"}>Delivered</Radio>
+						</Radio.Group>
+					</>)
+				}
               </>
             )}
           </Modal>

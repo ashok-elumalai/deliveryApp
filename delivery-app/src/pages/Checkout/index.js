@@ -20,9 +20,7 @@ import { useState } from "react";
 function CheckoutPage() {
   const [formDetails, setFormDetails] = useState({});
   const [memberStatus, setMemberStatus] = useState(1);
-  const currentRestaurant = useSelector(
-    (state) => state.currentRestaurant.selectedRestaurant
-  );
+
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -43,6 +41,37 @@ function CheckoutPage() {
     const discountedTotal = totalAmount - discountAmount;
     return discountedTotal;
   }
+
+  const isPremiumMember = memberStatus === 2 || localStorage.getItem("user_membership") === "PREMIUM";
+
+  let totalPrice = 0;
+  let deliveryPrice = isPremiumMember ? 10 : 0;
+
+  
+  const itemsArr = getConvertedData(window.SelectedDishes?.orders);
+  const numberOfItems = itemsArr?.length || 0;
+
+  itemsArr.forEach(eachItemId => {
+	window.dishes?.forEach(eachDish => {
+		console.log(eachDish.id, eachItemId, ">>>");
+		if(eachDish.id == eachItemId) {
+			console.log(eachDish.id, eachItemId, " TRUEEE >>>");
+			totalPrice += eachDish.price;
+		}
+	})
+  })
+
+  console.log( { itemsArr, dishes: window.dishes, selectedDishes: window.SelectedDishes, totalPrice }, ">>>>>>>>>>" );
+
+  	function getConvertedData(selectedOrders) {
+		const convertedData = [];
+		if(selectedOrders) {
+			for (const item in selectedOrders) {
+				convertedData.push(...Array(selectedOrders[item]).fill(item));
+			}
+		}
+		return convertedData;
+	}
 
   return (
     <>
@@ -82,29 +111,26 @@ function CheckoutPage() {
             <h3>Payment Details</h3>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <p>Items</p>
-              <p>$5</p>
+              <p>{numberOfItems}</p>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <p>Delivery Charge</p>
-              <p>$1</p>
+              <p>{deliveryPrice ? deliveryPrice : 'Free'}</p>
             </div>
-            {memberStatus === 2 &&
-              localStorage.getItem("user_membership") === "PREMIUM" && (
+            { isPremiumMember && (
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  <p>Discount</p>
+                  <p>Member Discount</p>
                   <p>20%</p>
                 </div>
               )}
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <p style={{ fontEeight: 700 }}>Total</p>
+              <p style={{ fontWeight: 700 }}>Total</p>
               <p>
-                {memberStatus === 2 &&
-                localStorage.getItem("user_membership") === "PREMIUM"
-                  ? //TODO: remove 100 in bellow line and add amount from window?.SelectedDishes?.amount
-                    discountedAmount(100, 20)
-                  : "$6"}
+                {isPremiumMember ? //TODO: remove 100 in bellow line and add amount from window?.SelectedDishes?.amount
+                    discountedAmount(totalPrice, 20)
+                  : totalPrice}
               </p>
             </div>
             <div
