@@ -10,24 +10,24 @@ function DeliveryPartnerHome() {
   const [orderStatus, setOrderStatus] = useState("PREPARING");
   const navigate = useNavigate();
 
+  const getAllOrders = async () => {
+	try {
+	  const response = await API.get(
+		`/delivery_partner/orders/${localStorage.getItem(
+		  "deli_id"
+		)}`
+	  );
+	  if (response.status === 200) {
+		setTableData(response?.data?.orders);
+	  } else {
+		// Handle error (e.g., display an error message)
+		console.error("Failed to fetch orders.");
+	  }
+	} catch (error) {
+	  console.error("An error occurred during fetching orders:", error);
+	}
+  };
   useEffect(() => {
-    const getAllOrders = async () => {
-      try {
-        const response = await API.get(
-          `/delivery_partner/orders/${localStorage.getItem(
-            "deli_id"
-          )}`
-        );
-        if (response.status === 200) {
-          setTableData(response?.data?.orders);
-        } else {
-          // Handle error (e.g., display an error message)
-          console.error("Failed to fetch orders.");
-        }
-      } catch (error) {
-        console.error("An error occurred during fetching orders:", error);
-      }
-    };
     getAllOrders();
   }, []);
 
@@ -89,7 +89,7 @@ function DeliveryPartnerHome() {
 		});
 		if (response.status === 200) {
 		  //   setTableData(response?.data?.orders);
-  
+		  getAllOrders();
 		  console.log("Order status changed");
 		} else {
 		  // Handle error (e.g., display an error message)
