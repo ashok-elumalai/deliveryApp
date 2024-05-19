@@ -41,13 +41,6 @@ export const ResHeaderContainer = styled.div`
   }
 `;
 
-const TruncatedMeta = styled(Meta)`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px; /* Adjust max-width as needed */
-`;
-
 function RestaurantDetails() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -143,7 +136,15 @@ function RestaurantDetails() {
             >
               <Space direction="vertical">
                 <Meta title={value.name} />
-                <TruncatedMeta title={value.description} />
+                <Meta
+                  style={{
+                    fontSize: "small",
+                    fontWeight: "300",
+                    maxWidth: "200px",
+                    minHeight: "74px",
+                  }}
+                  description={value.description}
+                />
                 <Meta title={`A$${value.price} - each`} />
                 <Space direction="horizontal">
                   <Button onClick={() => decrease(value)} type="primary">

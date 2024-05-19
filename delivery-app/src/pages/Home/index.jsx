@@ -143,7 +143,6 @@ function HomeData() {
         // restaurant.rating
       );
     });
-    console.log(e.target.value, restaurants, searchedData);
     setFilteredData(searchedData);
   };
 
