@@ -53,16 +53,24 @@ function RestaurantDetails() {
   const [itemQuantities, setItemQuantities] = useState({});
 
   const increase = (item) => {
-    setItemQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [item.id]: (prevQuantities[item.id] || 0) + 1,
-    }));
+    setItemQuantities((prevQuantities) => {
+		return ({
+		...prevQuantities,
+		[item.id]: (prevQuantities[item.id] || 0) + 1,
+		})
+  });
   };
 
   const decrease = (item) => {
     setItemQuantities((prevQuantities) => {
-      const newQuantity = Math.max(0, prevQuantities[item.id] - 1);
-      return { ...prevQuantities, [item.id]: newQuantity };
+		let obj = {...prevQuantities};
+		const newQuantity = Math.max(0, obj[item.id] - 1);
+		if(newQuantity === 0){
+			delete obj[item.id];
+		} else {
+			obj = { ...obj, [item.id]: newQuantity };
+		}
+      return obj;
     });
   };
   window.SelectedDishes =
@@ -120,6 +128,7 @@ function RestaurantDetails() {
             dispatch(setOrders(itemQuantities));
             navigate("/user/checkout");
           }}
+		  disabled={!(Object.keys(itemQuantities).length > 0)}
         >
           Checkout
         </Button>
