@@ -515,3 +515,200 @@ export const getDishesData = {
 			"reviews": "I recently had a fantastic meal at this restaurant the food was delicious and beautifully presented. The service was also excellent and the ambiance was cozy and inviting. I normally go there for traditional Indian dishes especially a must try dish in a menu the Prawn masala and fry Fish"
 		}
 	};
+
+	export const getRestaurantsOrder = {
+			"orders": [
+				{
+					"delivery_partner": {
+						"id": null,
+						"mobile": null,
+						"name": null
+					},
+					"dishes": [
+						{
+							"description": "with persian fetta",
+							"id": 1,
+							"image_url": "https://lh3.googleusercontent.com/0QRrrMKeY5D1MnW_zSQq2ks5-tsU0VqpdgukoHDzrNOnpcEVj_M0jJRP83v1Md52LeEftYYAzhin__LCZTKnLM-JALXXyfnyn4uzE1s=w1200-h630-p-rj-l75",
+							"name": "GRILLED PITA BREAD VG",
+							"price": 12.0,
+							"restaurant_id": 1
+						},
+						{
+							"description": "with persian fetta",
+							"id": 1,
+							"image_url": "https://lh3.googleusercontent.com/0QRrrMKeY5D1MnW_zSQq2ks5-tsU0VqpdgukoHDzrNOnpcEVj_M0jJRP83v1Md52LeEftYYAzhin__LCZTKnLM-JALXXyfnyn4uzE1s=w1200-h630-p-rj-l75",
+							"name": "GRILLED PITA BREAD VG",
+							"price": 12.0,
+							"restaurant_id": 1
+						},
+						{
+							"description": "Potato cut into thin strips and fried",
+							"id": 2,
+							"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTL44CzRXmfbfSA0UhHnEn83EFNjfz4mzwCg&s",
+							"name": "FRIES  (DF) ",
+							"price": 12.0,
+							"restaurant_id": 1
+						}
+					],
+					"order": {
+						"id": 2,
+						"order_date": "Sat, 18 May 2024 22:15:35 GMT",
+						"status": "PAID",
+						"total": 37.8
+					},
+					"user": {
+						"address": "19 Paulsgrove Street, Gwynneville, NSW-2500",
+						"id": 2,
+						"mobile": "0456217609",
+						"name": "Harishankar Devaraj"
+					}
+				},
+				{
+					"delivery_partner": {
+						"id": null,
+						"mobile": null,
+						"name": null
+					},
+					"dishes": [
+						{
+							"description": "with persian fetta",
+							"id": 1,
+							"image_url": "https://lh3.googleusercontent.com/0QRrrMKeY5D1MnW_zSQq2ks5-tsU0VqpdgukoHDzrNOnpcEVj_M0jJRP83v1Md52LeEftYYAzhin__LCZTKnLM-JALXXyfnyn4uzE1s=w1200-h630-p-rj-l75",
+							"name": "GRILLED PITA BREAD VG",
+							"price": 12.0,
+							"restaurant_id": 1
+						},
+						{
+							"description": "with persian fetta",
+							"id": 1,
+							"image_url": "https://lh3.googleusercontent.com/0QRrrMKeY5D1MnW_zSQq2ks5-tsU0VqpdgukoHDzrNOnpcEVj_M0jJRP83v1Md52LeEftYYAzhin__LCZTKnLM-JALXXyfnyn4uzE1s=w1200-h630-p-rj-l75",
+							"name": "GRILLED PITA BREAD VG",
+							"price": 12.0,
+							"restaurant_id": 1
+						},
+						{
+							"description": "Potato cut into thin strips and fried",
+							"id": 2,
+							"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTL44CzRXmfbfSA0UhHnEn83EFNjfz4mzwCg&s",
+							"name": "FRIES  (DF) ",
+							"price": 12.0,
+							"restaurant_id": 1
+						}
+					],
+					"order": {
+						"id": 3,
+						"order_date": "Sat, 18 May 2024 22:21:28 GMT",
+						"status": "PAID",
+						"total": 37.8
+					},
+					"user": {
+						"address": "19 Paulsgrove Street, Gwynneville, NSW-2500",
+						"id": 2,
+						"mobile": "0456217609",
+						"name": "Harishankar Devaraj"
+					}
+				},
+				{
+					"delivery_partner": {
+						"id": null,
+						"mobile": null,
+						"name": null
+					},
+					"dishes": [
+						{
+							"description": "with persian fetta",
+							"id": 1,
+							"image_url": "https://lh3.googleusercontent.com/0QRrrMKeY5D1MnW_zSQq2ks5-tsU0VqpdgukoHDzrNOnpcEVj_M0jJRP83v1Md52LeEftYYAzhin__LCZTKnLM-JALXXyfnyn4uzE1s=w1200-h630-p-rj-l75",
+							"name": "GRILLED PITA BREAD VG",
+							"price": 12.0,
+							"restaurant_id": 1
+						},
+						{
+							"description": "with persian fetta",
+							"id": 1,
+							"image_url": "https://lh3.googleusercontent.com/0QRrrMKeY5D1MnW_zSQq2ks5-tsU0VqpdgukoHDzrNOnpcEVj_M0jJRP83v1Md52LeEftYYAzhin__LCZTKnLM-JALXXyfnyn4uzE1s=w1200-h630-p-rj-l75",
+							"name": "GRILLED PITA BREAD VG",
+							"price": 12.0,
+							"restaurant_id": 1
+						},
+						{
+							"description": "Potato cut into thin strips and fried",
+							"id": 2,
+							"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTL44CzRXmfbfSA0UhHnEn83EFNjfz4mzwCg&s",
+							"name": "FRIES  (DF) ",
+							"price": 12.0,
+							"restaurant_id": 1
+						}
+					],
+					"order": {
+						"id": 4,
+						"order_date": "Sat, 18 May 2024 22:21:30 GMT",
+						"status": "PAID",
+						"total": 37.8
+					},
+					"user": {
+						"address": "19 Paulsgrove Street, Gwynneville, NSW-2500",
+						"id": 2,
+						"mobile": "0456217609",
+						"name": "Harishankar Devaraj"
+					}
+				},
+				{
+					"delivery_partner": {
+						"id": null,
+						"mobile": null,
+						"name": null
+					},
+					"dishes": [
+						{
+							"description": "with persian fetta",
+							"id": 1,
+							"image_url": "https://lh3.googleusercontent.com/0QRrrMKeY5D1MnW_zSQq2ks5-tsU0VqpdgukoHDzrNOnpcEVj_M0jJRP83v1Md52LeEftYYAzhin__LCZTKnLM-JALXXyfnyn4uzE1s=w1200-h630-p-rj-l75",
+							"name": "GRILLED PITA BREAD VG",
+							"price": 12.0,
+							"restaurant_id": 1
+						},
+						{
+							"description": "with persian fetta",
+							"id": 1,
+							"image_url": "https://lh3.googleusercontent.com/0QRrrMKeY5D1MnW_zSQq2ks5-tsU0VqpdgukoHDzrNOnpcEVj_M0jJRP83v1Md52LeEftYYAzhin__LCZTKnLM-JALXXyfnyn4uzE1s=w1200-h630-p-rj-l75",
+							"name": "GRILLED PITA BREAD VG",
+							"price": 12.0,
+							"restaurant_id": 1
+						},
+						{
+							"description": "Potato cut into thin strips and fried",
+							"id": 2,
+							"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTL44CzRXmfbfSA0UhHnEn83EFNjfz4mzwCg&s",
+							"name": "FRIES  (DF) ",
+							"price": 12.0,
+							"restaurant_id": 1
+						}
+					],
+					"order": {
+						"id": 5,
+						"order_date": "Sat, 18 May 2024 22:21:32 GMT",
+						"status": "PAID",
+						"total": 37.8
+					},
+					"user": {
+						"address": "19 Paulsgrove Street, Gwynneville, NSW-2500",
+						"id": 2,
+						"mobile": "0456217609",
+						"name": "Harishankar Devaraj"
+					}
+				}
+			],
+			"restaurant": {
+				"address": "2-14 Cliff Rd, North Wollongong NSW 2500",
+				"closes_at": "6:00 PM",
+				"distance": "5 KM",
+				"expected_delivery_time": "10-15 Min",
+				"id": 2,
+				"image_url": "https://lh3.googleusercontent.com/p/AF1QipMQwlvcpHrovFyDgYw5njediImT7zekO1iKLKGk=s1360-w1360-h1020",
+				"mobile": "0423859543",
+				"name": "Pepe On The Beach",
+				"opens_at": "10:00 AM",
+				"rating": 3.0
+			}
+		};

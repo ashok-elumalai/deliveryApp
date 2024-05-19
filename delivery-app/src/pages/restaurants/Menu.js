@@ -50,30 +50,26 @@ function Menu() {
 
   const [menuItems, setMenuItems] = useState([]);
 
-  const increase = (params) => {};
-  const decrease = (params) => {};
+  const deleteClick = (selectedDish) => {};
+  const editClick = (selectedDish) => {
+
+  };
 
   let { restaurant_id } = useParams();
 
   useEffect(() => {
     const getAllDishes = async () => {
       try {
-        const response = await API.get(`/dishes/${restaurant_id}`);
+        const response = await API.get(`/dishes/${localStorage.getItem('rest_id')}`);
         console.log(response);
         const data = response.data || {};
         if (response.status === 200 && data.dishes?.length) {
-          localStorage.setItem("rest_id", data.restaurant?.id);
-          localStorage.setItem("rest_name", data.restaurant?.name);
           setMenuItems(data?.dishes);
         } else {
-          localStorage.setItem("rest_id", getDishesData.restaurant?.id);
-          localStorage.setItem("rest_name", getDishesData.restaurant?.name);
           setMenuItems(getDishesData.dishes);
           console.error("failed to get restaurants. Please reload the page");
         }
       } catch (error) {
-        localStorage.setItem("rest_id", getDishesData.restaurant?.id);
-        localStorage.setItem("rest_name", getDishesData.restaurant?.name);
         setMenuItems(getDishesData.dishes);
         console.error("An error occurred while loading restaurants:", error);
       }
@@ -87,23 +83,6 @@ function Menu() {
 
   return (
     <Layout>
-      <ResHeaderContainer>
-        <Space>
-          <LeftOutlined onClick={goBack} />
-          <Typography.Title>
-            {localStorage.getItem("rest_name")}
-          </Typography.Title>
-        </Space>
-
-        <Button
-          type="primary"
-          onClick={() => {
-            navigate("/user/checkout");
-          }}
-        >
-          Checkout
-        </Button>
-      </ResHeaderContainer>
       <Row gutter={[24, 20]} style={{ marginTop: 120, padding: 20 }}>
         {menuItems.map((value, index) => (
           <Col span={6}>
@@ -111,19 +90,18 @@ function Menu() {
               onClick={(e) => {}}
               key={`menu${index}`}
               // hoverable
-              style={{ width: 250, marginTop: 50 }}
+              style={{ width: 250, marginBottom: 50 }}
               cover={<img height={100} alt={value.name} src={image} />}
             >
               <Space direction="vertical">
                 <Meta title={value.name} description={value.description} />
                 <Meta title={`A$${value.price} - each`} />
                 <Space direction="horizontal">
-                  <Button onClick={decrease(value)} type="primary">
-                    <MinusOutlined />
+                  <Button onClick={() => editClick(value)} type="primary">
+                    Edit
                   </Button>
-                  <Input min={0} max={10} readOnly />
-                  <Button onClick={increase(value)} type="primary">
-                    <PlusOutlined />
+				  <Button onClick={() => deleteClick(value)} type="primary" danger>
+                    Delete
                   </Button>
                 </Space>
               </Space>

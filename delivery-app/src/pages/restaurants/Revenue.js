@@ -1,62 +1,30 @@
 import { Button, Table } from "antd";
 import styles from "./orders.css";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import API from "../../Api";
 
 const columns = [
   { title: "Order#", dataIndex: "orderNumber" },
   { title: "Items", dataIndex: "items" },
-  { title: "Address", dataIndex: "address" },
+  { title: "Order Date", dataIndex: "order_date" },
   { title: "Amount", dataIndex: "amount" },
   { title: "Status", dataIndex: "status" },
-  {
-    title: "Action",
-    dataIndex: "",
-    render: () => <Button type="text">View</Button>,
-  },
-];
-
-//TODO: remove removeData once integrated with api
-const removeData = [
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "New",
-  },
-  // ... more orders
+//   {
+//     title: "Action",
+//     dataIndex: "",
+//     render: () => <Button type="text">View</Button>,
+//   },
 ];
 
 function Revenue() {
   const [tableData, setTableData] = useState([]);
+  const [totalRevenue, setTotalRevenue] = useState(0);
 
   useEffect(() => {
     const getAllOrders = async () => {
       try {
         // Make an API call to the /signup endpoint
-        const response = await API.get("/restaurant/orders/restaurant_id");
+        const response = await API.get(`/restaurant/orders/${localStorage.getItem('rest_id')}`);
         if (response.status === 200) {
           setTableData(response?.data?.orders);
         } else {
@@ -67,32 +35,47 @@ function Revenue() {
         console.error("An error occurred during fetching orders:", error);
       }
     };
-    getAllOrders();
+	getAllOrders();
+	const timer = setInterval(() => {
+		getAllOrders();
+	}, 5000);
+
+	return () => {
+		clearInterval(timer);
+	}
   }, []);
 
-  const data = tableData?.map((order) => {
+  const data = useMemo( () => {
+	let grandTotal = 0;
+	let returner = [];
+	tableData?.forEach((order) => {
     const {
-      User: { address, name },
+      user: { address, name },
       order: { total, status, order_date, id } = {},
       dishes,
     } = order;
     const items = dishes.length; // Calculate the number of dishes
-
-    return {
-      orderNumber: id, // Use order.id for orderNumber
-      items: items.toString(), // Convert items count to string
-      address,
-      amount: total, // Use order.total for amount
-      status,
-    };
+	if(status !== 'REST_CANCELED' && status !== 'PAID'){
+		grandTotal += total;
+		returner.push({
+			orderNumber: id, // Use order.id for orderNumber
+			items: items.toString(), // Convert items count to string
+			order_date,
+			amount: total, // Use order.total for amount
+			status,
+		});
+	}
   });
+  setTotalRevenue(grandTotal.toFixed(2));
+  return returner;
+}, [tableData]);
+
   return (
     <div style={{ padding: "10px" }}>
-      <h3>Revenue</h3>
-      {/* TODO: replace removeData when integrated with backend */}
+	  <h1>Total Revenue:<span style={{ color:"rgb(212 171 6)"}}>   A${totalRevenue}</span></h1>
       {data?.length > 0 && (
         <Table
-          dataSource={removeData || data}
+          dataSource={data}
           columns={columns}
           pagination={false}
         />
