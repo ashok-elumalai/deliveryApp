@@ -165,17 +165,17 @@ function HomeData() {
           />
         </div>
         <div style={{ width: "100%", padding: "10px" }}>
-		<Row gutter={[24, 24]}>
-		<Search
-			style={{
-				width: "80%",
-				position: "absolute",
-				top: "-53px",
-			}}
-			placeholder="Type to search"
-			onChange={onSearch}
-			// loading
-		/>
+          <Row gutter={[24, 24]}>
+            <Search
+              style={{
+                width: "80%",
+                position: "absolute",
+                top: "-53px",
+              }}
+              placeholder="Type to search"
+              onChange={onSearch}
+              // loading
+            />
             {restaurantList.map((value, index) => (
               <Col span={6}>
                 <Card

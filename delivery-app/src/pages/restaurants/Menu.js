@@ -51,6 +51,7 @@ function Menu() {
     menu: {},
     type: "",
   });
+  const [showCreateModal, setShowCreateModal] = useState(false);
   const goBack = () => {
     dispatch(setRestaurant(undefined));
     navigate(-1);
@@ -74,7 +75,6 @@ function Menu() {
       const response = await API.get(
         `/dishes/${localStorage.getItem("rest_id")}`
       );
-      console.log(response);
       const data = response.data || {};
       if (response.status === 200 && data.dishes?.length) {
         setMenuItems(data?.dishes);
@@ -126,14 +126,55 @@ function Menu() {
     getAllDishes();
   }, []);
 
-  const currentRestaurant = useSelector(
-    (state) => state.currentRestaurant.selectedRestaurant
-  );
+  const addDish = async (values) => {
+    console.log(values);
+    const { dishname, amount, description } = values;
+    try {
+      // Make an API call to the /signup endpoint
+      const response = await API.post(
+        `/dishes/${localStorage.getItem("rest_id")}`,
+        {
+          restaurant_id: localStorage.getItem("rest_id"),
+          dish: {
+            name: dishname,
+            description,
+            //   image_url,
+            price: amount,
+          },
+        }
+      );
+      if (response.status === 200) {
+        getAllDishes();
+        setShowCreateModal(false);
+        toast.success("Dish added Successfully!");
+      } else {
+        toast.error("Error in adding dish!");
+        setShowCreateModal(false);
+      }
+    } catch (error) {
+      toast.error("Error in adding dish!");
+      setShowCreateModal(false);
+    }
+  };
 
   return (
     <>
       <Layout>
         <Row gutter={[24, 20]} style={{ marginTop: 10, padding: 20 }}>
+          <Button
+            style={{
+              width: "12%",
+              position: "absolute",
+              top: "-53px",
+              marginLeft: "1236px",
+              background: "black",
+              color: "white",
+            }}
+            onClick={() => setShowCreateModal(true)}
+          >
+            {" "}
+            + Add New Dishes
+          </Button>
           {menuItems.map((value, index) => (
             <Col span={6}>
               <Card
@@ -145,7 +186,7 @@ function Menu() {
                 }
               >
                 <Space direction="vertical">
-                  <Meta title={value.name} />
+                  <Meta style={{ maxWidth: "200px" }} title={value.name} />
                   <Meta
                     style={{
                       fontSize: "small",
@@ -223,6 +264,70 @@ function Menu() {
                   borderRadius: "50px",
                 }}
                 onClick={handleCancel}
+              >
+                Cancel
+              </Button>
+              <Button
+                htmlType="submit"
+                style={{
+                  background: "black",
+                  color: "white",
+                  borderRadius: "50px",
+                  marginLeft: "5px",
+                }}
+              >
+                Save
+              </Button>
+            </div>
+          </Form>
+        </Modal>
+      )}
+      {showCreateModal && (
+        <Modal
+          title=""
+          open={showCreateModal}
+          onCancel={() => setShowCreateModal(false)}
+          footer={<></>}
+        >
+          <Form
+            style={{ width: "100%" }}
+            name="registration"
+            onFinish={addDish}
+            layout="vertical"
+          >
+            <Form.Item
+              style={{ margin: 0 }}
+              label={
+                <div style={{ fontSize: "25px", fontWeight: "700" }}>
+                  Add Dishes
+                </div>
+              }
+              className="form-title"
+            ></Form.Item>
+            <div
+              style={{
+                width: "80%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <Form.Item label="Dish Name" name="dishname">
+                <Input placeholder="Enter name" />
+              </Form.Item>
+              <Form.Item label="Amount ($)" name="amount">
+                <Input placeholder="Enter the amount" />
+              </Form.Item>
+              <Form.Item label="Description" name="description">
+                <Input placeholder="Enter the description" />
+              </Form.Item>
+            </div>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <Button
+                style={{
+                  borderRadius: "50px",
+                }}
+                onClick={() => setShowCreateModal(false)}
               >
                 Cancel
               </Button>

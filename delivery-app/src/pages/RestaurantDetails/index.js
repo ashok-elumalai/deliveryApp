@@ -69,7 +69,6 @@ function RestaurantDetails() {
     Object.keys(itemQuantities)?.length > 0
       ? { orders: { ...itemQuantities } }
       : {};
-  console.log(itemQuantities, "count");
 
   let { restaurant_id } = useParams();
 
@@ -135,7 +134,7 @@ function RestaurantDetails() {
               }
             >
               <Space direction="vertical">
-                <Meta title={value.name} />
+                <Meta style={{ maxWidth: "200px" }} title={value.name} />
                 <Meta
                   style={{
                     fontSize: "small",

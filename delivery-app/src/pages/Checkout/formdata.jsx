@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input, Button, Typography, Radio } from "antd";
+import { Form, Input, Button, Typography, Radio, Spin } from "antd";
 import { useSelector } from "react-redux";
+import { LoadingOutlined } from "@ant-design/icons";
 
-const CheckoutForm = () => {
+const CheckoutForm = (props) => {
+  const { onFinish, setMemberStatus } = props;
   const [form] = Form.useForm();
 
   const [paymentMethod, setPaymentMethod] = useState(2);
-
-  const onFinish = (values) => {
-    console.log("Form values:", values, window.SelectedDishes, { dishes: getConvertedData(window.SelectedDishes.orders) });
-  };
+  const [goldMember, setGoldMember] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   // TODO: use this to send dishes to backend
 
@@ -21,15 +21,21 @@ const CheckoutForm = () => {
 	  return convertedData;
   }
 
-  const onOrderConfirmationClick = (formValues) => {
-    console.log(formValues, ">>>>");
-  };
+  useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => setIsLoading(false), 3000);
+      localStorage.setItem("user_membership", "PREMIUM");
+    }
+  }, [isLoading]);
 
   return (
     <Form
       form={form}
       layout="vertical"
-      onFinish={onFinish}
+      onFinish={(values) => {
+        onFinish(values);
+        form.resetFields();
+      }}
       initialValues={{
         street: "",
         locality: "",
@@ -37,6 +43,7 @@ const CheckoutForm = () => {
         pinCode: "",
         contactNumber: "",
         paymentMethod: 2,
+        goldMember: 1,
       }}
     >
       <Form.Item
@@ -130,10 +137,75 @@ const CheckoutForm = () => {
               <Input placeholder="cvv" />
             </Form.Item>
           </div>
+          {localStorage.getItem("user_membership") !== "PREMIUM" && (
+            <Form.Item label="Become a member" name="goldMember">
+              <Radio.Group
+                onChange={(e) => {
+                  setGoldMember(e.target.value);
+                  if (e.target.value === 2) {
+                    setMemberStatus(2);
+                  }
+                }}
+              >
+                <Radio value={1}>Normal</Radio>
+                <Radio value={2}>Gold Member</Radio>
+              </Radio.Group>
+            </Form.Item>
+          )}
+          {goldMember === 2 && (
+            <div style={{ display: "flex" }}>
+              <Form.Item label="">
+                <Radio.Group
+                  onChange={(e) => {
+                    setMemberStatus(e.target.value);
+                  }}
+                >
+                  <Radio value={1}>Monthly: $20</Radio>
+                  <Radio value={2}>Anually: $180</Radio>
+                </Radio.Group>
+              </Form.Item>
+              {localStorage.getItem("user_membership") !== "PREMIUM" && (
+                <Button
+                  style={{
+                    background: "black",
+                    color: " white",
+                    borderRadius: "50px",
+                  }}
+                  onClick={() => {
+                    setIsLoading(true);
+                  }}
+                >
+                  {isLoading && (
+                    <Spin
+                      indicator={
+                        <LoadingOutlined
+                          style={{
+                            fontSize: 16,
+                            color: "white",
+                            marginRight: "5px",
+                          }}
+                          spin
+                        />
+                      }
+                    />
+                  )}{" "}
+                  Pay
+                </Button>
+              )}
+            </div>
+          )}
 
           <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Pay now
+            <Button
+              style={{
+                background: "black",
+                color: " white",
+                borderRadius: "50px",
+              }}
+              type="primary"
+              htmlType="submit"
+            >
+              Save card Details
             </Button>
           </Form.Item>
         </div>
