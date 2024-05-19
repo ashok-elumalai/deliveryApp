@@ -183,9 +183,9 @@ function Orders() {
                 (<p style={{ color: "#038203" }}>Order Accepted</p>)
               )}
             </div>
-			{(selectedRow.status === 'REST_ACCEPTED' || selectedRow.status === 'PREPARING') && 
+			{(selectedRow.status === 'REST_ACCEPTED' || selectedRow.status === 'PREPARING' || selectedRow.status === 'READY_FOR_DELIVERY') && 
             	(<><h3 style={{ paddingTop: "10px" }}>Update Order Status</h3>
-				<Radio.Group onChange={handleOrderStatus} value={orderStatus}>
+				<Radio.Group onChange={handleOrderStatus} value={orderStatus} disabled={selectedRow.status === 'READY_FOR_DELIVERY'}>
 				  <Radio value={"PREPARING"}>Preparing</Radio>
 				  <Radio value={"READY_FOR_DELIVERY"}>Ready for pickup</Radio>
 				</Radio.Group></>)
