@@ -55,7 +55,7 @@ function Revenue() {
       dishes,
     } = order;
     const items = dishes.length; // Calculate the number of dishes
-	if(status !== 'REST_CANCELED' && status !== 'PAID'){
+	if(status !== 'REST_CANCELED' && status !== 'PAID' && status !== "UNPAID"){
 		grandTotal += total;
 		returner.push({
 			orderNumber: id, // Use order.id for orderNumber

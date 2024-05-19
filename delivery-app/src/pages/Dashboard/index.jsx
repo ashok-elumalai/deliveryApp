@@ -18,7 +18,7 @@ const items = [
   },
   {
     key: "2",
-    label: "Orders",
+    label: "Order History",
     children: <UserOrders />,
   },
 ];

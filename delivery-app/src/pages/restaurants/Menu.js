@@ -130,8 +130,6 @@ function Menu() {
     (state) => state.currentRestaurant.selectedRestaurant
   );
 
-  console.log(showEditModal);
-
   return (
     <>
       <Layout>
@@ -139,11 +137,12 @@ function Menu() {
           {menuItems.map((value, index) => (
             <Col span={6}>
               <Card
-                onClick={(e) => {}}
                 key={`menu${index}`}
                 // hoverable
                 style={{ width: 250, marginBottom: 50 }}
-                cover={<img height={100} alt={value.name} src={image} />}
+                cover={
+                  <img height={100} alt={value.name} src={value.image_url} />
+                }
               >
                 <Space direction="vertical">
                   <Meta title={value.name} />

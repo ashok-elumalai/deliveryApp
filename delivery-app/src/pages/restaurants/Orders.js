@@ -38,7 +38,7 @@ function Orders() {
   const data = useMemo(() => {
     return tableData?.map((order) => {
       const {
-        user: { address, name },
+        user: { address, name, mobile },
         order: { total, status, order_date, id } = {},
         dishes,
       } = order;
@@ -50,6 +50,7 @@ function Orders() {
         address,
         amount: total, // Use order.total for amount
         status,
+		contactNumber: mobile
       };
     });
   }, [tableData]);
@@ -113,7 +114,7 @@ function Orders() {
 
   return (
     <div style={{ padding: "10px" }}>
-      <h3 style={{ color: "blue" }}>Restaurant Orders</h3>
+      <h1 style={{ color: "blue" }}>Restaurant Orders</h1>
       {true && ( //data?.length > 0 // Check if data exists before rendering table
         <Table
           dataSource={data}
@@ -163,7 +164,7 @@ function Orders() {
             <p>Payment Status: PAID</p>
             {/* Add more details from selectedRow as needed */}
             <div>
-              {orderStatus === "PAID" ? (
+              {orderStatus === "PAID" || orderStatus === "UNPAID" ? (
                 <>
                   <Button
                     style={{
@@ -192,16 +193,15 @@ function Orders() {
                 <p style={{ color: "#038203" }}>Order Accepted</p>
               )}
             </div>
-            {(selectedRow.status === "REST_ACCEPTED" ||
-              selectedRow.status === "PREPARING") && (
-              <>
-                <h3 style={{ paddingTop: "10px" }}>Update Order Status</h3>
-                <Radio.Group onChange={handleOrderStatus} value={orderStatus}>
-                  <Radio value={"PREPARING"}>Preparing</Radio>
-                  <Radio value={"READY_FOR_DELIVERY"}>Ready for pickup</Radio>
-                </Radio.Group>
-              </>
-            )}
+			{(selectedRow.status === 'REST_ACCEPTED' || selectedRow.status === 'PREPARING' || selectedRow.status === 'READY_FOR_DELIVERY') && 
+            	(<><h3 style={{ paddingTop: "10px" }}>Update Order Status</h3>
+				<Radio.Group onChange={handleOrderStatus} value={orderStatus} disabled={selectedRow.status === 'READY_FOR_DELIVERY'}>
+				  <Radio value={"PREPARING"}>Preparing</Radio>
+				  <Radio value={"READY_FOR_DELIVERY"}>Ready for pickup</Radio>
+				</Radio.Group></>)
+			}
+			{( selectedRow.status === 'DELIVERED' && <h2 style={{ color: "#038203" }}>Order Delivered</h2>)}
+			{( selectedRow.status === 'OUT_FOR_DELIVERY' && <h2 style={{ color: "#038203" }}>Out for Delivery</h2>)}
           </>
         )}
       </Modal>

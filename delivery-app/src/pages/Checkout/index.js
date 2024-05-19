@@ -51,11 +51,6 @@ function CheckoutPage() {
           <div>
             <CheckoutForm />
           </div>
-          <div>
-           <Card>
-            
-           </Card>
-          </div>
         </div>
       </Layout>
     </>

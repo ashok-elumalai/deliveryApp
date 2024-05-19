@@ -230,7 +230,7 @@ function DeliveryPartnerHome() {
                 <p>Contact: {selectedRow.contactNumber}</p>
                 <p>Bill Amount: {selectedRow.amount}</p>
                 <p>Payment Method: Online</p>
-                <p>Payment Status: Paid</p>
+				<p>Payment Status: {selectedRow.status === 'UNPAID' ? 'Unpaid' : "Paid"}</p>
                 {/* Add more details from selectedRow as needed */}
                 {/* //TODO: Need to update from API */}
                 <p style={{ color: "#038203" }}>Ready for pickup</p>

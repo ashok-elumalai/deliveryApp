@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Input, Button, Typography, Radio } from "antd";
 import { useSelector } from "react-redux";
 
 const CheckoutForm = () => {
   const [form] = Form.useForm();
   const selectedOrders = useSelector((state) => state.UserOrdersSlice.orders);
+
+  const [paymentMethod, setPaymentMethod] = useState(2);
 
   const onFinish = (values) => {
     console.log("Form values:", values);
@@ -14,6 +16,10 @@ const CheckoutForm = () => {
   const convertedData = [];
   for (const item in selectedOrders) {
     convertedData.push(...Array(selectedOrders[item]).fill(item));
+  }
+
+  const onOrderConfirmationClick = (formValues) => {
+	console.log(formValues, '>>>>');
   }
 
   return (
@@ -74,24 +80,26 @@ const CheckoutForm = () => {
       </div>
 
       <Form.Item label="Payment Method" name="paymentMethod">
-        <Radio.Group>
+        <Radio.Group onChange={(e) => {
+			setPaymentMethod(e.target.value)
+		}}>
           <Radio value={1}>Cash On Delivery</Radio>
           <Radio value={2}>Credit or Debit card</Radio>
         </Radio.Group>
       </Form.Item>
 
-      {form.getFieldValue("paymentMethod") === 2 && (
+      {paymentMethod === 2 && (
         <div>
-          <CardForm />
+          <CardForm onSubmit={onOrderConfirmationClick} />
         </div>
       )}
     </Form>
   );
 };
 
-function CardForm() {
+function CardForm({ onSubmit }) {
   const onFinish = (values) => {
-    console.log("Form values:", values);
+	onSubmit(values)
   };
 
   const [form] = Form.useForm();
