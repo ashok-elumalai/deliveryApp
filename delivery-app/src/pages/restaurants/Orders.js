@@ -164,7 +164,7 @@ function Orders() {
             <p>Payment Status: PAID</p>
             {/* Add more details from selectedRow as needed */}
             <div>
-              {orderStatus === "PAID" ? (
+              {orderStatus === "PAID" || orderStatus === "UNPAID" ? (
                 <>
                   <Button
                     style={{

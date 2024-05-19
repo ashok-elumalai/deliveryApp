@@ -205,7 +205,7 @@ function UserOrders() {
             <p>Delivery person Contact: {selectedRow.deliContactNumber}</p>
             <p>Amount: {selectedRow.amount}</p>
             <p>Payment Method: Online</p>
-            <p>Payment Status: Paid</p>
+            <p>Payment Status: {selectedRow.status === 'PAID' ? 'Paid' : (selectedRow.status === 'UNPAID' ? 'Unpaid' : "")}</p>
             {/* Add more details from selectedRow as needed */}
             {/* //TODO: Need to update from API */}
           </>

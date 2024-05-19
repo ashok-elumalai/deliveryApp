@@ -16,6 +16,10 @@ const CheckoutForm = () => {
     convertedData.push(...Array(selectedOrders[item]).fill(item));
   }
 
+  const onOrderConfirmationClick = (formValues) => {
+	console.log(formValues, '>>>>');
+  }
+
   return (
     <Form
       form={form}
@@ -82,16 +86,16 @@ const CheckoutForm = () => {
 
       {form.getFieldValue("paymentMethod") === 2 && (
         <div>
-          <CardForm />
+          <CardForm onSubmit={onOrderConfirmationClick} />
         </div>
       )}
     </Form>
   );
 };
 
-function CardForm() {
+function CardForm({ onSubmit }) {
   const onFinish = (values) => {
-    console.log("Form values:", values);
+	onSubmit(values)
   };
 
   const [form] = Form.useForm();
