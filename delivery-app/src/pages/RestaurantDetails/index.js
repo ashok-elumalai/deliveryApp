@@ -69,7 +69,6 @@ function RestaurantDetails() {
     Object.keys(itemQuantities)?.length > 0
       ? { orders: { ...itemQuantities } }
       : {};
-  console.log(itemQuantities, "count");
 
   let { restaurant_id } = useParams();
 
