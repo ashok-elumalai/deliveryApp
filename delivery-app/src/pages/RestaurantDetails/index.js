@@ -135,7 +135,7 @@ function RestaurantDetails() {
               }
             >
               <Space direction="vertical">
-                <Meta title={value.name} />
+                <Meta style={{ maxWidth: "200px" }} title={value.name} />
                 <Meta
                   style={{
                     fontSize: "small",
