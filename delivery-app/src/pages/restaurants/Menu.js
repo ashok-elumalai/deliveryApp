@@ -12,6 +12,7 @@ import {
   Button,
   Modal,
   Form,
+  Popconfirm
 } from "antd";
 import styled from "styled-components";
 import { toast } from "react-toastify";
@@ -61,6 +62,7 @@ function Menu() {
 
   const deleteClick = (selectedDish) => {
     setShowEditModal({ open: true, menu: selectedDish, type: "delete" });
+	onUpdate({dishname: selectedDish.name, amount: selectedDish.price, description: selectedDish.description, rating: 99, dishId: selectedDish.id });
   };
   const editClick = (selectedDish) => {
     setShowEditModal({ open: true, menu: selectedDish, type: "edit" });
@@ -90,19 +92,21 @@ function Menu() {
 
   const onUpdate = async (values) => {
     console.log("Received values:", values);
-    const { dishname, amount } = values;
-    const { description, image_url, price, name } = showEditModal?.menu;
+    const { dishname, amount, description, rating, dishId } = values;
+    const { description: defaultDesc, image_url, price, name } = showEditModal?.menu;
     try {
       // Make an API call to the /signup endpoint
       const response = await API.put(
         `/dishes/${localStorage.getItem("rest_id")}`,
         {
-          dish_id: showEditModal?.menu?.id,
+		  restaurant_id: localStorage.getItem("rest_id"),
+          dish_id: dishId || showEditModal?.menu?.id,
           dish: {
             name: dishname || name, // to avoid error
-            description,
+            description: description || defaultDesc,
             image_url,
             price: amount || price, // to avoid error
+			rating: rating || 3
           },
         }
       );
@@ -176,7 +180,8 @@ function Menu() {
             {" "}
             + Add New Dishes
           </Button>
-          {menuItems.map((value, index) => (
+          {menuItems.map((value, index) => {
+			return value.rating !== 99 ? (
             <Col span={6}>
               <Card
                 key={`menu${index}`}
@@ -202,18 +207,28 @@ function Menu() {
                     <Button onClick={() => editClick(value)} type="primary">
                       Edit
                     </Button>
-                    <Button
-                      onClick={() => deleteClick(value)}
-                      type="primary"
-                      danger
-                    >
-                      Delete
-                    </Button>
+					<Popconfirm
+						title="Delete Dish"
+						description="Are you sure to delete this dish?"
+						okText="Yes"
+						cancelText="No"
+						onConfirm={() => {
+							deleteClick(value);
+							}}
+					>
+					<Button
+						type="primary"
+						danger
+						>
+						Delete
+						</Button>
+					</Popconfirm>
+                    
                   </Space>
                 </Space>
               </Card>
             </Col>
-          ))}
+          ): null;})}
         </Row>
       </Layout>
       {showEditModal.open && (
@@ -246,18 +261,24 @@ function Menu() {
                 justifyContent: "center",
               }}
             >
-              <Form.Item label="Dish Name" name="dishname">
-                <Input
-                  placeholder="Enter name"
-                  defaultValue={showEditModal?.menu?.name}
-                />
-              </Form.Item>
-              <Form.Item label="Amount ($)" name="amount">
-                <Input
-                  placeholder="Enter the amount"
-                  defaultValue={showEditModal?.menu?.price}
-                />
-              </Form.Item>
+				<Form.Item label="Dish Name" name="dishname">
+				<Input
+					placeholder="Enter name"
+					defaultValue={showEditModal?.menu?.name}
+				/>
+				</Form.Item>
+				<Form.Item label="Description" name="description">
+				<Input
+					placeholder="Enter descriotion"
+					defaultValue={showEditModal?.menu?.description}
+				/>
+				</Form.Item>
+				<Form.Item label="Amount ($)" name="amount">
+					<Input
+					placeholder="Enter the amount"
+					defaultValue={showEditModal?.menu?.price}
+					/>
+				</Form.Item>
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <Button
