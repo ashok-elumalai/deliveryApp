@@ -113,7 +113,7 @@ function Orders() {
 
   return (
     <div style={{ padding: "10px" }}>
-      <h3 style={{ color: "blue" }}>Restaurant Orders</h3>
+      <h1 style={{ color: "blue" }}>Restaurant Orders</h1>
       {true && ( //data?.length > 0 // Check if data exists before rendering table
         <Table
           dataSource={data}
