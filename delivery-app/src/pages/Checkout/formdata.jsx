@@ -19,13 +19,14 @@ const CheckoutForm = () => {
   }
 
   const onOrderConfirmationClick = (formValues) => {
-	console.log(formValues, '>>>>');
-  }
+    console.log(formValues, ">>>>");
+  };
 
   return (
     <Form
       form={form}
       layout="vertical"
+      onFinish={onFinish}
       initialValues={{
         street: "",
         locality: "",
@@ -80,9 +81,11 @@ const CheckoutForm = () => {
       </div>
 
       <Form.Item label="Payment Method" name="paymentMethod">
-        <Radio.Group onChange={(e) => {
-			setPaymentMethod(e.target.value)
-		}}>
+        <Radio.Group
+          onChange={(e) => {
+            setPaymentMethod(e.target.value);
+          }}
+        >
           <Radio value={1}>Cash On Delivery</Radio>
           <Radio value={2}>Credit or Debit card</Radio>
         </Radio.Group>
@@ -90,69 +93,50 @@ const CheckoutForm = () => {
 
       {paymentMethod === 2 && (
         <div>
-          <CardForm onSubmit={onOrderConfirmationClick} />
+          <Form.Item
+            name="nameOnCard"
+            // rules={[{ required: true, message: "Please enter Name On Card" }]}
+          >
+            <Input placeholder="name On Card" />
+          </Form.Item>
+
+          <Form.Item
+            name="cardNumber"
+            // rules={[
+            //   { required: true, message: "Please enter your card Number!" },
+            // ]}
+          >
+            <Input placeholder="card Number" />
+          </Form.Item>
+
+          <div style={{ display: "flex" }}>
+            <Form.Item
+              style={{ paddingRight: "4px" }}
+              name="validThrough"
+              // rules={[
+              //   { required: true, message: "Please enter validThrough!" },
+              // ]}
+            >
+              <Input placeholder="valid Through" />
+            </Form.Item>
+
+            <Form.Item
+              name="cvv"
+              // rules={[{ required: true, message: "Please enter cvv" }]}
+            >
+              <Input placeholder="cvv" />
+            </Form.Item>
+          </div>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
         </div>
       )}
     </Form>
   );
 };
-
-function CardForm({ onSubmit }) {
-  const onFinish = (values) => {
-	onSubmit(values)
-  };
-
-  const [form] = Form.useForm();
-  return (
-    <Form
-      form={form}
-      layout="vertical"
-      onFinish={onFinish}
-      initialValues={{
-        nameOnCard: "",
-        cardNumber: "",
-        validThrough: "",
-        cvv: "",
-      }}
-    >
-      <Form.Item
-        name="nameOnCard"
-        rules={[{ required: true, message: "Please enter Name On Card" }]}
-      >
-        <Input placeholder="name On Card" />
-      </Form.Item>
-
-      <Form.Item
-        name="cardNumber"
-        rules={[{ required: true, message: "Please enter your card Number!" }]}
-      >
-        <Input placeholder="card Number" />
-      </Form.Item>
-
-      <div style={{ display: "flex" }}>
-        <Form.Item
-          style={{ paddingRight: "4px" }}
-          name="validThrough"
-          rules={[{ required: true, message: "Please enter validThrough!" }]}
-        >
-          <Input placeholder="valid Through" />
-        </Form.Item>
-
-        <Form.Item
-          name="cvv"
-          rules={[{ required: true, message: "Please enter cvv" }]}
-        >
-          <Input placeholder="cvv" />
-        </Form.Item>
-      </div>
-
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
-  );
-}
 
 export default CheckoutForm;
