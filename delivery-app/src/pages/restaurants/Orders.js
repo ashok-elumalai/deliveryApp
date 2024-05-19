@@ -191,7 +191,7 @@ function Orders() {
 				</Radio.Group></>)
 			}
 			{( selectedRow.status === 'DELIVERED' && <h2 style={{ color: "#038203" }}>Order Delivered</h2>)}
-			{( selectedRow.status === 'OUT_FOR_DELIVERY ' && <h2 style={{ color: "#038203" }}>Out for Delivery</h2>)}
+			{( selectedRow.status === 'OUT_FOR_DELIVERY' && <h2 style={{ color: "#038203" }}>Out for Delivery</h2>)}
           </>
         )}
       </Modal>
