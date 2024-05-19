@@ -48,7 +48,7 @@ function UserOrders() {
         const response = await API.get(
           `/users/orders/${localStorage.getItem("user_id")}`
         );
-		console.log(response);
+		// console.log(response);
         if (response.status === 200) {
           setTableData(response?.data?.orders);
         } else {
@@ -83,7 +83,7 @@ function UserOrders() {
 		} = order;
 		const items = dishes.length; // Calculate the number of dishes
 
-		if(status !== 'REST_CANCELED' && status !== 'PAID'){
+		// if(status !== 'REST_CANCELED' && status !== 'PAID'){
 			returner.push({
 				orderNumber: id, // Use order.id for orderNumber
 				restaurant: restaurant.name, // Use order.id for orderNumber
@@ -94,7 +94,7 @@ function UserOrders() {
 				restContactNumber: restaurant.mobile,
 				deliContactNumber: delivery_partner.mobile
 			});
-		}
+		// }
 	});
 	return returner;
   }, [tableData]);
