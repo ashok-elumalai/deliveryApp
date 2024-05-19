@@ -38,7 +38,7 @@ function Orders() {
   const data = useMemo(() => {
     return tableData?.map((order) => {
       const {
-        user: { address, name },
+        user: { address, name, mobile },
         order: { total, status, order_date, id } = {},
         dishes,
       } = order;
@@ -50,6 +50,7 @@ function Orders() {
         address,
         amount: total, // Use order.total for amount
         status,
+		contactNumber: mobile
       };
     });
   }, [tableData]);
