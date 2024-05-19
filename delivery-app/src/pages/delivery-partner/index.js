@@ -195,7 +195,7 @@ function DeliveryPartnerHome() {
                 >
 					Close
                 </Button>
-				{selectedRow.status !== 'DELIVERED' && 
+				{selectedRow?.status !== 'DELIVERED' && 
                 <Button
                   style={{
                     background: "black",
