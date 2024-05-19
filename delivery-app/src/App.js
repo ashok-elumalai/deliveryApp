@@ -19,6 +19,7 @@ import RestaurantLoginPage from "./pages/RestaurantLoginPage";
 import DeliveryLoginPage from "./pages/DeliveryLoginPage";
 import CheckoutPage from "./pages/Checkout";
 import RestaurantHome from "./pages/restaurants/restaurantHome";
+import DeliveryPartnerHome from './pages/delivery-partner';
 const useAuth = () => {
   // Replace this with your actual authentication logic
   const token = localStorage.getItem("token"); // Example: user is logged in
@@ -97,7 +98,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/delivery-partner/home",
-        element: <Dashboard />,
+        element: <DeliveryPartnerHome />,
       },
     ],
   },

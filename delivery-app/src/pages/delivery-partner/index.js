@@ -1,43 +1,7 @@
 import { Avatar, Button, Layout, Modal, Radio, Table } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../Api";
-
-// //TODO: remove removeData once integrated with api
-const removeData = [
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    restaurant: "Palisade Kitchen & Bar",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "Ready for pickup",
-  },
-  {
-    orderNumber: 45678,
-    items: "Cornflake Halibut",
-    restaurant: "Diggies",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "Delivered",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    restaurant: "Palisade Kitchen & Bar",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "Ready for pickup",
-  },
-  {
-    orderNumber: 12345,
-    items: "Cornflake Halibut",
-    restaurant: "Seaside Shahi",
-    address: "NO.12 XYZ road, some address 235467",
-    amount: "$6",
-    status: "Delivered",
-  },
-];
 
 function DeliveryPartnerHome() {
   const [tableData, setTableData] = useState([]);
@@ -50,7 +14,7 @@ function DeliveryPartnerHome() {
     const getAllOrders = async () => {
       try {
         const response = await API.get(
-          `/delivery_partner/orders/delivery_partner_id/${localStorage.getItem(
+          `/delivery_partner/orders/${localStorage.getItem(
             "deli_id"
           )}`
         );
@@ -67,24 +31,31 @@ function DeliveryPartnerHome() {
     getAllOrders();
   }, []);
 
-  const data = tableData?.map((order) => {
-    const {
-      User: { address, name },
-      order: { total, status, order_date, id } = {},
-      restaurant: { restaurantName },
-      dishes,
-    } = order;
-    const items = dishes.length; // Calculate the number of dishes
+  const data = useMemo(() => {
+	  let returner = [];
+	tableData?.forEach(order => {
+		const {
+		user: { address, name },
+		order: { total, status, order_date, id } = {},
+		restaurant: { restaurantName },
+		dishes,
+		} = order;
+		const items = dishes.length; // Calculate the number of dishes
+			
+		// if(status === 'READY_FOR_DELIVERY' || status === 'OUT_FOR_DELIVERY' || status !== "DELIVERED"){
+			returner.push({
+				orderNumber: id, // Use order.id for orderNumber
+				items: items.toString(), // Convert items count to string
+				restaurant: restaurantName,
+				address,
+				amount: total, // Use order.total for amount
+				status,
+			});
+		// }
 
-    return {
-      orderNumber: id, // Use order.id for orderNumber
-      items: items.toString(), // Convert items count to string
-      restaurant: restaurantName,
-      address,
-      amount: total, // Use order.total for amount
-      status,
-    };
-  });
+	});
+	return returner;
+  }, [tableData]);
 
   const handleLogout = () => {
     // Perform logout logic here, like clearing tokens or user data
@@ -158,7 +129,7 @@ function DeliveryPartnerHome() {
             size={48}
           />
           <h2 style={{ color: "#fff", padding: 0, margin: 0, marginLeft: 10 }}>
-            {localStorage.getItem("rest_name")} at your service!
+            {localStorage.getItem("deli_name")} ready to serve!
           </h2>
         </div>
         <div>
@@ -184,7 +155,7 @@ function DeliveryPartnerHome() {
           <h3 style={{ color: "blue" }}>Orders ready to pick up</h3>
           {true && ( //data?.length > 0 // Check if data exists before rendering table
             <Table
-              dataSource={removeData || data}
+              dataSource={data}
               columns={columns}
               pagination={false}
               onRowClick={(record) => showModal(record)}
@@ -232,8 +203,7 @@ function DeliveryPartnerHome() {
                 <p>Payment Method: Online</p>
 				<p>Payment Status: {selectedRow.status === 'UNPAID' ? 'Unpaid' : "Paid"}</p>
                 {/* Add more details from selectedRow as needed */}
-                {/* //TODO: Need to update from API */}
-                <p style={{ color: "#038203" }}>Ready for pickup</p>
+                <p style={{ color: "#038203" }}>{selectedRow.status}</p>
                 <p style={{ color: "blue" }}>Restaraunt Details</p>
                 <p>Order Number: {selectedRow.orderNumber}</p>
                 <p>Items: {selectedRow.items}</p>

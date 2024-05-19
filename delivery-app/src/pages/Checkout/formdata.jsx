@@ -4,18 +4,21 @@ import { useSelector } from "react-redux";
 
 const CheckoutForm = () => {
   const [form] = Form.useForm();
-  const selectedOrders = useSelector((state) => state.UserOrdersSlice.orders);
 
   const [paymentMethod, setPaymentMethod] = useState(2);
 
   const onFinish = (values) => {
-    console.log("Form values:", values);
+    console.log("Form values:", values, window.SelectedDishes, { dishes: getConvertedData(window.SelectedDishes.orders) });
   };
 
   // TODO: use this to send dishes to backend
-  const convertedData = [];
-  for (const item in selectedOrders) {
-    convertedData.push(...Array(selectedOrders[item]).fill(item));
+
+  function getConvertedData(selectedOrders) {
+	  const convertedData = [];
+	  for (const item in selectedOrders) {
+		convertedData.push(...Array(selectedOrders[item]).fill(item));
+	  }
+	  return convertedData;
   }
 
   const onOrderConfirmationClick = (formValues) => {
@@ -130,7 +133,7 @@ const CheckoutForm = () => {
 
           <Form.Item>
             <Button type="primary" htmlType="submit">
-              Submit
+              Pay now
             </Button>
           </Form.Item>
         </div>
