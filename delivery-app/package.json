@@ -32,8 +32,10 @@
       "react-app",
       "react-app/jest"
     ],
+    "plugins": ["react-hooks"],
     "rules": {
       "no-unused-vars": "off",
+      "array-callback-return": "warn",
       "react-hooks/exhaustive-deps": "warn"
     }
   },
