@@ -2,13 +2,14 @@ import { Button, Table } from "antd";
 import styles from "./orders.css";
 import { useEffect, useMemo, useState } from "react";
 import API from "../../Api";
+import { getOrderStatusText } from '../../getOrderStatus';
 
 const columns = [
   { title: "Order#", dataIndex: "orderNumber" },
   { title: "Items", dataIndex: "items" },
   { title: "Order Date", dataIndex: "order_date" },
   { title: "Amount", dataIndex: "amount" },
-  { title: "Status", dataIndex: "status" },
+  { title: "Status", dataIndex: "statusText" },
 //   {
 //     title: "Action",
 //     dataIndex: "",
@@ -63,6 +64,7 @@ function Revenue() {
 			order_date,
 			amount: total, // Use order.total for amount
 			status,
+			statusText: getOrderStatusText(status, "RESTAURANT"),
 		});
 	}
   });

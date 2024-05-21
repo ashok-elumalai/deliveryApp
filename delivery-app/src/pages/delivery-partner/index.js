@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../Api";
 import { toast } from 'react-toastify';
+import { getOrderStatusText } from '../../getOrderStatus';
 
 function DeliveryPartnerHome() {
 	const [tableData, setTableData] = useState([]);
@@ -37,6 +38,7 @@ function DeliveryPartnerHome() {
 					restAddress,
 					amount: total, // Use order.total for amount
 					status,
+					statusText: getOrderStatusText(status, "DELIVERY_PARTNER"),
 				});
 			// }
 
@@ -129,7 +131,7 @@ function DeliveryPartnerHome() {
     { title: "Restaurant", dataIndex: "restName" },
     { title: "Restaurant Address", dataIndex: "restAddress" },
     { title: "Amount", dataIndex: "amount" },
-    { title: "Status", dataIndex: "status" },
+    { title: "Status", dataIndex: "statusText" },
     {
       title: "Action",
       dataIndex: "",
@@ -161,7 +163,7 @@ function DeliveryPartnerHome() {
             size={48}
           />
           <h2 style={{ color: "#fff", padding: 0, margin: 0, marginLeft: 10 }}>
-            {localStorage.getItem("deli_name")} ready to serve!
+            {localStorage.getItem("deli_name")} - Delivery Partner!
           </h2>
         </div>
         <div>

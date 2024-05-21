@@ -66,7 +66,7 @@ function RestaurantHome() {
             size={48}
           />
           <h2 style={{ color: "#fff", padding: 0, margin: 0, marginLeft: 10 }}>
-            {localStorage.getItem("rest_name")}
+            {localStorage.getItem("rest_name")} - Restaurant!
           </h2>
         </div>
         <div>

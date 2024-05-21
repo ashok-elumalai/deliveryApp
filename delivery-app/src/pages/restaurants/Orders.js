@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Button, Form, Modal, Radio, Table } from "antd";
 import API from "../../Api";
 import { toast } from 'react-toastify';
+import { getOrderStatusText } from '../../getOrderStatus';
 
 function Orders() {
   const [tableData, setTableData] = useState([]);
@@ -57,6 +58,7 @@ function Orders() {
         address,
         amount: total, // Use order.total for amount
         status,
+        statusText: getOrderStatusText(status, "RESTAURANT"),
 		contactNumber: mobile
       };
     });
@@ -96,7 +98,7 @@ function Orders() {
     { title: "Items", dataIndex: "items" },
     { title: "Address", dataIndex: "address" },
     { title: "Amount", dataIndex: "amount" },
-    { title: "Status", dataIndex: "status" },
+    { title: "Status", dataIndex: "statusText" },
     {
       title: "Action",
       dataIndex: "",

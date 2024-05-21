@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Button, Form, Modal, Steps, Table } from "antd";
 import API from "../../Api";
 import { AppleOutlined, SmileOutlined, SolutionOutlined, ShoppingCartOutlined, CoffeeOutlined } from '@ant-design/icons';
+import { getOrderStatusText } from '../../getOrderStatus';
 
 const items = [
 	{
@@ -91,6 +92,7 @@ function UserOrders() {
 				address: restaurant.address,
 				amount: total, // Use order.total for amount
 				status,
+				statusText: getOrderStatusText(status, "USER"),
 				restContactNumber: restaurant.mobile,
 				// deliContactNumber: delivery_partner.mobile
 			});
@@ -119,7 +121,7 @@ function UserOrders() {
     { title: "Items", dataIndex: "items" },
     { title: "Address", dataIndex: "address" },
     { title: "Amount", dataIndex: "amount" },
-    { title: "Status", dataIndex: "status" },
+    { title: "Status", dataIndex: "statusText" },
     {
       title: "Action",
       dataIndex: "",
