@@ -25,6 +25,7 @@ jobs:
           rm -rf package-lock.json
           npm install
           npm install -g react-scripts
+          npm install eslint eslint-plugin-react-hooks --save-dev
           npm run build
 
   test:
