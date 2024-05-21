@@ -78,7 +78,7 @@ function UserOrders() {
 		const {
 			order: { total, status, order_date, id } = {},
 			dishes,
-			delivery_partner,
+			// delivery_partner,
 			restaurant
 		} = order;
 		const items = dishes.length; // Calculate the number of dishes
@@ -92,7 +92,7 @@ function UserOrders() {
 				amount: total, // Use order.total for amount
 				status,
 				restContactNumber: restaurant.mobile,
-				deliContactNumber: delivery_partner.mobile
+				// deliContactNumber: delivery_partner.mobile
 			});
 		// }
 	});
@@ -202,7 +202,7 @@ function UserOrders() {
             <p>Restaurant: {selectedRow?.restaurant}</p>
             <p>Address: {selectedRow?.address}</p>
             <p>Restaurant Contact: {selectedRow.restContactNumber}</p>
-            <p>Delivery person Contact: {selectedRow.deliContactNumber}</p>
+            {/*<p>Delivery person Contact: {selectedRow.deliContactNumber}</p> */}
             <p>Amount: {selectedRow.amount}</p>
             <p>Payment Method: Online</p>
             <p>Payment Status: {selectedRow.status === 'UNPAID' ? 'Unpaid' : "Paid"}</p>

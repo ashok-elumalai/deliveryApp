@@ -52,7 +52,7 @@ function RestaurantHome() {
           position: "fixed",
           right: "0",
           left: "0",
-          zIndex: "999",
+          zIndex: "99",
           padding: 20,
           display: "flex",
           justifyContent: "space-between",

@@ -1,13 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { Button, Form, Modal, Radio, Table } from "antd";
 import API from "../../Api";
+import { toast } from 'react-toastify';
 
 function Orders() {
   const [tableData, setTableData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null); // State to store selected row data
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [orderStatus, setOrderStatus] = useState("");
-
+  const [isOrdersLoaded, setIsOrderLoaded] = useState(false);
+//   console.log(tableData,);
   useEffect(() => {
     const getAllOrders = async () => {
       try {
@@ -15,17 +17,21 @@ function Orders() {
           `/restaurant/orders/${localStorage.getItem("rest_id")}`
         );
         if (response.status === 200) {
-          setTableData(response?.data?.orders);
+			if(tableData?.length !== response?.data?.orders?.length){
+				isOrdersLoaded && toast.success("New order has been arrived!", {autoClose: false});
+			}
+			setTableData(response?.data?.orders);
+			setIsOrderLoaded(true);
         } else {
           // Handle error (e.g., display an error message)
           console.error("Failed to fetch orders.");
         }
-      } catch (error) {
+      }catch (error) {
         console.error("An error occurred during fetching orders:", error);
       }
     };
 
-    getAllOrders();
+    // getAllOrders();
     const timer = setInterval(() => {
       getAllOrders();
     }, 5000);
@@ -33,7 +39,8 @@ function Orders() {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [tableData, isOrdersLoaded]);
+
 
   const data = useMemo(() => {
     return tableData?.map((order) => {
@@ -115,14 +122,14 @@ function Orders() {
   return (
     <div style={{ padding: "10px" }}>
       <h1 style={{ color: "blue" }}>Restaurant Orders</h1>
-      {true && ( //data?.length > 0 // Check if data exists before rendering table
+      {isOrdersLoaded ? ( 
         <Table
           dataSource={data}
           columns={columns}
           pagination={false}
           onRowClick={(record) => showModal(record)}
         />
-      )}
+      ): <h2>Loading your orders...</h2>}
       {/*TODO: will add loader while loading table data */}
       <Modal
         title="Order Details"

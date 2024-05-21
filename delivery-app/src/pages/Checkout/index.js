@@ -15,14 +15,17 @@ import { LeftOutlined } from "@ant-design/icons";
 import { ResHeaderContainer } from "../RestaurantDetails";
 import { useNavigate } from "react-router-dom";
 import CheckoutForm from "./formdata";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import API from '../../Api';
+import { toast } from 'react-toastify';
+import { getOrderStatusText } from '../../getOrderStatus';
 
 function CheckoutPage() {
   const [formDetails, setFormDetails] = useState({});
   const [memberStatus, setMemberStatus] = useState(1);
   const [memberPeriod, setMemberPeriod] = useState("MONTHLY");
   const [isOnlinePayment, setIsOnlinePayment] = useState("ONLINE");
+  const [orderDetails, setOrderDetails] = useState({});
 
   const navigate = useNavigate();
 
@@ -78,6 +81,40 @@ function CheckoutPage() {
 		return convertedData;
 	}
 
+	const getOrder = async (orderID = orderDetails?.id) => {
+		if(orderID && orderDetails?.status !== "DELIVERED") {
+			try {
+			  const response = await API.get(
+				`/order/${orderID}`
+			  );
+			  if (response.status === 200) {
+				if(response?.data?.order?.status !== orderDetails?.status ){
+					const orderStatusVal = response?.data?.order?.status
+					toast.success(getOrderStatusText(orderStatusVal, "USER"), {autoClose: false});
+					setOrderDetails({ id: orderID, status: response?.data?.order?.status });
+				}
+			  } else {
+				// Handle error (e.g., display an error message)
+				console.error("Failed to fetch orders.");
+			  }
+			} catch (error) {
+			  console.error("An error occurred during fetching orders:", error);
+			}
+		}
+	  };
+
+
+	useEffect(()=>{
+		getOrder(orderDetails?.id, orderDetails?.status);
+		const timer = setInterval(() => {
+			getOrder(orderDetails?.id);
+		}, 5000);
+
+		return () => {
+			clearInterval(timer);
+		};
+	},[orderDetails]);
+
 	
 	const makePayment = async (grandTotal, dishesIds) => {
 		console.log(formDetails);
@@ -92,9 +129,18 @@ function CheckoutPage() {
 			});
 			if (response.status === 201) {
 				console.log("Order placed successfully!");
-				setInterval(() => {
-					navigate("/");
-				}, 3000);
+				toast.success("Order placed successfully!");
+				// setInterval(() => {
+				// 	navigate("/");
+				// }, 3000);
+				setOrderDetails({id: response?.data?.order_id, status: response?.data?.order_status});
+				getOrder(response?.data?.order_id);
+
+				// response.data.order_id and response.data.order_id
+				// and disable make payment button and show order details button which will toggle a modal with order details
+
+				// hit another api "/order/order_id" to get this particular order details
+				// for several time to show order latest details and notification
 			} else {
 			  console.error("Failed to place Order");
 			}

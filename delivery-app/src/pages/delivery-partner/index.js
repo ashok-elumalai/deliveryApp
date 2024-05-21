@@ -2,13 +2,47 @@ import { Avatar, Button, Layout, Modal, Radio, Table } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../Api";
+import { toast } from 'react-toastify';
 
 function DeliveryPartnerHome() {
-  const [tableData, setTableData] = useState([]);
-  const [selectedRow, setSelectedRow] = useState(null); // State to store selected row data
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [orderStatus, setOrderStatus] = useState("PREPARING");
-  const navigate = useNavigate();
+	const [tableData, setTableData] = useState([]);
+	const [selectedRow, setSelectedRow] = useState(null); // State to store selected row data
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [orderStatus, setOrderStatus] = useState("PREPARING");
+	const [idOrdersLoaded, setIsOrdersLoaded] = useState(false);
+	const navigate = useNavigate();
+
+  
+  	const data = useMemo(() => {
+		let returner = [];
+		tableData?.forEach(order => {
+			const {
+			user: { address, name, mobile },
+			order: { total, status, order_date, id } = {},
+			restaurant: { name: restName, mobile: restMobile, address: restAddress },
+			dishes,
+			} = order;
+			const items = dishes.length; // Calculate the number of dishes
+				
+			// if(status === 'READY_FOR_DELIVERY' || status === 'OUT_FOR_DELIVERY' || status !== "DELIVERED"){
+				returner.push({
+					userName: name,
+					userAddress: address,
+					userMobile: mobile,
+					orderNumber: id, // Use order.id for orderNumber
+					orderDate: order_date,
+					items: items.toString(), // Convert items count to string
+					restName,
+					restMobile,
+					restAddress,
+					amount: total, // Use order.total for amount
+					status,
+				});
+			// }
+
+		});
+		return returner;
+	}, [tableData]);
 
   const getAllOrders = async () => {
 	try {
@@ -18,7 +52,11 @@ function DeliveryPartnerHome() {
 		)}`
 	  );
 	  if (response.status === 200) {
-		setTableData(response?.data?.orders);
+		  if(tableData?.length !== response?.data?.orders?.length){
+			  idOrdersLoaded && toast.success("New Order as been assigned!", { autoClose: false });
+			}
+			setTableData(response?.data?.orders);
+			setIsOrdersLoaded(true);
 	  } else {
 		// Handle error (e.g., display an error message)
 		console.error("Failed to fetch orders.");
@@ -28,39 +66,15 @@ function DeliveryPartnerHome() {
 	}
   };
   useEffect(() => {
-    getAllOrders();
-  }, []);
+    // getAllOrders();
+	const timer = setInterval(() => {
+		getAllOrders();
+	}, 5000);
 
-  const data = useMemo(() => {
-	  let returner = [];
-	tableData?.forEach(order => {
-		const {
-		user: { address, name, mobile },
-		order: { total, status, order_date, id } = {},
-		restaurant: { name: restName, mobile: restMobile, address: restAddress },
-		dishes,
-		} = order;
-		const items = dishes.length; // Calculate the number of dishes
-			
-		// if(status === 'READY_FOR_DELIVERY' || status === 'OUT_FOR_DELIVERY' || status !== "DELIVERED"){
-			returner.push({
-				userName: name,
-				userAddress: address,
-				userMobile: mobile,
-				orderNumber: id, // Use order.id for orderNumber
-				orderDate: order_date,
-				items: items.toString(), // Convert items count to string
-				restName,
-				restMobile,
-				restAddress,
-				amount: total, // Use order.total for amount
-				status,
-			});
-		// }
-
-	});
-	return returner;
-  }, [tableData]);
+	return () => {
+      clearInterval(timer);
+    };
+  }, [tableData, idOrdersLoaded]);
 
   const handleLogout = () => {
     // Perform logout logic here, like clearing tokens or user data
@@ -133,7 +147,7 @@ function DeliveryPartnerHome() {
           position: "fixed",
           right: "0",
           left: "0",
-          zIndex: "999",
+          zIndex: "99",
           padding: 20,
           display: "flex",
           justifyContent: "space-between",
@@ -171,14 +185,14 @@ function DeliveryPartnerHome() {
       <div style={{ padding: "10px", paddingTop: "70px" }}>
         <div style={{ padding: "10px" }}>
           <h2 style={{ color: "blue" }}>Orders ready to pick up</h2>
-          {true && ( //data?.length > 0 // Check if data exists before rendering table
+          {idOrdersLoaded ? (
             <Table
               dataSource={data}
               columns={columns}
               pagination={false}
               onRowClick={(record) => showModal(record)}
             />
-          )}
+          ) : <h2>Loading your orders...</h2>}
           {/*TODO: will add loader while loading table data */}
           <Modal
             title="Order Details"
