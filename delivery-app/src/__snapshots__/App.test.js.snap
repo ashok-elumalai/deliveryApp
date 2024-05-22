@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders login page correctly 1`] = `
+exports[`renders  final receipt correctly 1`] = `
 <DocumentFragment>
+  <div
+    class="Toastify"
+  />
   <h2>
     Unexpected Application Error!
   </h2>
@@ -17,7 +20,504 @@ exports[`renders login page correctly 1`] = `
     at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
     at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
     at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
-    at HomeData (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/Home/index.jsx:210:31)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:80:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders Home page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:17:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders Register page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:13:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders checkout page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:21:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders delivery partner home page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:25:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders delivery partner login page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:29:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders delivery pick up notification correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:70:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders login page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
     at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
     at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
     at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
@@ -33,6 +533,929 @@ exports[`renders login page correctly 1`] = `
     at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
     at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
     at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:8:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders order tracking page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:85:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders payment page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:95:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders restauant menu edit correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:57:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders restauant menu page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:53:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders restaurant acceptance page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:90:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders restaurant home page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:33:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders restaurant revenue page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:37:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders restaurent acceptance order correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:61:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders restaurent rejected order correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:66:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders user filter correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:49:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders user menu page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:45:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders user orders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:41:32)
+    at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:66:9)
+    at run (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-runner/build/testWorker.js:133:12)
+  </pre>
+  <p>
+    💿 Hey developer 👋
+  </p>
+  <p>
+    You can provide a way better UX than this when your app throws errors by providing your own 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      ErrorBoundary
+    </code>
+     or 
+    <code
+      style="padding: 2px 4px; background-color: rgba(200, 200, 200, 0.5);"
+    >
+      errorElement
+    </code>
+     prop on your route.
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders user review page correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Toastify"
+  />
+  <h2>
+    Unexpected Application Error!
+  </h2>
+  <h3
+    style="font-style: italic;"
+  >
+    could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+  </h3>
+  <pre
+    style="padding: 0.5rem; background-color: rgba(200, 200, 200, 0.5);"
+  >
+    Error: could not find react-redux context value; please ensure the component is wrapped in a &lt;Provider&gt;
+    at useReduxContext (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useReduxContext.ts:17:13)
+    at useStore (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useStore.ts:97:23)
+    at useDispatch2 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-redux/src/hooks/useDispatch.ts:72:19)
+    at LoginPage (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/pages/LoginPage.js:11:31)
+    at renderWithHooks (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+    at mountIndeterminateComponent (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+    at beginWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+    at beginWork$1 (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+    at performUnitOfWork (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+    at workLoopSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+    at renderRootSync (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+    at recoverFromConcurrentError (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25850:20)
+    at performConcurrentWorkOnRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react-dom/cjs/react-dom.development.js:25750:22)
+    at flushActQueue (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2667:24)
+    at act (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/react/cjs/react.development.js:2582:11)
+    at /Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/act-compat.js:63:25
+    at renderRoot (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:159:26)
+    at render (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/@testing-library/react/dist/pure.js:246:10)
+    at Object.&lt;anonymous&gt; (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/src/App.test.js:75:32)
     at Promise.then.completed (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:391:28)
     at new Promise (&lt;anonymous&gt;)
     at callAsyncCircusFn (/Users/ashok/Documents/system_methodology/deliveryApp/delivery-app/node_modules/jest-circus/build/utils.js:316:10)
