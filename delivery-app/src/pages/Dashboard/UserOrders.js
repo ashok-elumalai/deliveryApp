@@ -123,11 +123,11 @@ function UserOrders() {
     { title: "Amount", dataIndex: "amount" },
     { title: "Status", dataIndex: "statusText" },
     {
-      title: "Action",
+      title: "Order",
       dataIndex: "",
       render: (record) => (
         <Button style={{ color: "blue" }} onClick={() => showModal(record)}>
-          Track Order
+          {record.status === "DELIVERED" ? "View Order" : "Track Order"}
         </Button>
       ),
     },

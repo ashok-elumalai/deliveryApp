@@ -129,8 +129,9 @@ const RegistrationPage = () => {
           <Button
             type="primary"
             style={{ left: "0px", backgroundColor: "black" }}
+			onClick={() => navigate(-1)}
           >
-            cancel
+            Back to Login
           </Button>
           <Button
             type="primary"
