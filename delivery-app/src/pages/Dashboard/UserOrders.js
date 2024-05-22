@@ -157,7 +157,7 @@ function UserOrders() {
 
 	return returner;
   }
-console.log(getStepItems(selectedRow))
+// console.log(getStepItems(selectedRow))
   return (
     <div style={{ padding: "10px" }}>
       <h3 style={{ color: "blue" }}>My Orders History</h3>
@@ -201,10 +201,12 @@ console.log(getStepItems(selectedRow))
 			</div>
 			<br />
 			<div>
-			<p>Write a Review:</p>
 			{
 				getStepItems(selectedRow)?.[getStepItems(selectedRow)?.length-1]?.status === "finish" &&
-				 <Rate />
+				<>
+				<p>Write a Review:</p>
+				<Rate />
+				</>
 			}
 			</div>
 			<br />
