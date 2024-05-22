@@ -196,7 +196,7 @@ const CheckoutForm = (props) => {
               )}
             </div>
           )}
-
+		  {/* 
           <Form.Item>
             <Button
               style={{
@@ -210,6 +210,7 @@ const CheckoutForm = (props) => {
               Save card Details
             </Button>
           </Form.Item>
+		*/}
         </div>
       )}
     </Form>

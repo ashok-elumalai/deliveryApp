@@ -92,7 +92,7 @@ function HomeData() {
           type="distance"
           selectedFilter={selectedFilter}
           setSelectedFilter={setSelectedFilter}
-          items={distance || []}
+          items={['5 KM', '10 KM', '15 KM', '20 KM']}
         />
       ),
     },
@@ -104,7 +104,7 @@ function HomeData() {
           type="rating"
           selectedFilter={selectedFilter}
           setSelectedFilter={setSelectedFilter}
-          items={ratings || []}
+          items={[1, 2, 3, 4, 5]}
         />
       ),
     },

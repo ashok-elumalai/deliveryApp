@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Button, Form, Modal, Steps, Table } from "antd";
+import { Button, Form, Modal, Rate, Steps, Table } from "antd";
 import API from "../../Api";
 import { AppleOutlined, SmileOutlined, SolutionOutlined, ShoppingCartOutlined, CoffeeOutlined } from '@ant-design/icons';
 import { getOrderStatusText } from '../../getOrderStatus';
@@ -148,7 +148,7 @@ function UserOrders() {
 		if(key === orderStatus){
 			currentIndex = ind
 		}
-		if(currentIndex < ind){
+		if(currentIndex < ind || orderStatus === "PAID" || orderStatus === "UNPAID"){
 			each.status = 'wait';
 		} else {
 			each.status = 'finish';
@@ -157,7 +157,7 @@ function UserOrders() {
 
 	return returner;
   }
-
+console.log(getStepItems(selectedRow))
   return (
     <div style={{ padding: "10px" }}>
       <h3 style={{ color: "blue" }}>My Orders History</h3>
@@ -199,6 +199,15 @@ function UserOrders() {
 					items={getStepItems(selectedRow)}
 				/>
 			</div>
+			<br />
+			<div>
+			<p>Write a Review:</p>
+			{
+				getStepItems(selectedRow)?.[getStepItems(selectedRow)?.length-1]?.status === "finish" &&
+				 <Rate />
+			}
+			</div>
+			<br />
             <p>Order Number: {selectedRow.orderNumber}</p>
             <p>Items: {selectedRow.items}</p>
             <p>Restaurant: {selectedRow?.restaurant}</p>

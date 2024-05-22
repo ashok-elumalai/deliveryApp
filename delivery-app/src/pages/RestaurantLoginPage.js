@@ -82,7 +82,7 @@ const RestaurantLoginPage = () => {
                 style={{ color: "black", fontWeight: 700, marginLeft: 10 }}
 				onClick={()=> navigate("/login/delivery-partner")}
               >
-                Driver?
+			  	Delivery Partner?
               </Typography.Link>
             </div>
           </Form.Item>
