@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import { Button, Form, Modal, Rate, Steps, Table } from "antd";
+import { Button, Form, Modal, Rate, Steps, Table, Input } from "antd";
 import API from "../../Api";
 import { AppleOutlined, SmileOutlined, SolutionOutlined, ShoppingCartOutlined, CoffeeOutlined } from '@ant-design/icons';
 import { getOrderStatusText } from '../../getOrderStatus';
+const { TextArea } = Input;
 
 const items = [
 	{
@@ -206,6 +207,10 @@ function UserOrders() {
 				<>
 				<p>Write a Review:</p>
 				<Rate />
+				<br />
+				<div style={{ width: 400 }}>
+					<TextArea placeholder="Enter your review" />
+				</div>
 				</>
 			}
 			</div>
